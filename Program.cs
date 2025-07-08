@@ -7,7 +7,23 @@
     private static void Main(string[] args)
     {
         //Solution0704(3, 2);
-        Console.WriteLine(Solution0708(7, 2));
+        Console.WriteLine(Solution07082(11, 11));
+    }
+
+    /// <summary>
+    /// 숫자 비교하기
+    /// </summary>
+    /// <param name="num1"></param>
+    /// <param name="num2"></param>
+    /// <returns></returns>
+    public static int Solution07082(int num1, int num2)
+    {
+        int answer = -1;
+        if (num1 == num2)
+        {
+            return 1;
+        }
+        return answer;
     }
 
     /// <summary>
