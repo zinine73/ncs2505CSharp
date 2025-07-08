@@ -7,7 +7,21 @@
     private static void Main(string[] args)
     {
         //Solution0704(3, 2);
-        Console.WriteLine(Solution07072(27, 19));
+        Console.WriteLine(Solution0708(7, 2));
+    }
+
+    /// <summary>
+    /// 몫 구하기
+    /// </summary>
+    /// <param name="num1"></param>
+    /// <param name="num2"></param>
+    /// <returns></returns>
+    public static int Solution0708(int num1, int num2)
+    {
+        // int answer = 0;
+        // answer = num1 / num2;
+        // return answer;
+        return num1 / num2;
     }
 
     /// <summary>
