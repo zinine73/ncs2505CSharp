@@ -22,10 +22,12 @@ class CSStudy
 
         char c = 'A';
         string s = "H";
+        // null과 ""는 다르다
         string s2 = null;
         string s3 = "";
         string s4 = string.Empty;
 
+        // 이건 에러난다
         //int ii = null;
 
         DateTime dt = new DateTime(2025, 7, 9, 11, 16, 00);
