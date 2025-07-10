@@ -7,9 +7,9 @@
     private static void Main(string[] args)
     {
         Solution sol = new Solution();
-        //Console.WriteLine(sol.Solution07092(1, 16));
+        Console.WriteLine(sol.Solution07102(100));
 
         CSStudy stduy = new CSStudy();
-        stduy.ArrayExample();
+        //stduy.ArrayExample();
     }
 }

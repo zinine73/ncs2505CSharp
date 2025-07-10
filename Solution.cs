@@ -1,5 +1,70 @@
+using System.Diagnostics;
+
 class Solution
 {
+    /// <summary>
+    /// 각도기
+    /// </summary>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public int Solution07102(int angle)
+    {
+        int answer = 3;
+        string str = "둔";
+        Console.Write(angle + "도는 ");
+        if (angle == 90)
+        {
+            str = "직";
+            answer = 2;
+        }
+        else if (angle == 180)
+        {
+            str = "평";
+            answer = 4;
+        }
+        else if ((0 < angle) && (angle < 90))
+        {
+            str = "예";
+            answer = 1;
+        }
+        // else
+        // {
+        //     str = "둔";
+        //     answer = 3;
+        // }
+        Console.WriteLine(str + "각입니다.");
+        /*
+        if ((0 < angle) && (angle < 90))
+        {
+            answer = 1;
+        }
+        else if (angle == 90)
+        {
+            answer = 2;
+        }
+        else if ((90 < angle) && (angle < 180))
+        {
+            answer = 3;
+        }
+        else //if (angle == 180)
+        {
+            answer = 4;
+        }
+        */
+        return answer;
+    }
+
+    /// <summary>
+    /// 두 수의 합 구하기
+    /// </summary>
+    /// <param name="num1"></param>
+    /// <param name="num2"></param>
+    /// <returns></returns>
+    public int Solution0710(int num1, int num2)
+    {
+        return num1 + num2;
+    }
+
     /// <summary>
     /// 두 수의 나눗셈
     /// </summary>
