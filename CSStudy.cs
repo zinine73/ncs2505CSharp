@@ -1,5 +1,33 @@
 class CSStudy
 {
+    public void ArrayExample()
+    {
+        int sum = 0;
+        //int[] nums = new int[10] { 1,2,3,4,5,6,7,9,8,0 };
+        int[] nums = new int[10];
+
+        nums[0] = 1;
+        nums[1] = 2;
+        //
+        nums[9] = 0;
+        // 이거 안됨!!!
+        //nums[10] = 9;
+
+        Random rand = new Random();
+        for (int i = 0; i < nums.Length; i++)
+        {
+            nums[i] = rand.Next() % 100;
+        }
+
+        for (int i = 0; i < nums.Length; i += 1)
+        {
+            Console.WriteLine(i + " : " + nums[i]);
+            sum += nums[i];
+        }
+
+        Console.WriteLine("sum=" + sum);
+    }
+
     /// <summary>
     /// int, float, string 은 기억하자
     /// </summary>
