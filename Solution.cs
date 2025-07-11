@@ -1,6 +1,43 @@
 class Solution
 {
     /// <summary>
+    /// 짝수의 합
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution07112(int n)
+    {
+        int answer = 0;
+        // for문으로 n까지 돌자
+        for (int i = 1; i <= n; i++)
+        {
+            // 짝수냐?
+            if (i % 2 == 0)
+            {
+                // 짝수면 answer에 더하기
+                answer += i;
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 양꼬치
+    /// </summary>
+    /// <param name="n">몇인분</param>
+    /// <param name="k">음료수</param>
+    /// <returns>지불해야할 금액</returns>
+    public int Solution0711(int n, int k)
+    {
+        int answer = 0;
+        // 서비스로 받은 음료는 몇병인가
+        int service = n / 10;
+        // 전체 지불 금액 중 서비스 받은 음료수 빼기
+        answer = n * 12000 + (k - service) * 2000;
+        return answer;
+    }
+
+    /// <summary>
     /// 각도기
     /// </summary>
     /// <param name="angle"></param>
