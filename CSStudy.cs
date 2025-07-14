@@ -2,6 +2,63 @@ using System.Collections;
 
 class CSStudy
 {
+    public void StackQueue()
+    {
+        //Stack<float> s = new Stack<float>();
+        var s = new Stack<float>();
+        s.Push(10.5f);
+        s.Push(3.54f);
+        s.Push(4.22f);
+
+        float pp = s.Peek();
+        Console.WriteLine("pp=" + pp);
+
+        var p3 = s.Pop();
+        Console.WriteLine("p3=" + p3);
+
+        var p4 = s.Pop();
+        Console.WriteLine("p4=" + p4);
+
+        Queue<int> q = new Queue<int>();
+        q.Enqueue(120);
+        q.Enqueue(130);
+        q.Enqueue(150);
+
+        int next = q.Peek();
+        Console.WriteLine("next=" + next);
+
+        next = q.Dequeue();
+        Console.WriteLine("next=" + next);
+    }
+
+    public void LinkedListSample()
+    {
+        //LinkedList<string> list = new LinkedList<string>();
+        var list = new LinkedList<string>();
+
+        int a = 1, b = 2;
+        // var는 한줄에 하나만 정의 가능
+        //var va = 1, v2 = 2;
+
+        list.AddLast("Apple");
+        list.AddLast("Banana");
+        list.AddLast("Lemon");
+
+        //LinkedListNode<string> node = list.Find("Banana");
+        var node = list.Find("Banana");
+        var newNode = new LinkedListNode<string>("Grape");
+
+        list.AddAfter(node, newNode);
+        list.AddAfter(node, "Kiwi");
+
+        list.ToList<string>().ForEach(p => Console.WriteLine(p));
+
+        foreach (var item in list)
+        {
+            Console.WriteLine(item);
+        }
+    }
+
     public void ListSample()
     {
         //List<int> myList = new List<int>();

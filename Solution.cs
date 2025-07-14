@@ -1,5 +1,45 @@
+
 class Solution
 {
+    public int[] Solution07142(int[] num_list)
+    {
+        int len = num_list.Length;
+        int[] answer = new int[len];
+        // for
+        for (int i = 0; i < len; i++)
+        {
+            //answer[len - 1 - i] = num_list[i];
+            answer[i] = num_list[len - 1 - i];
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 배열의 평균값
+    /// </summary>
+    /// <param name="numbers"></param>
+    /// <returns></returns>
+    public double Solution0714(int[] numbers)
+    {
+        double answer = 0;
+        // foreach
+        foreach (var item in numbers)
+        {
+            answer += item;
+        }
+        /*
+        // for문을 사용해서 int[] 을 돌린다
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            // answer에 현재 배열값을 더한다
+            answer += numbers[i];
+        }
+        */
+        // 더해진 결과값을 int[]의 크기로 나눈다
+        answer /= numbers.Length;
+        return answer;
+    }
+
     /// <summary>
     /// 짝수의 합
     /// </summary>

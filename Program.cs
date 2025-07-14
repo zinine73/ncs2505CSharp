@@ -6,13 +6,33 @@
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
+        var intArray = new int[] {1, 0, 1, 1, 1, 3, 5};
         Solution sol = new Solution();
-        //Console.WriteLine(sol.Solution07112(4));
+        //Console.WriteLine(sol.Solution07142(intArray));
+        PrintIntArray(sol.Solution07142(intArray));
 
         CSStudy stduy = new CSStudy();
-        //stduy.ListSample();
+        //stduy.StackQueue();
 
-        MakeLotto();
+        //MakeLotto();
+    }
+
+    /// <summary>
+    /// 정수 배열을 출력시키는 함수
+    /// </summary>
+    /// <param name="answerArray"></param>
+    public static void PrintIntArray(int[] answerArray)
+    {
+        Console.Write("[");
+        for (int i = 0; i < answerArray.Length; i++)
+        {
+            Console.Write(answerArray[i]);
+            if (i != answerArray.Length - 1)
+            {
+                Console.Write(",");
+            }
+        }
+        Console.WriteLine("]");
     }
 
     /// <summary>
