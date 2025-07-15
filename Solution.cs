@@ -1,6 +1,99 @@
+using System.Text;
 
 class Solution
 {
+    /// <summary>
+    /// 특정 문자 제거하기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="letter"></param>
+    /// <returns></returns>
+    public string Solution07152(string my_string, string letter)
+    {
+        string answer = string.Empty;
+        answer = my_string.Replace(letter, string.Empty);
+        // StringBuilder
+        /*
+        var sb = new StringBuilder();
+        foreach (var item in my_string)
+        {
+            if (item.ToString().CompareTo(letter) != 0)
+            {
+                sb.Append(item);
+            }
+        }
+        answer = sb.ToString();
+        */
+        // for / foreach
+        /*
+        foreach (var item in my_string)
+        {
+            if (item.ToString() != letter)
+            {
+                answer += item;
+            }
+        }
+        */
+        /*
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            // 현재 아이템 과 letter를 비교
+            if (my_string[i].ToString() != letter)
+            {
+                // 다르면 answer에 추가
+                answer += my_string[i];
+            }
+        }
+        */
+        return answer;
+    }
+
+    /// <summary>
+    /// 짝수 홀수 개수
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
+    public int[] Solution0715(int[] num_list)
+    {
+        //int[] answer = new int[2];
+        var answer = new int[2] { 0, 0 };
+        // for / foreach
+        foreach (var item in num_list)
+        {
+            answer[item % 2]++;
+            // if (item % 2 == 0)
+            // {
+            //     answer[0]++;
+            // }
+            // else
+            // {
+            //     answer[1]++;
+            // }
+        }
+        /*
+        for (int i = 0; i < num_list.Length; i++)
+        {
+            // 값이 짝수냐
+            if (num_list[i] % 2 == 0)
+            {
+                // answer[0]를 1 증가
+                answer[0]++;
+            }
+            else    // 아니냐(홀수냐)
+            {
+                // answer[1]를 1 증가
+                answer[1]++;
+            }
+        }
+        */
+        return answer;
+    }
+
+    /// <summary>
+    /// 배열 뒤집기
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
     public int[] Solution07142(int[] num_list)
     {
         int len = num_list.Length;

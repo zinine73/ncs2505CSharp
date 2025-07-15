@@ -6,13 +6,13 @@
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] {1, 0, 1, 1, 1, 3, 5};
+        var intArray = new int[] {1, 3, 5, 7};
         Solution sol = new Solution();
-        //Console.WriteLine(sol.Solution07142(intArray));
-        PrintIntArray(sol.Solution07142(intArray));
+        Console.WriteLine(sol.Solution07152("BCBdbe", "B"));
+        //PrintIntArray(sol.Solution0715(intArray));
 
         CSStudy stduy = new CSStudy();
-        //stduy.StackQueue();
+        //stduy.HashTableSample();
 
         //MakeLotto();
     }
@@ -29,7 +29,7 @@
             Console.Write(answerArray[i]);
             if (i != answerArray.Length - 1)
             {
-                Console.Write(",");
+                Console.Write(", ");
             }
         }
         Console.WriteLine("]");
@@ -40,17 +40,20 @@
     /// </summary>
     public static void MakeLotto()
     {
+        const int TOTAL_BALLS = 45;   // 전체 공 개수
+        const int PICK_BALLS = 6;     // 뽑는 공 수
+
         // 랜덤 함수 사용 선언
         var random = new Random();
         // 볼이 담긴 리스트 선언
         var ballList = new List<int>();
         // 리스트에 볼 45개 넣기
-        for (int i = 1; i <= 45; i++)
+        for (int i = 1; i <= TOTAL_BALLS; i++)
         {
             ballList.Add(i);
         }
         // 리스트에서 볼 하나씩 6번 꺼내기
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < PICK_BALLS; i++)
         {
             // 남아 있는 볼 갯수 중 랜덤하게 인덱스 고르기
             int index = random.Next() % ballList.Count;

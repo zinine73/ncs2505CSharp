@@ -2,6 +2,32 @@ using System.Collections;
 
 class CSStudy
 {
+    public void HashTableSample()
+    {
+        Hashtable ht = new Hashtable();
+        ht.Add("irina", "Irina SP");
+        ht.Add("tom", "Tom Cr");
+        ht.Add(3, 'a');
+
+        if (ht.Contains("tom"))
+        {
+            Console.WriteLine(ht["tom"]);
+        }
+
+        //Dictionary<int, string> emp = new Dictionary<int, string>();
+        var emp = new Dictionary<int, string>();
+        emp.Add(1001, "Jane");
+        //emp.Add(1002, "Tom");
+        emp.Add(1003, "Cindy");
+        if (emp.ContainsKey(1002) == false)
+        {
+            emp.Add(1002, "Kim");
+        }
+
+        string name = emp[1002];
+        Console.WriteLine(name);
+    }
+
     public void StackQueue()
     {
         //Stack<float> s = new Stack<float>();
