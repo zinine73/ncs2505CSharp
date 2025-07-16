@@ -2,6 +2,24 @@ using System.Collections;
 
 class CSStudy
 {
+    public void SortedDicSample()
+    {
+        var tmap = new SortedDictionary<int, string>();
+        tmap.Add(1001, "Tom");
+        tmap.Add(1003, "John");
+        tmap.Add(1010, "Irina");
+        tmap.Add(1005, "Lee");
+        tmap.Add(1200, "Kim");
+
+        string name1010 = tmap[1010];
+
+        // Iterator
+        foreach (KeyValuePair<int, string> kv in tmap)
+        {
+            Console.WriteLine("{2}{0}:{1} {4}", kv.Key, kv.Value, "*", 3, kv);
+        }
+    }
+
     public void HashTableSample()
     {
         Hashtable ht = new Hashtable();

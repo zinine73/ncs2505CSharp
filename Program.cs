@@ -8,11 +8,11 @@
     {
         var intArray = new int[] {1, 3, 5, 7};
         Solution sol = new Solution();
-        Console.WriteLine(sol.Solution07152("BCBdbe", "B"));
+        //Console.WriteLine(sol.Solution07152("BCBdbe", "B"));
         //PrintIntArray(sol.Solution0715(intArray));
 
         CSStudy stduy = new CSStudy();
-        //stduy.HashTableSample();
+        stduy.SortedDicSample();
 
         //MakeLotto();
     }
