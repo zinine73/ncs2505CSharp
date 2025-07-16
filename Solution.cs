@@ -1,7 +1,53 @@
-using System.Text;
-
 class Solution
 {
+    /// <summary>
+    /// 뒤집힌 문자열
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public string Solution07162(string my_string)
+    {
+        //string answer = "ABC";
+        var list = new List<char>(my_string);
+        list.Reverse();
+        string answer = new string(list.ToArray());
+        /*
+        var sb = new StringBuilder();
+        foreach (var item in my_string)
+        {
+            sb.Insert(0, item);
+        }
+        string answer = sb.ToString();
+        */
+        /*
+        int len = my_string.Length;
+        //string answer = string.Empty;
+        char[] answerArray = new char[len];
+
+        // for / foreach 돌자
+        for (int i = 0; i < len; i++)
+        {
+            // 위치를 주의해서 배열로 바꾼 answer에 넣자
+            answerArray[len - 1 - i] = my_string[i];
+        }
+        // 캐릭터 배열을 스트링으로 바꿔서 리턴
+        string answer = new string(answerArray);
+        */
+        return answer;
+    }
+
+    /// <summary>
+    /// 편지
+    /// </summary>
+    /// <param name="message"></param>
+    /// <returns></returns>
+    public int Solution0716(string message)
+    {
+        int answer = 0;
+        answer = message.Length * 2;
+        return answer;
+    }
+    
     /// <summary>
     /// 특정 문자 제거하기
     /// </summary>
