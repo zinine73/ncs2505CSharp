@@ -6,15 +6,34 @@
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] {1, 3, 5, 7};
+        var intArray = new int[] { 1, 3, 5, 7 };
         Solution sol = new Solution();
-        Console.WriteLine(sol.Solution07162("bread"));
+        //Console.WriteLine(sol.Solution07162("bread"));
         //PrintIntArray(sol.Solution0715(intArray));
 
         CSStudy stduy = new CSStudy();
-        //stduy.SortedDicSample();
+        //stduy.ArraySample();
 
         //MakeLotto();
+
+        int[] scores = { 80, 78, 60, 90, 100 };
+        int sum = CalculateSum(scores);
+        Console.WriteLine(sum);
+    }
+
+    /// <summary>
+    /// 정수배열의 합을 구하기
+    /// </summary>
+    /// <param name="scoresArray"></param>
+    /// <returns></returns>
+    public static int CalculateSum(int[] scoresArray)
+    {
+        int sum = 0;
+        for (int i = 0; i < scoresArray.Length; i++)
+        {
+            sum += scoresArray[i];
+        }
+        return sum;
     }
 
     /// <summary>
