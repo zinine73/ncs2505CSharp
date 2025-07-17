@@ -8,17 +8,11 @@
     {
         var intArray = new int[] { 1, 3, 5, 7 };
         Solution sol = new Solution();
-        //Console.WriteLine(sol.Solution07162("bread"));
+        Console.WriteLine(sol.Solution07172(7, 15));
         //PrintIntArray(sol.Solution0715(intArray));
 
         CSStudy stduy = new CSStudy();
         //stduy.ArraySample();
-
-        //MakeLotto();
-
-        int[] scores = { 80, 78, 60, 90, 100 };
-        int sum = CalculateSum(scores);
-        Console.WriteLine(sum);
     }
 
     /// <summary>

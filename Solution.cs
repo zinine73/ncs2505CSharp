@@ -1,6 +1,55 @@
 class Solution
 {
     /// <summary>
+    /// 세균 증식
+    /// </summary>
+    /// <param name="n"></param>
+    /// <param name="t"></param>
+    /// <returns></returns>
+    public int Solution07172(int n, int t)
+    {
+        return n << t;
+        /*
+        int answer = 0;
+        // Math
+        answer = (int)(n * Math.Pow(2, t));
+        // for
+        for (int i = 0; i < t; i++)
+        {
+            n *= 2;
+        }
+        answer = n;
+        return answer;
+        */
+    }
+
+    /// <summary>
+    /// 피자 나눠 먹기(1)
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution0717(int n)
+    {
+        int answer = 0;
+        // 온전한 피자 한판으로 먹을 수 있는 사람 수
+        int piz = n / 7;
+        // 나머지 피자 조각 먹는 사람 수
+        int res = ((n % 7) == 0) ? 0 : 1;
+        /*
+        if ((n % 7) == 0)
+        {
+            res = 0;
+        }
+        else
+        {
+            res = 1;
+        }
+        */
+        answer = piz + res;
+        return answer;
+    }
+
+    /// <summary>
     /// 뒤집힌 문자열
     /// </summary>
     /// <param name="my_string"></param>

@@ -21,7 +21,8 @@ class CSStudy
         aa[0, 0] = 1;
         aa[0, 1] = 2;
         aa[2, 1] = 3;
-
+        Console.WriteLine(A.GetLength(0));
+        Console.WriteLine(A[1].Length);
         int sum = 0;
         int[] scores = { 80, 78, 60, 90, 100 };
         for (int i = 0; i < scores.Length; i++)
