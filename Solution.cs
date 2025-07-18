@@ -18,8 +18,10 @@ class Solution
                 // {
                 //     continue;
                 // }
+                // 각각의 인덱스 값을 곱해서 나온 값과 현재 최대값을 비교
                 // if (answer < numbers[i] * numbers[j])
                 // {
+                //     // 큰값을 최대값으로
                 //     answer = numbers[i] * numbers[j];
                 // }
                 answer = Math.Max(answer, numbers[i] * numbers[j]);
@@ -28,6 +30,7 @@ class Solution
         */
         // 정렬를 이용한 방법
         //Array.Sort(numbers);
+        // 마지막 수와 마지막 전 수 를 곱한다
         //answer = numbers[numbers.Length - 1] * numbers[numbers.Length - 2];
         var list = new List<int>(numbers);
         list.Sort();
