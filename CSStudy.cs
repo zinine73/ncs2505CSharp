@@ -1,7 +1,67 @@
 using System.Collections;
+using System.Data;
+using System.Text;
 
 class CSStudy
 {
+    public void SBSample()
+    {
+        var sb = new StringBuilder();
+        for (int i = 1; i <= 26; i++)
+        {
+            sb.Append(i.ToString());
+            //sb.Append(System.Environment.NewLine);
+            sb.Append(' ');
+        }
+        string s = sb.ToString();
+        Console.WriteLine("Result:{0}", s);
+
+        sb.Clear();
+        sb.Append((char)('A' + 3));
+        Console.WriteLine(sb.ToString());
+    }
+
+    public void ASCIISample()
+    {
+        string s = "C# Studies";
+        for (int i = 0; i < s.Length; i++)
+        {
+            //Console.WriteLine("{1}: {0}", i, s[i]);
+        }
+        string str = "Hello";
+        char[] charArray = str.ToCharArray();
+        for (int i = 0; i < charArray.Length; i++)
+        {
+            //Console.WriteLine("{0}:{1}", i, charArray[i]);
+        }
+        char[] charArray2 = { 'A', 'B', 'C', 'D' };
+        string s2 = new string(charArray2);
+        //Console.WriteLine(s2);
+        // 문자 연산
+        char c1 = 'Z';
+        char c2 = (char)(c1 - 9);
+        Console.WriteLine(c2);
+    }
+
+    public void StringSample()
+    {
+        string s1 = "C#";
+        string s2 = "Programming";
+        int startIndex = 3;
+        int len = s2.Length - startIndex - 1;
+        string s3 = s2.Substring(startIndex, len);
+        Console.WriteLine(s3);
+
+        char c1 = 'A';
+        char c2 = 'B';
+
+        string s4 = s1 + " " + s2;
+        Console.WriteLine("String: {0}", s4);
+
+        string s4sub = s4.Substring(1, 5);
+        Console.WriteLine("SubString: {0}", s4sub);
+    }
+
     public void ArraySample()
     {
         var players = new string[10];
