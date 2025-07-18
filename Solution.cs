@@ -1,6 +1,41 @@
 class Solution
 {
     /// <summary>
+    /// 최댓값 만들기(1)
+    /// </summary>
+    /// <param name="numbers"></param>
+    /// <returns></returns>
+    public int Solution0718(int[] numbers)
+    {
+        int answer = 0;
+        // 중첩 for문을 이용한 방법
+        /*
+        for (int i = 0; i < numbers.Length - 1; i++)
+        {
+            for (int j = i + 1; j < numbers.Length; j++)
+            {
+                // if (i == j)
+                // {
+                //     continue;
+                // }
+                // if (answer < numbers[i] * numbers[j])
+                // {
+                //     answer = numbers[i] * numbers[j];
+                // }
+                answer = Math.Max(answer, numbers[i] * numbers[j]);
+            }
+        }
+        */
+        // 정렬를 이용한 방법
+        //Array.Sort(numbers);
+        //answer = numbers[numbers.Length - 1] * numbers[numbers.Length - 2];
+        var list = new List<int>(numbers);
+        list.Sort();
+        answer = list[list.Count - 1] * list[list.Count - 2];
+        return answer;
+    }
+
+    /// <summary>
     /// 세균 증식
     /// </summary>
     /// <param name="n"></param>

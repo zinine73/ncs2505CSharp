@@ -6,13 +6,13 @@
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] { 1, 3, 5, 7 };
+        var intArray = new int[] { 0, 31, 24, 10, 1, 9 };
         Solution sol = new Solution();
-        //Console.WriteLine(sol.Solution07172(7, 15));
+        Console.WriteLine(sol.Solution0718(intArray));
         //PrintIntArray(sol.Solution0715(intArray));
 
         CSStudy stduy = new CSStudy();
-        stduy.SBSample();
+        //CSStudy.SBSample();
     }
 
     /// <summary>
