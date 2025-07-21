@@ -1,9 +1,58 @@
 using System.Collections;
 using System.Data;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 class CSStudy
 {
+    public enum GameState { Ready, Run }
+    public enum Category
+    {
+        Cake,
+        IceCream,
+        Bread
+    }
+    enum City
+    {
+        Seoul,
+        Daejun,
+        Busan = 5,
+        Jeju = 10
+    }
+    [Flags]
+    enum Border
+    {
+        None = 0,
+        Top = 1,
+        Right = 2,
+        Bottom = 4,
+        Left = 8
+    }
+    public void EnumSample()
+    {
+        Category cafeCategory;
+        cafeCategory = Category.Bread;
+        //Console.WriteLine((int)cafeCategory);
+        City myCity = City.Seoul;
+        int cityValue = (int)myCity;
+        if (myCity == City.Seoul)
+        {
+            //Console.WriteLine("Welcome to Seoul");
+        }
+
+        // OR 연산자로 다중 플래그 할당
+        Border b = Border.Top | Border.Bottom | Border.Left;
+        // & 연산자로 플래그 체크
+        if ((b & Border.Top) != 0)
+        {
+            // HasFlag() 이용
+            if (b.HasFlag(Border.Bottom))
+            {
+                Console.WriteLine((int)b);
+            }
+        }
+    }
+
     public void SBSample()
     {
         var sb = new StringBuilder();

@@ -1,6 +1,39 @@
 class Solution
 {
     /// <summary>
+    /// 모음 제거
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public string Solution0721(string my_string)
+    {
+        //my_string.Replace("a", "").Remove(4).Substring(0, 2);
+        //my_string.Replace('a','\0');
+        return my_string.Replace("a", "")
+            .Replace("e", "")
+            .Replace("i", "")
+            .Replace("o", "")
+            .Replace("u", "");
+        /*
+        // for, if를 사용한 방법
+        string answer = string.Empty;
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            if ((my_string[i] != 'a') &&
+                (my_string[i] != 'e') &&
+                (my_string[i] != 'i') &&
+                (my_string[i] != 'o') &&
+                (my_string[i] != 'u'))
+            {
+                // string연산이니까, stringBuilder를 쓰자
+                answer += my_string[i];
+            }
+        }
+        return answer;
+        */
+    }
+
+    /// <summary>
     /// 최댓값 만들기(1)
     /// </summary>
     /// <param name="numbers"></param>
