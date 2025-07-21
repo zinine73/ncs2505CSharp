@@ -3,6 +3,47 @@ using System.Text;
 
 public class CSStudy
 {
+    string GetName() { return ""; }
+    static public int GetId() { return 0; }
+    public static int GetId2() { return 0; }
+
+    public void CodingGuide()
+    {
+        bool isValid = false;
+        if (isValid == false)
+        {
+            // 하지마라
+        }
+        else
+        {
+            // 해라
+        }
+        if (isValid)
+        {
+            // 해라
+        }
+        else
+        {
+            // 하지마라
+        }
+
+        int a = 0, b = 0;
+        if ((a = b) == 10)
+        {
+
+        }
+        a = b;
+        if (a == 10)
+        {
+
+        }
+
+        string path = @"C:\Temp\Test.txt";
+        string s1 = "1", s2 = "2", s3 = "3";
+        //var res = s1 + "+" + s2 + "=" + s3;
+        var res = string.Format("{0}+{1}={2}", s1, s2, s3);
+    }
+
     public enum GameState { Ready, Run }
     public enum Category
     {
