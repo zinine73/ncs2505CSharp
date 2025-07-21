@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Data;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-class CSStudy
+public class CSStudy
 {
     public enum GameState { Ready, Run }
     public enum Category
@@ -28,6 +26,7 @@ class CSStudy
         Bottom = 4,
         Left = 8
     }
+    
     public void EnumSample()
     {
         Category cafeCategory;

@@ -8,7 +8,7 @@
     {
         var intArray = new int[] { 0, 31, 24, 10, 1, 9 };
         Solution sol = new Solution();
-        Console.WriteLine(sol.Solution0721("nice to meet you"));
+        Console.WriteLine(sol.Solution07212(930211));
         //PrintIntArray(sol.Solution0715(intArray));
 
         CSStudy stduy = new CSStudy();

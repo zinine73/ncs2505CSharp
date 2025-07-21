@@ -1,13 +1,34 @@
 class Solution
 {
     /// <summary>
+    /// 자릿수 더하기
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution07212(int n)
+    {
+        int answer = 0;
+        // n을 string으로 변환
+        string str = n.ToString();
+        // string을 처음부터 반복
+        foreach (var item in str)
+        {
+            // answer에 각 char의 계산된 값을 더한다
+            answer += (item - '0');
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 모음 제거
     /// </summary>
     /// <param name="my_string"></param>
     /// <returns></returns>
     public string Solution0721(string my_string)
     {
+        // 도트연산자 이어서 사용하기 예
         //my_string.Replace("a", "").Remove(4).Substring(0, 2);
+        // char의 공백문자는 '\0'
         //my_string.Replace('a','\0');
         return my_string.Replace("a", "")
             .Replace("e", "")
