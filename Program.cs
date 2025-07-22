@@ -6,9 +6,9 @@
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] { 180, 120, 140 };
+        var intArray = new int[] { 199,72,222 };
         Solution sol = new Solution();
-        Console.WriteLine(sol.Solution0722(intArray, 190));
+        Console.WriteLine(sol.Solution07222(intArray));
         //PrintIntArray(sol.Solution0715(intArray));
 
         CSStudy stduy = new CSStudy();

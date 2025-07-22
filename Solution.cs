@@ -1,6 +1,35 @@
 class Solution
 {
     /// <summary>
+    /// 삼각형의 완성조건(1)
+    /// </summary>
+    /// <param name="sides"></param>
+    /// <returns></returns>
+    public int Solution07222(int[] sides)
+    {
+        int answer = 0;
+        // list를 이용한 정렬
+        var list = new List<int>(sides);
+        list.Sort();
+        // 정렬
+        //Array.Sort(sides);
+        /*
+        // 가장 큰 값과 나머지 값들의 합과 비교
+        if (sides[2] < sides[0] + sides[1])
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
+        */
+        answer = (list[2] < list[0] + list[1]) ? 1 : 2;
+        //answer = (sides[2] < sides[0] + sides[1]) ? 1 : 2;
+        return answer;
+    }
+
+    /// <summary>
     /// 머쓱이보다 키 큰 사람
     /// </summary>
     /// <param name="array"></param>
