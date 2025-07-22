@@ -1,6 +1,34 @@
 class Solution
 {
     /// <summary>
+    /// 머쓱이보다 키 큰 사람
+    /// </summary>
+    /// <param name="array"></param>
+    /// <param name="height"></param>
+    /// <returns></returns>
+    public int Solution0722(int[] array, int height)
+    {
+        int answer = 0;
+        foreach (var item in array)
+        {
+            if (item > height)
+            {
+                answer++;
+            }
+        }
+        /*
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > height)
+            {
+                answer++;
+            }
+        }
+        */
+        return answer;
+    }
+
+    /// <summary>
     /// 자릿수 더하기
     /// </summary>
     /// <param name="n"></param>
