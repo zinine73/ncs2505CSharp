@@ -3,6 +3,44 @@ using System.Text;
 
 public class CSStudy
 {
+    public void ConditionSample()
+    {
+        string category = "참외"; //"사과";
+        int price = 0;
+
+        switch (category)
+        {
+            case "참외":
+            case "사과":
+                price = 2000;
+                break;
+            case "딸기":
+                price = 10000;
+                break;
+            case "포도":
+                price = 6000;
+                break;
+            default:
+                price = 1000;
+                break;
+        }
+        // 사과는 2000원입니다.
+        Console.WriteLine("{1}는 {0}원입니다.", price, category);
+
+        int val = 100;
+        switch (val)
+        {
+            case 0:
+                // 0...
+                break;
+            case 100:
+                // 100...
+                break;
+            default:
+                break;
+        }
+    }
+
     public void OperatorSample()
     {
         int i = 100, j = 0;

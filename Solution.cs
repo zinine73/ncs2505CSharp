@@ -1,6 +1,50 @@
 class Solution
 {
     /// <summary>
+    /// 피자 나눠 먹기(3)
+    /// </summary>
+    /// <param name="slice"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution07232(int slice, int n)
+    {
+        int answer = (n % slice > 0) ? n / slice + 1 : n / slice;
+        /*
+        int answer = 0;
+        // for 
+        for (int i = 1; i <= n; i += slice)
+        {
+            // 피자 한판 더하기
+            answer++;
+        }
+        */
+        return answer;
+    }
+
+    /// <summary>
+    /// 배열 자르기
+    /// </summary>
+    /// <param name="numbers"></param>
+    /// <param name="num1"></param>
+    /// <param name="num2"></param>
+    /// <returns></returns>
+    public int[] Solution0723(int[] numbers, int num1, int num2)
+    {
+        // 리턴할 배열의 크기를 먼저 구한다
+        int len = num2 - num1 + 1;
+        // 구한 크기만큼 배열을 선언
+        int[] answer = new int[len];
+        // 크기만큼 반복
+        for (int i = 0; i < len; i++)
+        {
+            // 인덱스에 해당하는 값을 배열에 넣는다
+            answer[i] = numbers[num1 + i];
+        }
+        // 배열을 리턴
+        return answer;
+    }
+
+    /// <summary>
     /// 삼각형의 완성조건(1)
     /// </summary>
     /// <param name="sides"></param>
