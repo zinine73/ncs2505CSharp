@@ -6,13 +6,15 @@
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] { 1,3,5 };
+        var intArray = new int[] { -7,9 };
+        var strArr1 = new string[] { "n","omg"};
+        var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
-        Console.WriteLine(sol.Solution07232(4, 12));
+        Console.WriteLine(sol.Solution07242(strArr1, strArr2));
         //PrintIntArray(sol.Solution0723(intArray, 1, 2));
 
         CSStudy stduy = new CSStudy();
-        //stduy.ArraySample();
+        //stduy.LoopSample();
     }
 
     /// <summary>

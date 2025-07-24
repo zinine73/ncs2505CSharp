@@ -1,6 +1,65 @@
 class Solution
 {
     /// <summary>
+    /// 배열의 유사도
+    /// </summary>
+    /// <param name="s1"></param>
+    /// <param name="s2"></param>
+    /// <returns></returns>
+    public int Solution07242(string[] s1, string[] s2)
+    {
+        int answer = 0;
+        // s1의 크기만큼 반복
+        foreach (var item1 in s1)
+        {
+            // s2의 크기만큼 반복
+            foreach (var item2 in s2)
+            {
+                // 같으면 answer 증가
+                if (item1.Equals(item2))
+                //if (item1 == item2)
+                {
+                    answer++;
+                }
+            }
+        }
+        return answer;
+    }
+    /// <summary>
+    /// 점의 위치 구하기
+    /// </summary>
+    /// <param name="dot"></param>
+    /// <returns></returns>
+    public int Solution0724(int[] dot)
+    {
+        return dot[0] > 0 ? dot[1] > 0 ? 1 : 4 : dot[1] > 0 ? 2 : 3;
+        /*
+        if (dot[0] > 0)
+        {
+            if (dot[1] > 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return 4;
+            }
+        }
+        else
+        {
+            if (dot[1] > 0)
+            {
+                return 2;
+            }
+            else
+            {
+                return 3;
+            }
+        }
+        */
+    }
+
+    /// <summary>
     /// 피자 나눠 먹기(3)
     /// </summary>
     /// <param name="slice"></param>
