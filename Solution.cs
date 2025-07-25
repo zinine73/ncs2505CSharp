@@ -1,6 +1,23 @@
 class Solution
 {
     /// <summary>
+    /// 순서쌍의 개수
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution0725(int n)
+    {
+        int answer = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            if (n % i == 0)
+            {
+                answer++;
+            }
+        }
+        return answer;
+    }
+    /// <summary>
     /// 배열의 유사도
     /// </summary>
     /// <param name="s1"></param>

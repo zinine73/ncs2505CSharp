@@ -6,15 +6,22 @@
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] { -7,9 };
-        var strArr1 = new string[] { "n","omg"};
+        var intArray = new int[] { -7, 9 };
+        var strArr1 = new string[] { "n", "omg" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
-        Console.WriteLine(sol.Solution07242(strArr1, strArr2));
+        Console.WriteLine(sol.Solution0725(100));
         //PrintIntArray(sol.Solution0723(intArray, 1, 2));
 
         CSStudy stduy = new CSStudy();
         //stduy.LoopSample();
+    }
+
+    static IEnumerable<int> GetNumber()
+    {
+        yield return 10;
+        yield return 20;
+        yield return 30;
     }
 
     /// <summary>
