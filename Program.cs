@@ -6,12 +6,12 @@
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] { -7, 9 };
+        var intArray = new int[] { 2,100,120,600,12,12 };
         var strArr1 = new string[] { "n", "omg" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
-        Console.WriteLine(sol.Solution0725(100));
-        //PrintIntArray(sol.Solution0723(intArray, 1, 2));
+        //Console.WriteLine(sol.Solution0725(100));
+        PrintIntArray(sol.Solution07252(12, intArray));
 
         CSStudy stduy = new CSStudy();
         //stduy.LoopSample();

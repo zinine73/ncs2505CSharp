@@ -1,6 +1,38 @@
 class Solution
 {
     /// <summary>
+    /// n의 배수 고르기
+    /// </summary>
+    /// <param name="n"></param>
+    /// <param name="numlist"></param>
+    /// <returns></returns>
+    public int[] Solution07252(int n, int[] numlist)
+    {
+        // 배수를 담을 리스트 정의
+        var list = new List<int>();
+        // numlist를 순회하면서
+        foreach (var item in numlist)
+        {
+            // n의 배수이면 
+            if (item % n == 0)
+            {
+                // 리스트에 넣기
+                list.Add(item);
+            }
+        }
+        // 리턴할 배열 정의
+        int[] answer = new int[list.Count];
+        // 리스트를 순회하면서
+        for (int i = 0; i < answer.Length; i++)
+        {
+            // 배열에 리스트 값 넣기
+            answer[i] = list[i];
+        }
+        // 배열 리턴
+        return answer;
+    }
+
+    /// <summary>
     /// 순서쌍의 개수
     /// </summary>
     /// <param name="n"></param>
