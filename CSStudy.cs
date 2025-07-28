@@ -3,6 +3,27 @@ using System.Text;
 
 public class CSStudy
 {
+    public void ExceptionSample()
+    {
+        int[] intArr = new int[3];
+        try
+        {
+            intArr[0] = 0;
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine("AE ...");
+        }
+        catch (IndexOutOfRangeException ex)
+        {
+            Console.WriteLine("ior 오류 발생!");
+        }
+        finally
+        {
+            Console.WriteLine("에러 없음");
+        }
+    }
+
     public void LoopSample()
     {
         // for

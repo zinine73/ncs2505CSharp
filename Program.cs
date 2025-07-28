@@ -7,14 +7,14 @@
     private static void Main(string[] args)
     {
         var intArray = new int[] { 2,100,120,600,12,12 };
-        var strArr1 = new string[] { "n", "omg" };
+        var strArr1 = new string[] {"I","Love","Programmers."};
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
         //Console.WriteLine(sol.Solution0725(100));
-        PrintIntArray(sol.Solution07252(12, intArray));
+        PrintIntArray(sol.Solution07282(strArr1));
 
         CSStudy stduy = new CSStudy();
-        //stduy.LoopSample();
+        //stduy.ExceptionSample();
     }
 
     static IEnumerable<int> GetNumber()
