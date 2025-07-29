@@ -1,6 +1,51 @@
 class Solution
 {
     /// <summary>
+    /// 문자 반복 출력하기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public string Solution07292(string my_string, int n)
+    {
+        string answer = string.Empty;
+        // foreach로 my_string을 순회
+        foreach (var item in my_string)
+        {
+            // for로 n만큼 반복
+            for (int i = 0; i < n; i++)
+            {
+                // answer에 더한다
+                answer += item;
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 문자열 안에 문자열
+    /// </summary>
+    /// <param name="str1"></param>
+    /// <param name="str2"></param>
+    /// <returns></returns>
+    public int Solution0729(string str1, string str2)
+    {
+        /*
+        int answer = 0;
+        if (str1.Contains(str2))
+        {
+            answer = 1;
+        }
+        else
+        {
+            answer = 2;
+        }
+        */
+        int answer = str1.Contains(str2) ? 1 : 2;
+        return answer;
+    }
+
+    /// <summary>
     /// 배열 원소의 길이
     /// </summary>
     /// <param name="strlist"></param>
