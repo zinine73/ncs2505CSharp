@@ -1,5 +1,54 @@
+using System.Text;
+
 class Solution
 {
+    /// <summary>
+    /// 제곱수 판별하기
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution07302(int n)
+    {
+        /*
+        int answer = 0, min = 1, max = 1000;
+        for (int i = min; i <= max; i++)
+        {
+            if (i * i == n)
+            {
+                answer = 1;
+                break;
+            }
+            answer = 2;
+        }
+        return answer;
+        */
+        double answer = Math.Sqrt(n);
+        return (answer % 1 == 0) ? 1 : 2;
+    }
+
+    /// <summary>
+    /// 문자리스트를 문자열로 변환하기
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public string Solution0730(string[] arr)
+    {
+        string answer = "";
+        /*
+        foreach (var item in arr)
+        {
+            answer += item;
+        }
+        */
+        var sb = new StringBuilder();
+        foreach (var item in arr)
+        {
+            sb.Append(item);
+        }
+        answer = sb.ToString();
+        return answer;
+    }
+
     /// <summary>
     /// 문자 반복 출력하기
     /// </summary>
