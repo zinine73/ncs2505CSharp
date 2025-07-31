@@ -3,6 +3,42 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 중복된 숫자 개수
+    /// </summary>
+    /// <param name="array"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution07312(int[] array, int n)
+    {
+        int answer = 0;
+        // foreach
+        foreach (var item in array)
+        {
+            // if
+            if (item == n)
+            {
+                // 같으면 answer 증가
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 문자열 붙여서 출력하기
+    /// </summary>
+    public void Solution0731()
+    {
+        String[] input;
+        Console.Clear();
+        input = Console.ReadLine().Split(' ');
+        String s1 = input[0];
+        String s2 = input[1];
+
+        Console.WriteLine(s1 + s2);
+    }
+
+    /// <summary>
     /// 제곱수 판별하기
     /// </summary>
     /// <param name="n"></param>
