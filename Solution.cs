@@ -3,6 +3,43 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 중앙값 구하기
+    /// </summary>
+    /// <param name="array"></param>
+    /// <returns></returns>
+    public int Solution08012(int[] array)
+    {
+        // array값을 가진 list를 만든다
+        var list = new List<int>(array);
+        // list를 정렬한다
+        list.Sort();
+        // 가운데에 해당하는 인덱스를 구한다
+        //int index = list.Count / 2;
+        int index = array.Length / 2;
+        // list에서 그 인덱스의 값을 리턴한다
+        return list[index];
+    }
+
+    /// <summary>
+    /// 배열 두 배 만들기
+    /// </summary>
+    /// <param name="numbers"></param>
+    /// <returns></returns>
+    public int[] Solution0801(int[] numbers)
+    {
+        // numbers의 크기만큼 반복
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            // index에 해당하는 값을 두배해서 넣기
+            //numbers[i] = numbers[i] * 2;
+            numbers[i] *= 2;
+            //numbers[i] <<= 1;
+        }
+        // 결과 리턴
+        return numbers;
+    }
+
+    /// <summary>
     /// 중복된 숫자 개수
     /// </summary>
     /// <param name="array"></param>

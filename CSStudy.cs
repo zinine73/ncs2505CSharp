@@ -3,6 +3,16 @@ using System.Text;
 
 public class CSStudy
 {
+    public void ClassTest()
+    {
+        MyCustomer mc = new MyCustomer();
+        mc.Name = "Kim";
+        mc.Age = 20;
+        //mc.SetAge(-3);
+        Console.WriteLine(mc.GetCustomerData());
+        Console.WriteLine(mc.CalAge(30));
+    }
+    
     // 구조체 정의
     public struct MyPoint
     {
