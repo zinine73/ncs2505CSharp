@@ -3,6 +3,68 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 옷가게 할인 받기
+    /// </summary>
+    /// <param name="price"></param>
+    /// <returns></returns>
+    public int Solution08042(int price)
+    {
+        /*
+        double answer = price;
+        if (price >= 500000)
+        {
+            answer = price * 0.80;
+        }
+        else if (price >= 300000)
+        {
+            answer = price * 0.90;
+        }
+        else if (price >= 100000)
+        {
+            answer = price * 0.95;
+        }
+        return (int)answer;
+        */
+        if (price >= 500000)
+        {
+            price = (int)(price * 0.8);
+        }
+        else if (price >= 300000)
+        {
+            price = (int)(price * 0.9);
+        }
+        else if (price >= 100000)
+        {
+            price = (int)(price * 0.95);
+        }
+        return price;
+    }
+
+    /// <summary>
+    /// 짝수는 싫어요
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[] Solution0804(int n)
+    {
+        // List 정의
+        //List<int> list = new List<int>();
+        var list = new List<int>();
+        // 1부터 n(포함)까지 반복
+        for (int i = 1; i <= n; i++)
+        {
+            // 홀수냐?
+            if (i % 2 != 0)
+            {
+                // 홀수면 list에 넣기
+                list.Add(i);
+            }
+        }
+        // list를 int[] 형식으로 바꿔서 리턴
+        return list.ToArray();
+    }
+
+    /// <summary>
     /// 중앙값 구하기
     /// </summary>
     /// <param name="array"></param>

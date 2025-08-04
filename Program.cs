@@ -9,14 +9,14 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] { 9,-1,0 };
+        var intArray = new int[] { 9, -1, 0 };
         var strArr1 = new string[] { "ab", "b", "c" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
-        Console.WriteLine(sol.Solution08012(intArray));
-        //Util.PrintIntArray(sol.Solution0801(intArray));
+        Console.WriteLine(sol.Solution08042(580000));
+        //Util.PrintIntArray(sol.Solution0804(15));
 
         CSStudy study = new CSStudy();
-        //study.ArrayExample();
+        //study.NullableTest();
     }
 }
