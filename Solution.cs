@@ -3,6 +3,48 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 문자열의 앞의 n글자
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public string Solution08052(string my_string, int n)
+    {
+        //return my_string.Substring(0, n);
+        string answer = "";
+        var sb = new StringBuilder();
+        for (int i = 0; i < n; i++)
+        {
+            //answer += my_string[i];
+            sb.Append(my_string[i]);
+        }
+        //return answer;
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// n의 배수
+    /// </summary>
+    /// <param name="num"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution0805(int num, int n)
+    {
+        /*
+        int answer = 0;
+        if (num % n == 0)
+        {
+            answer = 1;
+        }
+        else
+        {
+            answer = 0;
+        }
+        */
+        return (num % n == 0) ? 1 : 0;
+    }
+
+    /// <summary>
     /// 옷가게 할인 받기
     /// </summary>
     /// <param name="price"></param>

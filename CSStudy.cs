@@ -4,19 +4,36 @@ using Zinine;
 
 public class CSStudy
 {
+    public void StringTest()
+    {
+        string s21 = "string";
+        Console.WriteLine(s21.IndexOf('r'));
+    }
+
+    public void StandardNumericFormatString()
+    {
+        Console.WriteLine("C Example {0:C}", 123.456f);
+        Console.WriteLine("D6 sample {0:D6}", -1234);
+        Console.WriteLine("{0:E2}", -1052.0329112756f);
+        Console.WriteLine("{0:F4}", -1234.56f);
+        Console.WriteLine("{0:N3}", -1234.56f);
+        Console.WriteLine("{0:P1}", -0.39678f);
+        Console.WriteLine("{0:X4} {1:X4}", 255, -1);
+    }
+
     public void ParamSample()
     {
         // ref. 초기화 필요
         int x = 1;
         double y = 1.0;
         double ret = GetData(ref x, ref y);
-        Console.WriteLine($"x={x},y={y},ret={ret}");
-        Console.WriteLine("x={0},y={1},ret={2}",x,y,ret);
+        Console.WriteLine($"x={x},y={y:0.0},ret={ret:0.0}");
+        Console.WriteLine("x={0},y={1:0.0},ret={2:0.0}", x, y, ret);
         // out
         int c, d;
-        bool bret = GetData(10, 20, out c, out d);
-        Console.WriteLine($"c={c},d={d},bret={bret}");
-        Console.WriteLine("c={0},d={1},bret={2}",c,d,bret);
+        bool bret = GetData(10000, 2000, out c, out d);
+        Console.WriteLine($"c={c:#,#}:d={d:#,#}:bret={bret}");
+        Console.WriteLine("c={0:#,#}:d={1:#,#}:bret={2}", c, d, bret);
 
         Method1(26, 100, "Park");
         Method1(name: "John", age: 10, score: 90);
