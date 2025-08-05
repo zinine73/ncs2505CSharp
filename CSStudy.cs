@@ -1,8 +1,87 @@
 using System.Collections;
 using System.Text;
+using Zinine;
 
 public class CSStudy
 {
+    public void ParamSample()
+    {
+        // ref. 초기화 필요
+        int x = 1;
+        double y = 1.0;
+        double ret = GetData(ref x, ref y);
+        Console.WriteLine($"x={x},y={y},ret={ret}");
+        Console.WriteLine("x={0},y={1},ret={2}",x,y,ret);
+        // out
+        int c, d;
+        bool bret = GetData(10, 20, out c, out d);
+        Console.WriteLine($"c={c},d={d},bret={bret}");
+        Console.WriteLine("c={0},d={1},bret={2}",c,d,bret);
+
+        Method1(26, 100, "Park");
+        Method1(name: "John", age: 10, score: 90);
+        Method1(score: -20, name: "Lee", age: 30);
+        Method1(2, 40);
+        Method1(score: 7, age: 10);
+        Method2(100, 0, 44);
+        Method2(99);
+        Method3(44, 80, true);
+        Method3();
+        Method3(live: false);
+        Method3(score: 100, age: 10);
+
+        int ret2 = Util.Calc(1, 2);
+        ret2 = Util.Calc(100, 20, "-");
+        ret2 = Util.Calc(b: 4, a: 3, calcType: "*");
+        ret2 = Util.Calc(b: 4, a: 3);
+
+        int s = Calc2(1, 2, 3, 4);
+        //int s2 = Calc3(1, 2, 3, 4);
+        int s2 = Calc2(6, 7, 8, 9, 0, 1);
+    }
+
+    public int Calc3(int[] values)
+    {
+        return 0;
+    }
+    public int Calc2(params int[] values)
+    {
+        return 0;
+    }
+
+    public void Method3(int age = 10, int score = 0, bool live = true)
+    {
+
+    }
+    public void Method2(int age, int score = 100, int city = 11)
+    {
+
+    }
+    public void Method1(int age, int score, string name = "NoName")
+    {
+
+    }
+
+    public double GetData(ref int a, ref double b)
+    {
+        return ++a * ++b;
+    }
+
+    public bool GetData(int a, int b, out int c, out int d)
+    {
+        c = a + b;
+        d = a - b;
+        return true;
+    }
+
+    public int Calculate(int a)
+    {
+        Console.WriteLine("a=" + a);
+        a *= 2;
+        Console.WriteLine("a=" + a);
+        return a;
+    }
+
     public void NullableTest()
     {
         int? a = null;
