@@ -3,6 +3,53 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 개미 군단
+    /// </summary>
+    /// <param name="hp"></param>
+    /// <returns></returns>
+    public int Solution08062(int hp)
+    {
+        int generalAP = 5;  // 장군개미 공격력
+        int soldierAP = 3;  // 병정개미 공격력
+        //int workerAP = 1;   // 일개미 공격력
+
+        int generalAcount = hp / generalAP;
+        hp = hp % generalAP;
+        int soldierAcount = hp / soldierAP;
+        hp = hp % soldierAP;
+        //int workerAcount = hp / workerAP;
+        //hp = hp % workerAP;
+        int answer = generalAcount + soldierAcount + hp;
+        return answer;
+    }
+
+    /// <summary>
+    /// 직각삼각형 출력하기
+    /// </summary>
+    public void Solution0806()
+    {
+        string[] s;
+        Console.Clear();
+        s = Console.ReadLine().Split(' ');
+        int n = Int32.Parse(s[0]);
+        //int n2 = Convert.ToInt32(s[0]);
+        //int n3 = int.Parse(s[0]);
+
+        // for문으로 n만큼 반복
+        for (int i = 1; i <= n; i++)
+        {
+            // for문으로 n만큼 반복
+            for (int j = 1; j <= i; j++)
+            {
+                // 줄바꿈 없이 "*" 출력
+                Console.Write("*");
+            }
+            // 줄바꿈
+            Console.WriteLine();
+        }
+    }
+
+    /// <summary>
     /// 문자열의 앞의 n글자
     /// </summary>
     /// <param name="my_string"></param>
