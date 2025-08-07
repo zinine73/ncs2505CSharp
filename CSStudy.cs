@@ -1,9 +1,44 @@
+#define TEST_ENV
+//#define PROD_ENV
+
 using System.Collections;
 using System.Text;
 using Zinine;
 
 public class CSStudy
 {
+    class ClassA
+    {
+        #region Public methods
+        public void Run() { }
+        public void Create() { }
+        #endregion Public methods
+
+        #region Property
+        public int Id { get; set; }
+        #endregion Property
+
+        #region Privates
+        void Execute() { }
+        #endregion
+    }
+    public void PreProTest()
+    {
+        bool verbose = false;
+#if (TEST_ENV)
+        Console.WriteLine("Now test env.");
+        verbose = true;
+#elif (PROD_ENV)
+        Console.WriteLine("Now prod env.");
+#else
+        Console.WriteLine("???");
+#endif
+        if (verbose)
+        {
+            Console.WriteLine("Verbose...");
+        }
+    }
+
     class MyLesson
     {
         public event EventHandler Run;
@@ -15,6 +50,7 @@ public class CSStudy
             }
         }
     }
+
     public void EventTest()
     {
         MyLesson lesson = new MyLesson();
@@ -133,6 +169,7 @@ public class CSStudy
         return a;
     }
 
+    #region Nullable
     public void NullableTest()
     {
         int? a = null;
@@ -145,6 +182,7 @@ public class CSStudy
         bool result2 = Nullable.Equals<double>(c, d);
         Console.WriteLine(result2);
     }
+    #endregion
 
     double _Sum = 0;
     DateTime _Time;
