@@ -3,6 +3,60 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 가위 바위 보
+    /// </summary>
+    /// <param name="rsp"></param>
+    /// <returns></returns>
+    public string Solution08072(string rsp)
+    {
+        const char rsp_rock = '0';
+        const char rsp_scissors = '2';
+        const char rsp_paper = '5';
+
+        string answer = string.Empty;
+        // for (int i = 0; i < rsp.Length; i++)
+        // {
+        //     if (rsp[i] == '0')      answer += "5";
+        //     else if (rsp[i] == '2') answer += "0";
+        //     else                    answer += "2";
+        // }
+
+        // foreach (var item in rsp)
+        // {
+        //     if (item == '0')        answer += "5";
+        //     else if (item == '2')   answer += "0";
+        //     else                    answer += "2";
+        // }
+        var sb = new StringBuilder();
+        foreach (var item in rsp)
+        {
+            if (item == rsp_rock) sb.Append(rsp_paper);
+            else if (item == rsp_scissors) sb.Append(rsp_rock);
+            else sb.Append(rsp_scissors);
+        }
+        return sb.ToString();
+        // return answer
+    }
+
+    /// <summary>
+    /// 공배수
+    /// </summary>
+    /// <param name="number"></param>
+    /// <param name="n"></param>
+    /// <param name="m"></param>
+    /// <returns></returns>
+    public int Solution0807(int number, int n, int m)
+    {
+        // int answer = 0;
+        // if ((number % n == 0) && (number % m == 0))
+        // {
+        //     answer = 1;
+        // }
+        // return answer;
+        return ((number % n == 0) && (number % m == 0)) ? 1 : 0;
+    }
+
+    /// <summary>
     /// 개미 군단
     /// </summary>
     /// <param name="hp"></param>
