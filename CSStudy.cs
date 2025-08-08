@@ -7,6 +7,65 @@ using Zinine;
 
 public class CSStudy
 {
+    public class MyClass
+    {
+        private const int MAX = 10;
+        private string name;
+        private int[] data = new int[MAX];
+        // indexer
+        public int this[int index]
+        {
+            get
+            {
+                if (index < 0 || index >= MAX)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    return data[index];
+                }
+            }
+            set
+            {
+                //if (!(index < 0 || index >= MAX))
+                if (index >= 0 && index < MAX)
+                {
+                    data[index] = value;
+                }
+            }
+        }
+        public void SetData(int index, int value)
+        {
+            if (index >= 0 && index < MAX)
+            {
+                data[index] = value;
+            }
+        }
+        public int GetData(int index)
+        {
+            if (index >= 0 && index < MAX)
+            {
+                return data[index];
+            }
+            else
+            {
+                throw new IndexOutOfRangeException();
+            }
+        }
+    }
+
+    public void IndexerTest()
+    {
+        MyClass cls = new MyClass();
+        cls[1] = 1024;
+        int i = cls[1];
+        Console.WriteLine(i);
+        cls.SetData(3, 100);
+        int i2 = cls.GetData(3);
+        Console.WriteLine(i2);
+    }
+
     class ClassA
     {
         #region Public methods

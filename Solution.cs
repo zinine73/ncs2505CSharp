@@ -3,6 +3,17 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 주사위의 개수
+    /// </summary>
+    /// <param name="box"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution0808(int[] box, int n)
+    {
+        return (box[0] / n) * (box[1] / n) * (box[2] / n);
+    }
+
+    /// <summary>
     /// 가위 바위 보
     /// </summary>
     /// <param name="rsp"></param>
