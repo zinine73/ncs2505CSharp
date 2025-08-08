@@ -3,6 +3,37 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 문자열 정렬하기 (1)
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public int[] Solution08082(string my_string)
+    {
+        // int list를 만든다
+        var list = new List<int>();
+        // my_string을 순회한다
+        foreach (var item in my_string)
+        {
+            /*
+            // 숫자인지 판별
+            if ((item >= '0') && (item <= '9'))
+            {
+                // 숫자면 list에 char의 값을 넣는다
+                list.Add(item - '0');
+            }
+            */
+            if (int.TryParse(item.ToString(), out var value))
+            {
+                list.Add(value);
+            }
+        }
+        // list를 정렬
+        list.Sort();
+        // list를 배열 형식으로 변환해서 리턴
+        return list.ToArray();
+    }
+
+    /// <summary>
     /// 주사위의 개수
     /// </summary>
     /// <param name="box"></param>
