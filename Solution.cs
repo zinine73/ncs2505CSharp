@@ -3,6 +3,61 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 최댓값 만들기 (2)
+    /// </summary>
+    /// <param name="numbers"></param>
+    /// <returns></returns>
+    public int Solution08112(int[] numbers)
+    {
+        // 가장 작은 값으로 answer 설정
+        //int answer = -10000 * 10000;
+        int answer = int.MinValue;
+        // for문을 중첩으로 돌린다
+        for (int i = 0; i < numbers.Length - 1; i++)
+        {
+            for (int j = i + 1; j < numbers.Length; j++)
+            {
+                // 각각의 인덱스 값을 곱해서 나온 값과, 현재 최대값 비교
+                //int max = numbers[i] * numbers[j];
+                // if (answer < max)
+                // {
+                //     // 큰값을 최대값으로
+                //     answer = max;
+                // }
+                answer = Math.Max(answer, numbers[i] * numbers[j]);
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 숨어있는 숫자의 덧셈(1)
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public int Solution0811(string my_string)
+    {
+        int answer = 0;
+        // my_string을 하나씩 돌자
+        foreach (var item in my_string)
+        {
+            /*
+            // 얻어온 item이 '1'과 '9'사이에 있다면
+            if ((item >= '1') && (item <= '9'))
+            {
+                // answer에 그 값을 더한다
+                answer += (item - '0');
+            }
+            */
+            if (int.TryParse(item.ToString(), out var value))
+            {
+                answer += value;
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 문자열 정렬하기 (1)
     /// </summary>
     /// <param name="my_string"></param>

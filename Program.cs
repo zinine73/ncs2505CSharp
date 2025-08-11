@@ -9,12 +9,12 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] { 10,8,6 };
+        var intArray = new int[] { -1, 0, 30, 1, 4 };
         var strArr1 = new string[] { "ab", "b", "c" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
-        //Console.WriteLine(sol.Solution0808(intArray, 3));
-        Util.PrintIntArray(sol.Solution08082("abcde0"));
+        Console.WriteLine(sol.Solution08112(intArray));
+        //Util.PrintIntArray(sol.Solution08082("abcde0"));
         //sol.Solution0806();
 
         CSStudy study = new CSStudy();

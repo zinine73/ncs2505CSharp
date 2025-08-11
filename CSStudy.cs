@@ -53,6 +53,11 @@ public class CSStudy
                 throw new IndexOutOfRangeException();
             }
         }
+
+        int id = 0;
+        public string Name { set; get; }
+        public void Run(int id) { }
+        protected void Execute() { }
     }
 
     public void IndexerTest()
@@ -64,6 +69,10 @@ public class CSStudy
         cls.SetData(3, 100);
         int i2 = cls.GetData(3);
         Console.WriteLine(i2);
+
+        cls.Name = "Lee";
+        string str = cls.Name;
+        cls.Run(13);
     }
 
     class ClassA
