@@ -3,6 +3,30 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 홀짝 구분하기
+    /// </summary>
+    public void Solution08122()
+    {
+        string[] s;
+        Console.Clear();
+        s = Console.ReadLine().Split(' ');
+        int a = Int32.Parse(s[0]);
+        const string str = "{0} is {1}";
+        const string strEven = "even";
+        const string strOdd = "odd";
+        string strVal = (a % 2 == 0) ? strEven : strOdd;
+        Console.WriteLine(str, a, strVal);
+        // if (a % 2 == 0)
+        // {
+        //     Console.WriteLine("{0} is even", a);
+        // }
+        // else
+        // {
+        //     Console.WriteLine($"{a} is odd");
+        // }
+    }
+
+    /// <summary>
     /// 문자열 곱하기
     /// </summary>
     /// <param name="my_string"></param>
