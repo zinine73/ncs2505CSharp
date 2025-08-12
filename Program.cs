@@ -13,11 +13,11 @@ internal class Program
         var strArr1 = new string[] { "ab", "b", "c" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
-        Console.WriteLine(sol.Solution08112(intArray));
+        Console.WriteLine(sol.Solution0812("string", 3));
         //Util.PrintIntArray(sol.Solution08082("abcde0"));
         //sol.Solution0806();
 
         CSStudy study = new CSStudy();
-        //study.PreProTest();
+        //study.ClassSample();
     }
 }

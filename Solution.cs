@@ -3,6 +3,25 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 문자열 곱하기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="k"></param>
+    /// <returns></returns>
+    public string Solution0812(string my_string, int k)
+    {
+        //string answer = "";
+        var sb = new StringBuilder();
+        for (int i = 0; i < k; i++)
+        {
+            //answer += my_string;
+            sb.Append(my_string);
+        }
+        //return answer;
+        return sb.ToString();
+    }
+
+    /// <summary>
     /// 최댓값 만들기 (2)
     /// </summary>
     /// <param name="numbers"></param>

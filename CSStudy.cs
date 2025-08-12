@@ -7,6 +7,35 @@ using Zinine;
 
 public class CSStudy
 {
+    public void ClassSample()
+    {
+        Console.WriteLine("***** Class Test *****");
+        Animal anione = new Animal();
+        anione.Name = "cat";
+        anione.Age = 5;
+        anione.SetGold(1000);
+        Console.WriteLine($"Gold:{anione.GetGold()}");
+        Dog myDog = new Dog();
+        myDog.Name = "puppy";
+        myDog.Age = 8;
+        myDog.SetWeight(30);
+        myDog.HowOld();
+        myDog.SetGold(2000);
+        Console.WriteLine($"Gold:{myDog.GetGold()}");
+        Bird myBird = new Bird();
+        myBird.Name = "seossi";
+        myBird.Fly();
+
+        /*
+        // 이건 안됨
+        //PureBase pb = new PureBase();
+        DerivedA da = new DerivedA();
+        Console.WriteLine(da.GetFirst());
+        Console.WriteLine(da.GetNext());
+        Console.WriteLine(da.GetEnd());
+        */
+    }
+
     public class MyClass
     {
         private const int MAX = 10;
