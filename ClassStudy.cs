@@ -1,3 +1,59 @@
+public static class MyUtility
+{
+    static int ver;
+    static MyUtility()
+    {
+        ver = 1;
+    }
+    public static string Convert(int i)
+    {
+        return i.ToString();
+    }
+    public static int ConvertBack(string s)
+    {
+        return int.Parse(s);
+    }
+}
+
+public class MyClass
+{
+    int val = 1;
+
+    public MyClass()
+    {
+        val = 100;
+    }
+
+    // 보통 메서드
+    public int InstRun()
+    {
+        int k = Run();
+        return val;
+    }
+
+    // static method
+    public static int Run()
+    {
+        //InstRun();  //에러
+        //return val; //에러
+        return 1;
+    }
+}
+
+public class Client
+{
+    public void Test()
+    {
+        // 일반 메서드 호출
+        MyClass myClass = new MyClass();
+        int i = myClass.InstRun();
+        Console.WriteLine($"i: {i}");
+        // static
+        int j = MyClass.Run();
+        Console.WriteLine($"j: {j}");
+    }
+}
+
 // base class
 public class Animal
 {

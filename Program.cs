@@ -15,9 +15,13 @@ internal class Program
         Solution sol = new Solution();
         //Console.WriteLine(sol.Solution0812("string", 3));
         //Util.PrintIntArray(sol.Solution08082("abcde0"));
-        sol.Solution08122();
+        //sol.Solution08122();
 
         CSStudy study = new CSStudy();
         //study.ClassSample();
+
+        string str = MyUtility.Convert(123);
+        int i = MyUtility.ConvertBack(str);
+        Console.WriteLine($"str:{str}, i:{i}");
     }
 }
