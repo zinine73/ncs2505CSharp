@@ -3,6 +3,54 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 암호 해독
+    /// </summary>
+    /// <param name="cipher"></param>
+    /// <param name="code"></param>
+    /// <returns></returns>
+    public string Solution08132(string cipher, int code)
+    {
+        // string answer = "";
+        // for (int i = code - 1; i < cipher.Length; i += code)
+        // {
+        //     answer += cipher[i];
+        // }
+        // return answer;
+        var sb = new StringBuilder();
+        for (int i = code - 1; i < cipher.Length; i += code)
+        {
+            sb.Append(cipher[i]);
+        }
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// n 번째 원소부터
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[] Solution0813(int[] num_list, int n)
+    {
+        // 리턴할 배열의 크기를 알 수 있으면 구하자
+        int len = num_list.Length - n + 1;
+        // 구해진 크기만큼의 배열을 잡는다
+        int[] answer = new int[len];
+        // len크기만큼 반복
+        // for (int i = 0; i < len; i++)
+        // {
+        //     // answer배열에 해당 값 넣기
+        //     answer[i] = num_list[i + n - 1];
+        // }
+        // num_list의 크기만큼 반복
+        for (int i = n - 1, j = 0; i < num_list.Length; i++, j++)
+        {
+            answer[j] = num_list[i];
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 홀짝 구분하기
     /// </summary>
     public void Solution08122()
