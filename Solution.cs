@@ -3,6 +3,51 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 대문자와 소문자
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public string Solution08142(string my_string)
+    {
+        var sb = new StringBuilder();
+        foreach (var item in my_string)
+        {
+            if ((item >= 'a') && (item <= 'z'))
+            {
+                sb.Append(item.ToString().ToUpper());
+            }
+            else
+            {
+                sb.Append(item.ToString().ToLower());
+            }
+        }
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// flag에 따라 다른 값 반환하기
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <param name="flag"></param>
+    /// <returns></returns>
+    public int Solution0814(int a, int b, bool flag)
+    {
+        // int answer = 0;
+        // //if (flag == true)
+        // if (flag) // true와 비교일 경우 생략
+        // {
+        //     answer = a + b;
+        // }
+        // else
+        // {
+        //     answer = a - b;
+        // }
+        // return answer;
+        return flag ? a + b : a - b;
+    }
+
+    /// <summary>
     /// 암호 해독
     /// </summary>
     /// <param name="cipher"></param>

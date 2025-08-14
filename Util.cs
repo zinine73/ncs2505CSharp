@@ -57,6 +57,25 @@ namespace Zinine
         }
 
         /// <summary>
+        /// 배열을 출력시키는 함수
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="answerArray"></param>
+        public static void PrintArray<T>(T[] answerArray)
+        {
+            Console.Write("[");
+            for (int i = 0; i < answerArray.Length; i++)
+            {
+                Console.Write(answerArray[i]);
+                if (i != answerArray.Length - 1)
+                {
+                    Console.Write(", ");
+                }
+            }
+            Console.WriteLine("]");
+        }
+
+        /// <summary>
         /// 내 꿈을 실현시켜줄 함수
         /// </summary>
         public static void MakeLotto()
