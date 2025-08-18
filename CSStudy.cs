@@ -7,6 +7,16 @@ using Zinine;
 
 public class CSStudy
 {
+    public void InterfaceTest()
+    {
+        ILogger logger = new ConsoleLogger();
+        //ILogger logger = new FileLogger("MyText.text");
+        //logger.WriteLog("Hello, World!");
+        ClimateMonitor monitor =
+            new ClimateMonitor(logger);
+        monitor.Start();
+    }
+
     class MyStack<T>
     {
         T[] _elements;

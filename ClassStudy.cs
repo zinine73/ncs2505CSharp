@@ -1,3 +1,82 @@
+public class ClimateMonitor
+{
+    ILogger logger;
+    public ClimateMonitor(ILogger inlogger)
+    {
+        logger = inlogger;
+    }
+    public void Start()
+    {
+        while (true)
+        {
+            Console.Write("온도를 입력해주세요 : ");
+            string temp = Console.ReadLine();
+            if (temp == "") break;
+            logger.WriteLog($"현재 온도 : {temp}");
+        }
+    }
+}
+
+public interface ILogger
+{
+    void WriteLog(string message);
+}
+
+public class FileLogger : ILogger
+{
+    StreamWriter writer;
+    public FileLogger(string path)
+    {
+        writer = File.CreateText(path);
+        writer.AutoFlush = true;
+    }
+    public void WriteLog(string message)
+    {
+        writer.WriteLine(
+            $"{DateTime.Now.ToShortTimeString()} {message}");
+    }
+}
+public class ConsoleLogger : ILogger
+{
+    public void WriteLog(string message)
+    {
+        Console.WriteLine
+            ($"{DateTime.Now.ToLocalTime()}, {message}");
+    }
+}
+
+public interface IComparable
+{
+    int CompareTo(object obj);
+    void Open();
+    void Close();
+}
+
+public class MyClass2 : IComparable
+{
+    public int CompareTo(object obj)
+    {
+        return 0;
+    }
+    public void Open() { }
+    public void Close() { }
+}
+
+public class InterfaceSample
+{
+    public void Sample()
+    {
+        //IComparable ic = new IComparable(); // 이건 에러
+        IComparable ic = new MyClass2();
+        ic.Open();
+        ic.Close();
+
+        MyClass2 mc2 = new MyClass2();
+        mc2.Open();
+        mc2.Close();
+    }
+}
+
 public static class MyUtility
 {
     static int ver;
