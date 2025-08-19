@@ -1,7 +1,36 @@
+using System.Security.Cryptography;
 using System.Text;
 
 class Solution
 {
+    /// <summary>
+    /// 문자열 정렬하기 (2)
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public string Solution08192(string my_string)
+    {
+        // list.Sort 사용
+        /*
+        string answer = "";
+        var list = new List<string>();
+        foreach (var item in my_string)
+        {
+            list.Add(item.ToString().ToLower());
+        }
+        list.Sort();
+        foreach (var item in list)
+        {
+            answer += item;
+        }
+        return answer;
+        */
+        // Array.Sort 이용 (char array)
+        char[] chrarr = my_string.ToLower().ToCharArray();
+        Array.Sort(chrarr);
+        return new string(chrarr);
+    }
+
     /// <summary>
     /// 가장 큰 수 찾기
     /// </summary>
