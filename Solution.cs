@@ -3,6 +3,45 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 가장 큰 수 찾기
+    /// </summary>
+    /// <param name="array"></param>
+    /// <returns></returns>
+    public int[] Solution0819(int[] array)
+    {
+        int[] answer = new int[2];
+        /*
+        // array를 처음부터 끝까지 탐색한다
+        for (int i = 0; i < array.Length; i++)
+        {
+            // 현재 인덱스의 array 값과 현재 최대값을 비교
+            if (array[i] > answer[0])
+            {
+                //현재 인덱스 array 값이 크면 그걸 최대값으로 저장
+                answer[0] = array[i];
+                // 이 때 인덱스 값도 answer에 저장 
+                answer[1] = i;
+            }
+        }
+        */
+        // Dictionary 이용
+        //Dictionary<int, int> dic = new Dictionary<int, int>();
+        var dic = new Dictionary<int, int>();
+        // dic에 array값 넣기
+        for (int i = 0; i < array.Length; i++)
+        {
+            dic.Add(array[i], i);
+        }
+        // 큰수 찾기 : List의 Sort를 이용
+        var list = new List<int>(array);
+        list.Sort();
+        // 리턴 배열에 넣기
+        answer[0] = list[list.Count - 1]; // list[array.Length - 1];
+        answer[1] = dic[answer[0]];
+        return answer;
+    }
+
+    /// <summary>
     /// 약수 구하기
     /// </summary>
     /// <param name="n"></param>

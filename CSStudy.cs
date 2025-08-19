@@ -2,11 +2,34 @@
 //#define PROD_ENV
 
 using System.Collections;
+using System.Runtime.InteropServices;
 using System.Text;
 using Zinine;
 
 public class CSStudy
 {
+    // delegate 정의
+    delegate int MyDelegate(string s);
+    public void DeleTest()
+    {
+        // delegate 객체 생성
+        MyDelegate m = new MyDelegate(StringToInt);
+        // delegate 객체를 메서드로 전달
+        DeleRun(m);
+    }
+    // delegate 대상이 되는 메서드
+    int StringToInt(string s)
+    {
+        return int.Parse(s);
+    }
+    // delegate를 전달 받는 메서드
+    void DeleRun(MyDelegate mmm)
+    {
+        // delegate로부터 메서드 실행
+        int i = mmm("123"); // m.invoke("123);
+        Console.WriteLine(i);
+    }
+
     public void InterfaceTest()
     {
         ILogger logger = new ConsoleLogger();
