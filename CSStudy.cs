@@ -2,12 +2,44 @@
 //#define PROD_ENV
 
 using System.Collections;
-using System.Runtime.InteropServices;
 using System.Text;
 using Zinine;
 
 public class CSStudy
 {
+    public void CompareRun()
+    {
+        int[] a = { 5, 53, 3, 7, 1 };
+        // 올림차순 정렬
+        Util.ComapreDelegate compDele = Util.AscendingCompare;
+        Util.Sort(a, compDele);
+        // 내림차순 정렬
+        compDele = Util.DescendingCompare;
+        Util.Sort(a, compDele);
+    }
+
+    // 1.delegate 선언
+    delegate void RunDelegate(int i);
+    void RunThis(int val)
+    {
+        Console.WriteLine($"{val}");
+    }
+    void RunThat(int value)
+    {
+        //Console.WriteLine("0x{0:X}", value);
+        Console.WriteLine($"0x{value:X}");
+    }
+    public void DelePerform()
+    {
+        // 2. delegate 인스턴스 생성
+        //RunDelegate run = new RunDelegate(RunThis);
+        RunDelegate run = RunThis;
+        // 3. delegate 실행
+        run(1024);
+        //run = new RunDelegate(RunThat);
+        run = RunThat; 
+        run(1024);
+    }
     // delegate 정의
     delegate int MyDelegate(string s);
     public void DeleTest()

@@ -1,8 +1,52 @@
-using System.Security.Cryptography;
 using System.Text;
 
 class Solution
 {
+    /// <summary>
+    /// n보다 커질 때까지 더하기
+    /// </summary>
+    /// <param name="numbers"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution08202(int[] numbers, int n)
+    {
+        int answer = 0;
+        foreach (var item in numbers)
+        {
+            answer += item;
+            if (answer > n)
+            {
+                break;
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 문자열의 뒤의 n글자
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public string Solution0820(string my_string, int n)
+    {
+        //return my_string.Substring(my_string.Length - n, n);
+        //return my_string.Remove(0, my_string.Length - n);
+        string answer = "";
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            if (i < my_string.Length - n)
+            {
+                continue;
+            }
+            else
+            {
+                answer += my_string[i];
+            }
+        }
+        return answer;
+    }
+
     /// <summary>
     /// 문자열 정렬하기 (2)
     /// </summary>
