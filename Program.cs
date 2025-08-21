@@ -9,17 +9,21 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] { 58,44,27,10,100 };
+        var intArray = new int[] { 5,2,1,7,5 };
         var strArr1 = new string[] { "ab", "b", "c" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
-        Console.WriteLine(sol.Solution08202(intArray, 139));
-        //Util.PrintArray(sol.Solution0819(intArray));
+        ///// 배열이 아닌 값을 리턴하는 경우 /////
+        //Console.WriteLine(sol.Solution0821(intArray));
+        ///// 배열값을 리턴하는 경우 /////
+        Util.PrintArray(sol.Solution08212(intArray, 3));
+        ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution08122();
 
         CSStudy study = new CSStudy();
-        //study.CompareRun();
+        //study.TestMyArea();
 
+        ///// 내림차순 정렬을 이용할 때 /////
         //Util.Sort(intArray, Util.DescendingCompare);
         //Util.PrintArray(intArray);
     }

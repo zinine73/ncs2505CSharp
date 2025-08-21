@@ -4,9 +4,47 @@
 using System.Collections;
 using System.Text;
 using Zinine;
+// Forms를 사용하려면 csproj에 <itemgroup> 추가 필요
+using System.Windows.Forms;
 
 public class CSStudy
 {
+    class MyArea : Form // using System.Windows.Forms; 필요
+    {
+        public MyArea()
+        {
+            this.MouseClick += delegate { MyAreaClicked(); };
+        }
+        public delegate void ClickDelegate(object sender);
+        // delegate field
+        public ClickDelegate MyClick;
+        void MyAreaClicked()
+        {
+            if (MyClick != null)
+            {
+                MyClick(this);
+            }
+        }
+    }
+    MyArea area;
+    public void TestMyArea()
+    {
+        area = new MyArea();
+        area.MyClick += Area_Click;
+        area.MyClick += AfterClick;
+        area.MyClick += Area_Click;
+        //area.MyClick = AfterClick;
+        area.ShowDialog();
+    }
+    void Area_Click(object sender)
+    {
+        area.Text += " MyArea 클릭!";
+    }
+    void AfterClick(object sender)
+    {
+        area.Text += " AfterClick 클릭!";
+    }
+
     public void CompareRun()
     {
         int[] a = { 5, 53, 3, 7, 1 };

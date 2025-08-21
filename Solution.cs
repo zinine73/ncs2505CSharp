@@ -3,6 +3,71 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 순서 바꾸기
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[] Solution08212(int[] num_list, int n)
+    {
+        // 리턴할 배열의 크기를 바로 알 수 있는가?
+        // => 있다면 그 크기만큼 배열을 잡고 시작
+        int[] answer = new int[num_list.Length];
+        // 전체에서 순서를 알 수 있는 변수가 하나 필요
+        // => answer에 값을 넣기 위한 인덱스
+        int idx = 0;
+        // n에서 시작하고 num_list 끝까지 반복
+        for (int i = n; i < num_list.Length; i++)
+        {
+            // answer에 num_list 현재 값을 대입, 전체 인덱스 증가
+            answer[idx++] = num_list[i];
+        }
+        // 처음부터 n까지 반복
+        for (int i = 0; i < n; i++)
+        {
+            // answer에 num_list 현재 값을 대입
+            answer[idx++] = num_list[i];
+        }
+        return answer;
+
+        // queue를 사용
+        /*
+        Queue<int> q = new Queue<int>();
+        for(int i = 0; i < num_list.Length; i++)
+        {
+            q.Enqueue(num_list[i]);
+        }
+        for(int i = 0; i < n; i++)
+        {
+            int x = q.Dequeue();
+            q.Enqueue(x);
+        }
+        return q.ToArray();
+        */
+    }
+
+    /// <summary>
+    /// 첫 번째로 나오는 음수
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
+    public int Solution0821(int[] num_list)
+    {
+        // num_list의 길이만큼 반복
+        for (int i = 0; i < num_list.Length; i++)
+        {
+            // 현재 인덱스의 num_list값과 0 비교
+            if (num_list[i] < 0)
+            {
+                // 작으면 현재 인덱스 리턴
+                return i;
+            }
+        }
+        // 아니면 -1 리턴
+        return -1;
+    }
+
+    /// <summary>
     /// n보다 커질 때까지 더하기
     /// </summary>
     /// <param name="numbers"></param>
