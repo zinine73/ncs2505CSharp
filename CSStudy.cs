@@ -16,8 +16,8 @@ public class CSStudy
             this.MouseClick += delegate { MyAreaClicked(); };
         }
         public delegate void ClickDelegate(object sender);
-        // delegate field
-        public ClickDelegate MyClick;
+        // delegate field => event field
+        public event ClickDelegate MyClick;
         void MyAreaClicked()
         {
             if (MyClick != null)
@@ -32,8 +32,10 @@ public class CSStudy
         area = new MyArea();
         area.MyClick += Area_Click;
         area.MyClick += AfterClick;
-        area.MyClick += Area_Click;
-        //area.MyClick = AfterClick;
+        area.MyClick -= Area_Click;
+        // event일때는 사용 불가
+        //area.MyClick = Area_Click;
+        //area.MyClick = null;
         area.ShowDialog();
     }
     void Area_Click(object sender)

@@ -16,7 +16,7 @@ internal class Program
         ///// 배열이 아닌 값을 리턴하는 경우 /////
         //Console.WriteLine(sol.Solution0821(intArray));
         ///// 배열값을 리턴하는 경우 /////
-        Util.PrintArray(sol.Solution08212(intArray, 3));
+        Util.PrintArray(sol.Solution08222(15, 5));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution08122();
 

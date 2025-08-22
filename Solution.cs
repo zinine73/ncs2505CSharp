@@ -3,6 +3,53 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 배열 만들기 1
+    /// </summary>
+    /// <param name="n"></param>
+    /// <param name="k"></param>
+    /// <returns></returns>
+    public int[] Solution08222(int n, int k)
+    {
+        // 리턴될 배열의 크기를 바로 알 수 없으니 list를 사용하자
+        var list = new List<int>();
+        // 1에서 n까지 반복
+        for (int i = 1, j = i * k; i <= n; i++, j = i * k)
+        {
+            // 조건에 맞지 않으면 break
+            if (j > n) break;
+            // list에 k의 배수 넣기
+            list.Add(j);
+        }
+        // list를 int배열로 변환해서 리턴
+        return list.ToArray();
+    }
+
+    /// <summary>
+    /// 카운트 다운
+    /// </summary>
+    /// <param name="start_num"></param>
+    /// <param name="end_num"></param>
+    /// <returns></returns>
+    public int[] Solution0822(int start_num, int end_num)
+    {
+        /*
+        int len = start_num - end_num + 1;
+        int[] answer = new int[len];
+        for (int i = 0; i < len; i++)
+        {
+            answer[i] = start_num - i;
+        }
+        return answer;
+        */
+        var list = new List<int>();
+        for (int i = start_num; i >= end_num; i--)
+        {
+            list.Add(i);
+        }
+        return list.ToArray();
+    }
+
+    /// <summary>
     /// 순서 바꾸기
     /// </summary>
     /// <param name="num_list"></param>
