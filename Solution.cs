@@ -3,6 +3,52 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 접두사인지 확인하기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="is_prefix"></param>
+    /// <returns></returns>
+    public int Solution08252(string my_string, string is_prefix)
+    {
+        /*
+        int answer = 1;
+        // is_prefix 의 길이가 my_string보다 길면 0 리턴
+        if (is_prefix.Length > my_string.Length)
+        {
+            return 0;
+        }
+        // for문 돌면서
+        for (int i = 0; i < is_prefix.Length; i++)
+        {
+            // 현재 인덱스의 문자가 다르면 0 리턴
+            if (my_string[i] != is_prefix[i])
+            {
+                return 0;
+            }
+        }
+        // 리턴되지 않았으면 1 리턴
+        return answer;
+        */
+        return my_string.IndexOf(is_prefix) == 0 ? 1 : 0;
+    }
+
+    /// <summary>
+    /// 더 크게 합치기
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    public int Solution0825(int a, int b)
+    {
+        string ab = $"{a}{b}";
+        string ba = $"{b}{a}";
+        int iab = int.Parse(ab);
+        int iba = Convert.ToInt32(ba);
+        int answer = Math.Max(iab, iba);
+        return answer;
+    }
+
+    /// <summary>
     /// 배열 만들기 1
     /// </summary>
     /// <param name="n"></param>
