@@ -3,6 +3,28 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 부분 문자열 이어 붙여 문자열 만들기
+    /// </summary>
+    /// <param name="my_strings"></param>
+    /// <param name="parts"></param>
+    /// <returns></returns>
+    public string Solution08262(string[] my_strings, int[,] parts)
+    {
+        string answer = "";
+        // parts의 1차원 갯수를 먼저 구하자
+        int cnt = parts.GetLength(0);
+        // for문으로 parts의 갯수만큼 반복
+        for (int i = 0; i < cnt; i++)
+        {
+            // 잘라야 하는 길이를 먼저 구하자
+            int len = parts[i, 1] - parts[i, 0] + 1;
+            // 자른만큼의 문자열을 answer에 붙이자      
+            answer += my_strings[i].Substring(parts[i, 0], len);
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 접미사 배열
     /// </summary>
     /// <param name="my_string"></param>
