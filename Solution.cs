@@ -3,6 +3,27 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 접미사 배열
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public string[] Solution0826(string my_string)
+    {
+        // string list를 준비
+        var list = new List<string>();
+        // for문으로 my_string 크기만큼 돌자
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            // list에 my_string을 자른 값을 넣자
+            list.Add(my_string.Substring(i));
+        }
+        // list를 정렬
+        list.Sort();
+        // list를 배열로 변환시킨 후 리턴
+        return list.ToArray();
+    }
+
+    /// <summary>
     /// 접두사인지 확인하기
     /// </summary>
     /// <param name="my_string"></param>

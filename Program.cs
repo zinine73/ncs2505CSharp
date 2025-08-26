@@ -9,14 +9,14 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArray = new int[] { 5,2,1,7,5 };
+        var intArray = new int[] { 5, 2, 1, 7, 5 };
         var strArr1 = new string[] { "ab", "b", "c" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution08252("banana", "bananan"));
+        //Console.WriteLine(sol.Solution08252("banana", "bananan"));
         ///// 배열값을 리턴하는 경우 /////
-        //Util.PrintArray(sol.Solution08222(15, 5));
+        Util.PrintArray(sol.Solution0826("programmers"));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution08122();
 
