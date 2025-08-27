@@ -11,6 +11,22 @@ public class CSStudy
 {
     class MyArea : Form // using System.Windows.Forms; 필요
     {
+        delegate void MyDelegate(int a);
+        public void AnoTest()
+        {
+            //var de = delegate (int p1) { Console.Write(p1); };
+            // delegate 원래 쓰는 법
+            MyDelegate dd = new MyDelegate(AnoMe);
+            void AnoMe(int p1)
+            {
+                Console.Write(p1);
+            }
+            // 위에꺼를 무명메서드로 줄여 쓰는 법
+            MyDelegate d = delegate (int p1)
+            {
+                Console.Write(p1);
+            };
+        }
         public MyArea()
         {
             this.MouseClick += delegate { MyAreaClicked(); };
@@ -37,7 +53,18 @@ public class CSStudy
         //area.MyClick = Area_Click;
         //area.MyClick = null;
         area.ShowDialog();
+
+        // 무명메서드
+        area.Click += new EventHandler(delegate (object s, EventArgs a)
+            { MessageBox.Show("OK"); });
+        area.Click += (EventHandler)delegate (object s, EventArgs a)
+            { MessageBox.Show("OK"); };
+        area.Click += delegate (object s, EventArgs a)
+            { MessageBox.Show("OK"); };
+        area.Click += delegate
+            { MessageBox.Show("OK"); };
     }
+
     void Area_Click(object sender)
     {
         area.Text += " MyArea 클릭!";

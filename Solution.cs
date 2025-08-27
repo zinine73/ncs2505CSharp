@@ -3,6 +3,58 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 콜라츠 수열 만들기
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[] Solution08272(int n)
+    {
+        // list를 하나 만들자
+        var list = new List<int>();
+        // while 로 돌리자
+        while (n != 1)
+        {
+            // n을 list에 넣는다
+            list.Add(n);
+            // n이 짝수인지 판별
+            if (n % 2 == 0)
+            {
+                // 짝수일 때 변형
+                n /= 2;
+            }
+            else
+            {
+                // 홀수일 때 변형
+                n = 3 * n + 1;
+            }
+        }
+        // 마지막으로 할 일
+        list.Add(1);
+        // list를 배열형식으로 변환 후 리턴
+        return list.ToArray();
+    }
+
+    /// <summary>
+    /// 글자 이어 붙여 문자열 만들기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="index_list"></param>
+    /// <returns></returns>
+    public string Solution0827(string my_string, int[] index_list)
+    {
+        // 문자열 연산이므로 StringBuilder 사용
+        var sb = new StringBuilder();
+        // foreach로 index_list를 돌자
+        foreach (var item in index_list)
+        {
+            // sb에 my_string의 현재 인덱스의 문자를 넣자
+            sb.Append(my_string[item]);
+        }
+        // 문자열로 변환 후 리턴
+        return sb.ToString();
+    }
+
+    /// <summary>
     /// 부분 문자열 이어 붙여 문자열 만들기
     /// </summary>
     /// <param name="my_strings"></param>
