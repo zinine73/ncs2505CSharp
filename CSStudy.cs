@@ -11,6 +11,7 @@ public class CSStudy
 {
     class MyArea : Form // using System.Windows.Forms; 필요
     {
+        
         delegate void MyDelegate(int a);
         public void AnoTest()
         {
@@ -29,7 +30,8 @@ public class CSStudy
         }
         public MyArea()
         {
-            this.MouseClick += delegate { MyAreaClicked(); };
+            //this.MouseClick += delegate { MyAreaClicked(); };
+            MouseClick += (s,e) => MyAreaClicked();
         }
         public delegate void ClickDelegate(object sender);
         // delegate field => event field
@@ -63,6 +65,8 @@ public class CSStudy
             { MessageBox.Show("OK"); };
         area.Click += delegate
             { MessageBox.Show("OK"); };
+        // 람다식
+        area.Click += (s, a) => MessageBox.Show("OK");
     }
 
     void Area_Click(object sender)

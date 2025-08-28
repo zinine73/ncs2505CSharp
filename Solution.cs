@@ -3,6 +3,58 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 수 조작하기 2
+    /// </summary>
+    /// <param name="numlog"></param>
+    /// <returns></returns>
+    public string Solution08282(int[] numlog)
+    {
+        // 문자열 계산할때는 StringBuilder를 쓰자
+        var sb = new StringBuilder();
+        // 주어진 배열 길이 - 1 만큼 반복
+        for (int i = 0; i < numlog.Length - 1; i++)
+        {
+            // 알아야할 값 = 다음 값 - 지금 값
+            int val = numlog[i + 1] - numlog[i];
+            // 해당 문자를 결과에 더한다
+            if (val == 1)       sb.Append('w');
+            else if (val == -1) sb.Append('s');
+            else if (val == 10) sb.Append('d');
+            else                sb.Append('a');
+        }
+        // 문자열로 변환 후 리턴
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// 수 조작하기 1
+    /// </summary>
+    /// <param name="n"></param>
+    /// <param name="control"></param>
+    /// <returns></returns>
+    public int Solution0828(int n, string control)
+    {
+        // control의 길이만큼 반복
+        foreach (var item in control)
+        {
+            // 해당문자에 따른 n 계산
+            switch (item)
+            {
+                case 'w': n++; break;
+                case 's': n--; break;
+                case 'd': n += 10; break;
+                case 'a': n -= 10; break;
+                // switch-case문을 작성할때는, default를 추가하자
+                default:
+                    Console.WriteLine("Error!!");
+                    break;
+            }
+        }
+        // n 리턴
+        return n;
+    }
+
+    /// <summary>
     /// 콜라츠 수열 만들기
     /// </summary>
     /// <param name="n"></param>
