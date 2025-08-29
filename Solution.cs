@@ -14,21 +14,21 @@ class Solution
         int answer = 0;
         // if 비교문 중 가장 복잡한걸 마지막 else에 둔다
         //if ((a != b) && (a != c) && (b != c))
-        //if ((a == b) || (a == c) || (b == c))
+        //if ((a == b && a != c) || (a == c && a != b) || (b == c && a != b))
         //if ((a == b) && (a == c))
-        if ((a == b) && (a == c))
+        if ((a != b) && (a != c) && (b != c))
+        {
+            answer = a + b + c;
+        }
+        else if ((a == b) && (a == c))
         {
             answer = (a + b + c) *
                 (a * a + b * b + c * c) *
                 (a * a * a + b * b * b + c * c * c);
         }
-        else if ((a == b) || (a == c) || (b == c))
-        {
-            answer = (a + b + c) * (a * a + b * b + c * c);
-        }
         else
         {
-            answer = a + b + c;
+            answer = (a + b + c) * (a * a + b * b + c * c);
         }
         return answer;
     }
