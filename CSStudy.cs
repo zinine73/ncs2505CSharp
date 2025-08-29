@@ -6,12 +6,28 @@ using System.Text;
 using Zinine;
 // Forms를 사용하려면 csproj에 <itemgroup> 추가 필요
 using System.Windows.Forms;
+using System.Diagnostics;
 
 public class CSStudy
 {
+    public void AnoTypeTest()
+    {
+        var v = new[] {
+            new {Name="Lee", Age=33, Phone="02-111-1111"},
+            new {Name="Kim", Age=25, Phone="02-222-2222"},
+            new {Name="Park", Age=37, Phone="02-333-3333"}
+        };
+        var list = v.Where(p => p.Age >= 30).
+            Select(p => new { p.Name, p.Age });
+        foreach (var item in list)
+        {
+            Debug.WriteLine($"{item.Name} {item.Age}");
+        }
+    }
+
     class MyArea : Form // using System.Windows.Forms; 필요
     {
-        
+
         delegate void MyDelegate(int a);
         public void AnoTest()
         {
@@ -31,7 +47,7 @@ public class CSStudy
         public MyArea()
         {
             //this.MouseClick += delegate { MyAreaClicked(); };
-            MouseClick += (s,e) => MyAreaClicked();
+            MouseClick += (s, e) => MyAreaClicked();
         }
         public delegate void ClickDelegate(object sender);
         // delegate field => event field

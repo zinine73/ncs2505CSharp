@@ -9,20 +9,20 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArr = new int[] { 0, 1, 0, 10, 0, 1, 0, 10, 0, -1, -2, -1 };
+        var intArr = new int[] { 5,2,1,7,5 };
         var int2Arr = new int[,] {{0,4},{1,2},{3,5},{7,7}};
         var strArr1 = new string[] { "progressive", "hamburger", "hammer", "ahocorasick" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution08282(intArr));
+        Console.WriteLine(sol.Solution08292(4,4,4));
         ///// 배열값을 리턴하는 경우 /////
-        //Util.PrintArray(sol.Solution08272(10));
+        //Util.PrintArray(sol.Solution0829(intArr));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution08122();
 
         CSStudy study = new CSStudy();
-        //study.TestMyArea();
+        //study.AnoTypeTest();
 
         ///// 내림차순 정렬을 이용할 때 /////
         //Util.Sort(intArray, Util.DescendingCompare);

@@ -3,6 +3,70 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 주사위 게임 2
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <param name="c"></param>
+    /// <returns></returns>
+    public int Solution08292(int a, int b, int c)
+    {
+        int answer = 0;
+        // if 비교문 중 가장 복잡한걸 마지막 else에 둔다
+        //if ((a != b) && (a != c) && (b != c))
+        //if ((a == b) || (a == c) || (b == c))
+        //if ((a == b) && (a == c))
+        if ((a == b) && (a == c))
+        {
+            answer = (a + b + c) *
+                (a * a + b * b + c * c) *
+                (a * a * a + b * b * b + c * c * c);
+        }
+        else if ((a == b) || (a == c) || (b == c))
+        {
+            answer = (a + b + c) * (a * a + b * b + c * c);
+        }
+        else
+        {
+            answer = a + b + c;
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 마지막 두 원소
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
+    public int[] Solution0829(int[] num_list)
+    {
+        // answer의 크기를 알 수 있는가
+        int len = num_list.Length + 1;
+        // 그 크기만큼 answer를 정의
+        int[] answer = new int[len];
+        // num_list의 값을 answer에 넣기
+        for (int i = 0; i < len - 1; i++)
+        {
+            answer[i] = num_list[i];
+        }
+        // 마지막 원소, 마지막 전 원소의 값 얻기
+        int last1 = num_list[len - 2];
+        int last2 = num_list[len - 3];
+        // 마지막 원소와 전 원소의 비교
+        if (last1 > last2) // 구해진 값을 answer의 마지막에 넣는다
+        {
+            // 마지막 원소가 크면 뺀 값
+            answer[len - 1] = last1 - last2;
+        }
+        else
+        {
+            // 아니면 마지막 원소를 두배한 값
+            answer[len - 1] = last1 * 2;
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 수 조작하기 2
     /// </summary>
     /// <param name="numlog"></param>
@@ -17,10 +81,10 @@ class Solution
             // 알아야할 값 = 다음 값 - 지금 값
             int val = numlog[i + 1] - numlog[i];
             // 해당 문자를 결과에 더한다
-            if (val == 1)       sb.Append('w');
+            if (val == 1) sb.Append('w');
             else if (val == -1) sb.Append('s');
             else if (val == 10) sb.Append('d');
-            else                sb.Append('a');
+            else sb.Append('a');
         }
         // 문자열로 변환 후 리턴
         return sb.ToString();
