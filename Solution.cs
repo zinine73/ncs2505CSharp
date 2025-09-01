@@ -3,6 +3,35 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 덧셈식 출력하기
+    /// </summary>
+    public void Solution09012()
+    {
+        string[] s;
+        Console.Clear();
+        s = Console.ReadLine().Split(' ');
+        int a = Int32.Parse(s[0]);
+        int b = Convert.ToInt32(s[1]);
+        //int result = a + b;
+        //Console.WriteLine("{0} + {1} = {2}", a, b, a + b);
+        Console.WriteLine($"{a} + {b} = {a + b}");
+    }
+
+    /// <summary>
+    /// 문자열 돌리기
+    /// </summary>
+    public void Solution0901()
+    {
+        string s;
+        Console.Clear();
+        s = Console.ReadLine();
+        foreach (var item in s)
+        {
+            Console.WriteLine(item);
+        }
+    }
+
+    /// <summary>
     /// 주사위 게임 2
     /// </summary>
     /// <param name="a"></param>

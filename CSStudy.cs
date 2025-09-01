@@ -4,12 +4,21 @@
 using System.Collections;
 using System.Text;
 using Zinine;
+using MyExtension;
 // Forms를 사용하려면 csproj에 <itemgroup> 추가 필요
 using System.Windows.Forms;
 using System.Diagnostics;
 
 public class CSStudy
 {
+    public void ExtensionTest()
+    {
+        string s = "This is a Test";
+        string s2 = s.ToChangeCase();
+        bool found = s.Found('z');
+        Console.WriteLine($"{s2}, found:{found}");
+    }
+
     public void AnoTypeTest()
     {
         var v = new[] {
