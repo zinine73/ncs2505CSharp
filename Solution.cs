@@ -3,6 +3,66 @@ using System.Text;
 class Solution
 {
     /// <summary>
+    /// 이어 붙인 수
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
+    public int Solution09022(int[] num_list)
+    {
+        int answer = 0;
+        // 홀짝에 해당하는 문자열 변수를 만든다
+        string even = "", odd = "";
+        // foreach문으로 돌면서
+        foreach (var item in num_list)
+        {
+            // 짝수면 짝수문자열에 
+            if (item % 2 == 0)
+            {
+                //even += item.ToString();
+                even += item;
+            }
+            else // 홀수면 홀수문자열에 넣기
+            {
+                odd += item;
+            }
+        }
+        // 문자열을 정수값으로 변환 후 더한다
+        answer = Int32.Parse(even) + Convert.ToInt32(odd);
+        return answer;
+    }
+
+    /// <summary>
+    /// 특정한 문자를 대문자로 바꾸기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="alp"></param>
+    /// <returns></returns>
+    public string Solution0902(string my_string, string alp)
+    {
+        // 1. string에 있는 특정 메서드 사용 
+        //return my_string.Replace(alp, alp.ToUpper());
+
+        // 2. foreach 문으로 반복
+        var sb = new StringBuilder();
+        foreach (var item in my_string)
+        {
+            // alp와 같은지 비교
+            if (item.ToString().Equals(alp))
+            {
+                // 같으면 대문자로 바꿔서 넣기
+                //answer += alp.ToUpper();
+                sb.Append((char)(item - 'a' + 'A'));
+            }
+            else
+            {
+                // 아니면 그냥 넣기
+                sb.Append(item);
+            }
+        }
+        return sb.ToString();
+    }
+
+    /// <summary>
     /// 덧셈식 출력하기
     /// </summary>
     public void Solution09012()

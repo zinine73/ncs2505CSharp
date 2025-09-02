@@ -11,6 +11,14 @@ using System.Diagnostics;
 
 public class CSStudy
 {
+    public void ExTest2()
+    {
+        var nums = new List<int> { 55, 44, 33, 66, 11 };
+        var v = nums.Where(p => p % 3 == 0);
+        List<int> arr = v.ToList<int>();
+        arr.ForEach(x => Console.WriteLine(x));
+    }
+
     public void ExtensionTest()
     {
         string s = "This is a Test";
