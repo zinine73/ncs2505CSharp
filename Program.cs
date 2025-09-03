@@ -10,15 +10,15 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArr = new int[] { 5,7,8,3 };
+        var intArr = new int[] { 1,2,3,100,99,98 };
         var int2Arr = new int[,] { { 0, 4 }, { 1, 2 }, { 3, 5 }, { 7, 7 } };
         var strArr1 = new string[] { "progressive", "hamburger", "hammer", "ahocorasick" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution0903("jjnnllkkmm"));
+        //Console.WriteLine(sol.Solution0903("jjnnllkkmm"));
         ///// 배열값을 리턴하는 경우 /////
-        //Util.PrintArray(sol.Solution0829(intArr));
+        Util.PrintArray(sol.Solution09032(intArr, 2));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution09012();
 

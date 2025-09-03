@@ -4,6 +4,27 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 조건에 맞게 수열 변환하기 3
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="k"></param>
+    /// <returns></returns>
+    public int[] Solution09032(int[] arr, int k)
+    {
+        // 반환 배열의 크기를 알 수 있으므로 그 크기만큼 만든다
+        int[] answer = new int[arr.Length];
+        // 매번 계산해야 되는게 있다면 미리 해 놓자
+        bool isEven = k % 2 == 0;
+        // for문으로 반복
+        for (int i = 0; i < answer.Length; i++)
+        {
+            // 삼항연산자 사용
+            answer[i] = isEven ? arr[i] + k : arr[i] * k;
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// l로 만들기
     /// </summary>
     /// <param name="myString"></param>
