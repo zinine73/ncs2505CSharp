@@ -1,7 +1,25 @@
 using System.Text;
+using System.Text.RegularExpressions;
 
 class Solution
 {
+    /// <summary>
+    /// l로 만들기
+    /// </summary>
+    /// <param name="myString"></param>
+    /// <returns></returns>
+    public string Solution0903(string myString)
+    {
+        // return myString.Replace("a", "l")
+        //     .Replace("b", "l").Replace("c", "l")
+        //     .Replace("d", "l").Replace("e", "l")
+        //     .Replace("f", "l").Replace("g", "l")
+        //     .Replace("h", "l").Replace("i", "l")
+        //     .Replace("j", "l").Replace("k", "l");
+        // 코드는 간단하나 실행시간은 더 걸린다
+        return Regex.Replace(myString, "[a-k]", "l");
+    }
+
     /// <summary>
     /// 이어 붙인 수
     /// </summary>

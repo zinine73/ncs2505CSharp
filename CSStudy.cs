@@ -8,9 +8,64 @@ using MyExtension;
 // Forms를 사용하려면 csproj에 <itemgroup> 추가 필요
 using System.Windows.Forms;
 using System.Diagnostics;
+// Regular Expression을 사용하려면 선언 필요
+using System.Text.RegularExpressions;
 
 public class CSStudy
 {
+    public void RegexSample()
+    {
+        string str = "서울시 강남구 역삼동 강남아파트";
+        Regex regex = new Regex("강남");
+        //Match m = regex.Match(str);
+        MatchCollection mc = regex.Matches(str);
+        // if (m.Success)
+        // {
+        //     Console.WriteLine($"{m.Index}:{m.Value}");
+        // }
+        // while (m.Success)
+        // {
+        //     Console.WriteLine($"{m.Index}:{m.Value}");
+        //     m = m.NextMatch();
+        // }
+        foreach (Match m in mc)
+        {
+            //Console.WriteLine($"{m.Index}:{m.Value}");
+        }
+
+        string pn = "015-1234-5555";
+        Regex regex1 = new Regex(@"^01[01678]-[0-9]{4}-[0-9]{4}$");
+        if (regex1.IsMatch(pn))
+        {
+            Console.WriteLine("Match");
+        }
+        else
+        {
+            Console.WriteLine("Miss Match");
+        }
+        string name = "김공A";
+        regex1 = new Regex(@"^[가-힣]{3}$");
+        if (regex1.IsMatch(name))
+        {
+            Console.WriteLine("Match");
+        }
+        else
+        {
+            Console.WriteLine("Miss Match");
+        }
+    }   
+
+    public void PartialTest()
+    {
+        Class1 c1 = new Class1();
+        c1.Get();
+        c1.Put();
+        c1.Run();
+
+        Struct1 s1 = new Struct1(123, "Kim");
+        Console.WriteLine($"{s1.ID}, {s1.Name}");
+    }
+
     public void ExTest2()
     {
         var nums = new List<int> { 55, 44, 33, 66, 11 };
@@ -141,7 +196,7 @@ public class CSStudy
         // 3. delegate 실행
         run(1024);
         //run = new RunDelegate(RunThat);
-        run = RunThat; 
+        run = RunThat;
         run(1024);
     }
     // delegate 정의
@@ -524,7 +579,7 @@ public class CSStudy
         Console.WriteLine(mc.GetCustomerData());
         Console.WriteLine(mc.CalAge(30));
     }
-    
+
     // 구조체 정의
     public struct MyPoint
     {
@@ -771,7 +826,7 @@ public class CSStudy
         Bottom = 4,
         Left = 8
     }
-    
+
     public void EnumSample()
     {
         Category cafeCategory;
