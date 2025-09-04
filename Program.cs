@@ -16,7 +16,7 @@ internal class Program
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution0904(69.32));
+        Console.WriteLine(sol.Solution09042(123456, 3));
         ///// 배열값을 리턴하는 경우 /////
         //Util.PrintArray(sol.Solution09032(intArr, 2));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////

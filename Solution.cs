@@ -4,6 +4,38 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 숫자 찾기
+    /// </summary>
+    /// <param name="num"></param>
+    /// <param name="k"></param>
+    /// <returns></returns>
+    public int Solution09042(int num, int k)
+    {
+        // 간단한 방법
+        //int answer = num.ToString().IndexOf(k.ToString());
+        //return (answer == -1) ? answer : answer + 1;
+
+        // IndexOf를 모르는 경우
+        // 숫자를 문자열로 변환
+        string str = num.ToString();
+        // 비교할 숫자는 문자로 변환
+        //char kchr = Convert.ToChar(k.ToString());
+        char kchr = (char)('0' + k);
+        // 문자열의 크기만큼 순회
+        for (int i = 0; i < str.Length; i++)
+        {
+            // 문자열 중 인덱스에 해당하는 문자가 비교문자와 같으면
+            if (str[i].Equals(kchr))
+            {
+                // 인덱스에 1 더한 값 반환
+                return i + 1;
+            }
+        }
+        // 없으면 -1 반환
+        return -1;
+    }
+
+    /// <summary>
     /// 정수 부분
     /// </summary>
     /// <param name="flo"></param>
