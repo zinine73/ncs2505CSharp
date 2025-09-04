@@ -4,6 +4,24 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 정수 부분
+    /// </summary>
+    /// <param name="flo"></param>
+    /// <returns></returns>
+    public int Solution0904(double flo)
+    {
+        int answer = 0;
+        // 간단한 방법
+        //answer = (int)(flo / 1);
+        //answer = (int)flo;
+        // 조금 복잡한 방법 : string 이용
+        string str = flo.ToString();
+        string[] strArr = str.Split(".");
+        answer = Convert.ToInt32(strArr[0]);
+        return answer;
+    }
+
+    /// <summary>
     /// 조건에 맞게 수열 변환하기 3
     /// </summary>
     /// <param name="arr"></param>
