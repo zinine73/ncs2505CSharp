@@ -4,6 +4,47 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 정수 찾기
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution09052(int[] num_list, int n)
+    {
+        // int answer = 0;
+        // foreach (var item in num_list)
+        // {
+        //     if (item == n)
+        //     {
+        //         answer = 1;
+        //     }
+        // }
+        // return answer;
+        return num_list.Contains(n) ? 1 : 0;
+    }
+
+    /// <summary>
+    /// 문자열 바꿔서 찾기
+    /// </summary>
+    /// <param name="myString"></param>
+    /// <param name="pat"></param>
+    /// <returns></returns>
+    public int Solution0905(string myString, string pat)
+    {
+        // myString을 변환
+        string str = string.Empty;
+        // foreach 
+        // foreach (var item in myString)
+        // {
+        //     str += item.Equals('A') ? 'B' : 'A';
+        // }
+        // string.Replace 를 이용
+        str = myString.Replace('A', 'b').Replace('B', 'a').ToUpper();
+        // pat가 포함되었는지 판별
+        return str.Contains(pat) ? 1 : 0;
+    }
+
+    /// <summary>
     /// 숫자 찾기
     /// </summary>
     /// <param name="num"></param>
