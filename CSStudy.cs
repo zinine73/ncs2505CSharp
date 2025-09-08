@@ -13,6 +13,39 @@ using System.Text.RegularExpressions;
 
 public class CSStudy
 {
+    public event EventHandler Clicked;
+    public void Click1()
+    {
+        var tempClicked = Clicked;
+        if (tempClicked != null)
+        {
+            tempClicked(this, null);
+        }
+    }
+
+    public void Click2()
+    {
+        Clicked?.Invoke(this, null);
+    }
+
+    public void NullSample()
+    {
+        List<int> rows = new List<int>();
+        int? cnt = rows?.Count;
+
+        // int cnt2;
+        // if (rows == null)
+        // {
+        //     cnt2 = 0;
+        // }
+        // else
+        // {
+        //     cnt2 = rows.Count;
+        // }
+        int cnt2 = rows?.Count ?? 0;
+
+    }
+
     public void RegexSample()
     {
         string str = "서울시 강남구 역삼동 강남아파트";

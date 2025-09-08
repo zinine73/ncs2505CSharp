@@ -4,6 +4,47 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 꼬리 문자열
+    /// </summary>
+    /// <param name="str_list"></param>
+    /// <param name="ex"></param>
+    /// <returns></returns>
+    public string Solution09082(string[] str_list, string ex)
+    {
+        //string answer = "";
+        var sb = new StringBuilder();
+        foreach (var item in str_list)
+        {
+            if (!item.Contains(ex))
+            {
+                //answer += item;
+                sb.Append(item);
+            }
+        }
+        //return answer;
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// 배열의 원소 삭제하기
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="delete_list"></param>
+    /// <returns></returns>
+    public int[] Solution0908(int[] arr, int[] delete_list)
+    {
+        var list = new List<int>();
+        foreach (var item in arr)
+        {
+            if (!delete_list.Contains(item))
+            {
+                list.Add(item);
+            }
+        }
+        return list.ToArray();
+    }
+
+    /// <summary>
     /// 정수 찾기
     /// </summary>
     /// <param name="num_list"></param>
