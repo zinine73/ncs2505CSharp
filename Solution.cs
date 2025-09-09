@@ -4,6 +4,53 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 0 떼기
+    /// </summary>
+    /// <param name="n_str"></param>
+    /// <returns></returns>
+    public string Solution09092(string n_str)
+    {
+        /*
+        // 0이 지속되는지 여부 변수 : isZero
+        bool isZero = true;
+        // isZero 변수가 참일 때 반복 while
+        while (isZero)
+        {
+            // 현재 맨 앞에 문자가 0인지 판별
+            //if (n_str[0] == '0')
+            //if (n_str[0].CompareTo('0') == 0)
+            if (n_str[0].Equals('0'))
+            {
+                // 0이면 지우기
+                n_str = n_str.Substring(1);
+            }
+            else
+            {
+                // isZero 변수를 false로
+                isZero = false;
+            }
+        }
+        return n_str;
+        */
+        return Convert.ToInt32(n_str).ToString();
+    }
+
+    /// <summary>
+    /// 부분 문자열
+    /// </summary>
+    /// <param name="str1"></param>
+    /// <param name="str2"></param>
+    /// <returns></returns>
+    public int Solution0909(string str1, string str2)
+    {
+        // int answer = 0;
+        // if (str2.Contains(str1)) answer = 1;
+        // return answer;
+        //return (str2.IndexOf(str1) < 0) ? 0 : 1;
+        return str2.Contains(str1) ? 1 : 0;
+    }
+
+    /// <summary>
     /// 꼬리 문자열
     /// </summary>
     /// <param name="str_list"></param>

@@ -13,6 +13,28 @@ using System.Text.RegularExpressions;
 
 public class CSStudy
 {
+    public void DicInit()
+    {
+        // old
+        var score1 = new Dictionary<string, int>()
+        {
+            {"kim", 100},
+            {"lee", 90}
+        };
+        int sc1 = score1["lee"];
+        // new
+        var score2 = new Dictionary<string, int>()
+        {
+            ["kim"] = 100,
+            ["lee"] = 90
+        };
+        int sc2 = score2["lee"];
+
+        var A = new[] { 1, 2, 3 };
+        var L = new List<int>(A) { [2] = 9 };
+        Console.WriteLine($"{L[0]}, {L[2]}");
+    }
+
     public event EventHandler Clicked;
     public void Click1()
     {
