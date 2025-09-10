@@ -4,6 +4,31 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 특별한 이차원 배열 1
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[,] Solution0910(int n)
+    {
+        int[,] answer = new int[n, n];
+        // for (int i = 0; i < n; i++)
+        // {
+        //     for (int j = 0; j < n; j++)
+        //     {
+        //         if (i == j)
+        //         {
+        //             answer[i, j] = 1;
+        //         }
+        //     }
+        // }
+        for (int i = 0; i < n; i++)
+        {
+            answer[i, i] = 1;
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 0 떼기
     /// </summary>
     /// <param name="n_str"></param>

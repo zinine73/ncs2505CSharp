@@ -10,9 +10,42 @@ using System.Windows.Forms;
 using System.Diagnostics;
 // Regular Expression을 사용하려면 선언 필요
 using System.Text.RegularExpressions;
+using System.Data;
 
 public class CSStudy
 {
+    class Person
+    {
+        // public string Name
+        // {
+        //     get
+        //     {
+        //         return Name;
+        //     }
+        //     set
+        //     {
+        //         Name = value;
+        //     }
+        // }
+        //public string Name { get; set; }
+        public string Name { get; set; } = "(No name)";
+        public string Nickname { get; }
+        public int Age { get; }
+        public bool Enabled { get; } = true;
+        public int Level { get; }
+        public Person()
+        {
+            this.Level = 1;
+        }
+    }
+    public void AutoProperty()
+    {
+        Person p = new Person();
+        Console.WriteLine(p.Name);
+        Console.WriteLine(p.Nickname);
+        Console.WriteLine(p.Age);
+    }
+
     public void DicInit()
     {
         // old
