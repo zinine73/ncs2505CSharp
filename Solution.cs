@@ -4,6 +4,40 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 특별한 이차원 배열 2
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public int Solution09102(int[,] arr)
+    {
+        // int answer = 1;
+        // for (int i = 0; i < arr.GetLength(0); i++)
+        // {
+        //     for (int j = 0; j < arr.GetLength(1); j++)
+        //     {
+        //         if (arr[i, j] != arr[j, i])
+        //         {
+        //             answer = 0;
+        //             break;
+        //         }
+        //     }
+        //     if (answer == 0) break;
+        // }
+        // return answer;
+        for (int i = 0; i < arr.GetLength(0); i++)
+        {
+            for (int j = 0; j < arr.GetLength(1); j++)
+            {
+                if (arr[i, j] != arr[j, i])
+                {
+                    return 0;
+                }
+            }
+        }
+        return 1;
+    }
+
+    /// <summary>
     /// 특별한 이차원 배열 1
     /// </summary>
     /// <param name="n"></param>
