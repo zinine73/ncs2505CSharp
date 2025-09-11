@@ -4,6 +4,20 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 문자열로 변환
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    /// //public string Solution09112(int n) => n.ToString();
+    public string Solution09112(int n)
+    {
+        //return n.ToString();
+        //return "" + n;
+        //return string.Format("{0}", n);
+        return $"{n}";
+    }
+    
+    /// <summary>
     /// 부분 문자열인지 확인하기
     /// </summary>
     /// <param name="my_string"></param>
