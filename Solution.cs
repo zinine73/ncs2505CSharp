@@ -4,6 +4,21 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 부분 문자열인지 확인하기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="target"></param>
+    /// <returns></returns>
+    public int Solution0911(string my_string, string target)
+    {
+        // int answer = 0;
+        // if (my_string.Contains(target)) answer = 1;
+        // return answer;
+        //return my_string.Contains(target) ? 1 : 0;
+        return my_string.IndexOf(target) < 0 ? 0 : 1;
+    }
+
+    /// <summary>
     /// 특별한 이차원 배열 2
     /// </summary>
     /// <param name="arr"></param>
