@@ -4,6 +4,51 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 뒤에서 5등 위로
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
+    public int[] Solution09122(int[] num_list)
+    {
+        // list 사용
+        var list = new List<int>(num_list);
+        // list 정렬
+        list.Sort();
+        // for : index를 사용 ///////////////////////////////
+        /*
+        var list2 = new List<int>();
+        for (int i = 5; i < list.Count; i++)
+        {
+            // 다른 list에 넣기
+            list2.Add(list[i]);
+        }
+        // int[]로 변환해서 리턴
+        return list2.ToArray();
+        */
+        // 지우는 메서드(RemoveAt) 사용 ///////////////////////////////
+        for (int i = 0; i < 5; i++)
+        {
+            list.RemoveAt(0);
+        }
+        return list.ToArray();
+    }
+
+    /// <summary>
+    /// 문자열 정수의 합
+    /// </summary>
+    /// <param name="num_str"></param>
+    /// <returns></returns>
+    public int Solution0912(string num_str)
+    {
+        int answer = 0;
+        foreach (var item in num_str)
+        {
+            answer += item - '0';
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 문자열로 변환
     /// </summary>
     /// <param name="n"></param>

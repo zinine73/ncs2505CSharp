@@ -14,6 +14,59 @@ using System.Data;
 
 public class CSStudy
 {
+    class Employee
+    {
+        int id;
+        string[] tags = new string[10];
+        // 생성자
+        // public Employee(int id)
+        // {
+        //     this.id = id;
+        // }
+        public Employee(int id) => this.id = id;
+        // Finalizer
+        // ~Employee()
+        // {
+        //     Debug.Write("~Employee");
+        // }
+        ~Employee() => Debug.Write("~Employee");
+        // Property
+        public int Id
+        {
+            // get
+            // {
+            //     return this.id;
+            // }
+            // set
+            // {
+            //     this.id = value > 0 ? value : 0;
+            // }
+            get => this.id;
+            set => this.id = value > 0 ? value : 0;
+        }
+        // indexer
+        public string this[int index]
+        {
+            // get
+            // {
+            //     return tags[index];
+            // }
+            // set
+            // {
+            //     tags[index] = value;
+            // }
+            get => tags[index];
+            set => tags[index] = value;
+        }
+        // event
+        EventHandler notified;
+        public event EventHandler Notified
+        {
+            add => this.notified += value;
+            remove => this.notified -= value;
+        }
+    }
+
     class Person
     {
         // public string Name
