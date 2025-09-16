@@ -3,6 +3,58 @@ using System.Text.RegularExpressions;
 
 class Solution
 {
+    /// <summary>
+    /// 배열의 길이에 따라 다른 연산하기
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[] Solution09162(int[] arr, int n)
+    {
+        int len = arr.Length;
+        //int[] answer = new int[len];
+        /*
+        bool isEven = len % 2 == 0;
+        for (int i = 0; i < len; i++)
+        {
+            int add = 0;
+            if (isEven)
+            {
+                add = i % 2 == 0 ? 0 : n;
+            }
+            else
+            {
+                add = i % 2 == 0 ? n : 0;
+            }
+            answer[i] = arr[i] + add;
+        }
+        */
+        // 2씩 증가하는 for문 이용
+        /*
+        answer = arr;
+        //int i = len % 2 == 0 ? 1 : 0;
+        //for (; i < len; i += 2)
+
+        //int i = 1 - len % 2;
+        for (int i = 1 - len % 2; i < len; i += 2)
+        {
+            answer[i] = arr[i] + n;
+        }
+        return answer;
+        */
+        for (int i = 1 - len % 2; i < len; i += 2)
+        {
+            arr[i] += n;
+        }
+        return arr;
+    }
+
+    /// <summary>
+    /// n번째 원소까지
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
     public int[] Solution0916(int[] num_list, int n)
     {
         /*
