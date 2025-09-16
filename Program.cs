@@ -10,7 +10,7 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArr = new int[] {12,4,15,46,38,1,14};
+        var intArr = new int[] {5,2,1,7,5};
         var intArr2 = new int[] {377,823,119,43 };
         var int2Arr = new int[,] { {19,498,258,587}, {63,93,7,754}, {258,7,1000,723},{587,754,723,81} };
         var strArr1 = new string[] { "abc","bbc","cbc" };
@@ -19,12 +19,12 @@ internal class Program
         ///// 배열이 아닌 값을 리턴하는 경우 /////
         //Console.WriteLine(sol.Solution0915("8542"));
         ///// 배열값을 리턴하는 경우 /////
-        Util.PrintArray(sol.Solution09152(intArr));
+        Util.PrintArray(sol.Solution0916(intArr, 3));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution09012();
 
         CSStudy study = new CSStudy();
-        //study.TupleTest();
+        //study.OutSample();
 
         ///// 내림차순 정렬을 이용할 때 /////
         //Util.Sort(intArray, Util.DescendingCompare);

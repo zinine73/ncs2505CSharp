@@ -11,10 +11,19 @@ using System.Diagnostics;
 // Regular Expression을 사용하려면 선언 필요
 using System.Text.RegularExpressions;
 using System.Data;
-using System.Diagnostics.CodeAnalysis;
 
 public class CSStudy
 {
+    public void OutSample()
+    {
+        // int x, y;
+        // GetData(0, 1, out x, out y);
+        //GetData(0, 1, out int x, out int y);
+        GetData(0, 1, out var x, out var y);
+        GetData(0, 1, out var z, out _);
+        Console.WriteLine($"{x}, {y}, {z}");
+    }
+
     (int count, int sum, double average) Calculate(List<int> data)
     {
         int cnt = 0, sum = 0;

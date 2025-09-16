@@ -3,6 +3,20 @@ using System.Text.RegularExpressions;
 
 class Solution
 {
+    public int[] Solution0916(int[] num_list, int n)
+    {
+        /*
+        int[] answer = new int[n];
+        // for (int i = 0; i < n; i++)
+        // {
+        //     answer[i] = num_list[i];
+        // }
+        Array.Copy(num_list, answer, n);
+        return answer;
+        */
+        return num_list.Take(n).ToArray();
+    }
+
     /// <summary>
     /// 뒤에서 5등까지
     /// </summary>
