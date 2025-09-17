@@ -14,6 +14,17 @@ using System.Data;
 
 public class CSStudy
 {
+    void button1_Click(object sender, EventArgs e)
+    {
+        // var fransOrder = from ord in db.Orders
+        //                  where ord.Customer_ID == "FRANS"
+        //                  select ord;
+        // foreach (var o in fransOrder)
+        // {
+        //     //
+        // }
+    }
+
     public void OutSample()
     {
         // int x, y;
