@@ -45,6 +45,13 @@ class Solution
             case 1: answer = 2 * (a + b); break;
             case 2: answer = a * a + b * b; break;
         }
+        // C# 최신 switch : 문제풀이 사이트에선 에러남
+        answer = oddCount switch
+        {
+            0 => Math.Abs(a - b),
+            1 => 2 * (a + b),
+            _ => a * a + b * b
+        };
         return answer;
     }
 
