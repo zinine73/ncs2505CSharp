@@ -4,6 +4,51 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 주사위 게임 1
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    public int Solution09172(int a, int b)
+    {
+        int answer = 0;
+        /*
+        if (a % 2 == 1)
+        {
+            if (b % 2 == 1)
+            {
+                answer = a * a + b * b;
+            }
+            else
+            {
+                answer = 2 * (a + b);
+            }
+        }
+        else
+        {
+            if (b % 2 == 1)
+            {
+                answer = 2 * (a + b);
+            }
+            else
+            {
+                answer = Math.Abs(a - b);
+            }
+        }
+        */
+        int oddCount = 0;
+        if (a % 2 == 1) oddCount++;
+        if (b % 2 == 1) oddCount++;
+        switch (oddCount)
+        {
+            case 0: answer = Math.Abs(a - b); break;
+            case 1: answer = 2 * (a + b); break;
+            case 2: answer = a * a + b * b; break;
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 배열 비교하기
     /// </summary>
     /// <param name="arr1"></param>
