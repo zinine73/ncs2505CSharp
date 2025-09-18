@@ -4,6 +4,43 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 배열의 원소만큼 추가하기
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public int[] Solution09182(int[] arr)
+    {
+        var list = new List<int>();
+        foreach (var item in arr)
+        {
+            // 각 원소의 크기만큼 list에 추가
+            for (int i = 0; i < item; i++)
+            {
+                list.Add(item);
+            }
+        }
+        return list.ToArray();
+    }
+
+    /// <summary>
+    /// ad 제거하기
+    /// </summary>
+    /// <param name="strArr"></param>
+    /// <returns></returns>
+    public string[] Solution0918(string[] strArr)
+    {
+        var list = new List<string>();
+        foreach (var item in strArr)
+        {
+            if (!item.Contains("ad"))
+            {
+                list.Add(item);
+            }
+        }
+        return list.ToArray();
+    }
+
+    /// <summary>
     /// 주사위 게임 1
     /// </summary>
     /// <param name="a"></param>

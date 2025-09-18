@@ -10,16 +10,16 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArr = new int[] {1,2,3,4,5};
+        var intArr = new int[] {1};
         var intArr2 = new int[] {3,3,3,3,3};
         var int2Arr = new int[,] { {19,498,258,587}, {63,93,7,754}, {258,7,1000,723},{587,754,723,81} };
-        var strArr1 = new string[] { "abc","bbc","cbc" };
+        var strArr1 = new string[] { "there","are","no","a","ds" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution09172(3,5));
+        //Console.WriteLine(sol.Solution09172(3,5));
         ///// 배열값을 리턴하는 경우 /////
-        //Util.PrintArray(sol.Solution09162(intArr, 100));
+        Util.PrintArray(sol.Solution09182(intArr));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution09012();
 
