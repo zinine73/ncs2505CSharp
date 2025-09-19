@@ -4,6 +4,71 @@ using System.Text.RegularExpressions;
 class Solution
 {
     /// <summary>
+    /// 홀수 vs 짝수
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
+    public int Solution09192(int[] num_list)
+    {
+        // 홀수의 합을 넣을 변수 선언
+        int odd = 0;
+        // 짝수의 합을 넣을 변수 선언
+        int even = 0;
+        /*
+        // 주어진 배열 크기만큼 반복
+        for (int i = 0; i < num_list.Length; i++)
+        {
+            // 인덱스가 홀수냐 짝수냐 판별
+            if (i % 2 == 0)
+            {
+                // 홀수면 홀수합에 더하고
+                odd += num_list[i];
+            }
+            else
+            {
+                // 짝수면 짝수합에 더한다
+                even += num_list[i];
+            }
+        }
+        */
+        bool isOdd = true;
+        foreach (var item in num_list)
+        {
+            if (isOdd)
+            {
+                odd += item;
+            }
+            else
+            {
+                even += item;
+            }
+            isOdd = !isOdd;
+        }
+        // 둘 중 큰 값 리턴
+        return Math.Max(odd, even);
+    }
+
+    /// <summary>
+    /// x 사이의 개수
+    /// </summary>
+    /// <param name="myString"></param>
+    /// <returns></returns>
+    public int[] Solution0919(String myString)
+    {
+        // 반환 크기를 구하자 / x를 기준으로 분리하자
+        string[] str = myString.Split('x');
+        // 그 크기만큼 배열 만들고
+        int[] answer = new int[str.Length];
+        // 순회하면서
+        for (int i = 0; i < str.Length; i++)
+        {
+            // 나눠진 각각의 크기를 대입
+            answer[i] = str[i].Length;
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 배열의 원소만큼 추가하기
     /// </summary>
     /// <param name="arr"></param>
