@@ -1,8 +1,52 @@
+using System.Formats.Asn1;
 using System.Text;
 using System.Text.RegularExpressions;
 
 class Solution
 {
+    /// <summary>
+    /// 공백으로 구분하기 2
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public string[] Solution09222(string my_string)
+    {
+        /*
+        // 먼저 공백으로 문자열을 문자열배열로 구분한다
+        string[] strArr = my_string.Split();
+        // 리스트를 하나 만들어서
+        var list = new List<string>();
+        // 만들어진 문자열배열을 순회하면서
+        foreach (var item in strArr)
+        {
+            // 문자열이 공백이 아닌 경우에만 
+            //if (item != "")
+            //if (item != string.Empty)
+            //if (!item.Equals(string.Empty))
+            if (item.Length > 0)
+            {
+                // 리스트에 넣는다
+                list.Add(item);
+            }
+        }
+        // 리스트를 문자열 배열로 변환시켜 리턴
+        return list.ToArray();
+        */
+        return my_string.Split(' ',
+            StringSplitOptions.RemoveEmptyEntries);
+    }
+
+    /// <summary>
+    /// 공백으로 구분하기 1
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public string[] Solution0922(string my_string)
+    {
+        string[] answer = my_string.Split(' ');
+        return answer;
+    }
+
     /// <summary>
     /// 홀수 vs 짝수
     /// </summary>
