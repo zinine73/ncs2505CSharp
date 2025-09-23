@@ -1,9 +1,57 @@
 using System.Formats.Asn1;
 using System.Text;
 using System.Text.RegularExpressions;
+using MyExtension;
 
 class Solution
 {
+    /// <summary>
+    /// 배열에서 문자열 대소문자 변환하기
+    /// </summary>
+    /// <param name="strArr"></param>
+    /// <returns></returns>
+    public string[] Solution09232(string[] strArr)
+    {
+        /*
+        string[] answer = new string[strArr.Length];
+        for (int i = 0; i < strArr.Length; i++)
+        {
+            // if (i % 2 == 0)
+            // {
+            //     answer[i] = strArr[i].ToLower();
+            // }
+            // else
+            // {
+            //     answer[i] = strArr[i].ToUpper();
+            // }
+            answer[i] = (i % 2 == 0) ?
+                strArr[i].ToLower() : strArr[i].ToUpper();
+        }
+        return answer;
+        */
+        var list = new List<string>();
+        bool isEven = true;
+        foreach (var item in strArr)
+        {
+            list.Add(isEven ? item.ToLower() : item.ToUpper());
+            isEven = !isEven;
+        }
+        return list.ToArray();
+    }
+
+    /// <summary>
+    /// rny_string
+    /// </summary>
+    /// <param name="rny_string"></param>
+    /// <returns></returns>
+    public string Solution0923(string rny_string)
+    {
+        string answer = rny_string.Replace("m", "rn");
+        // 확장메서드 사용해봄
+        //string answer = rny_string.Replace('m', "rn");
+        return answer;
+    }
+
     /// <summary>
     /// 공백으로 구분하기 2
     /// </summary>
