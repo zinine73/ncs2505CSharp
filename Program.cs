@@ -17,14 +17,14 @@ internal class Program
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        //Console.WriteLine(sol.Solution0923("programmers"));
+        Console.WriteLine(sol.Solution09242("aaa"));
         ///// 배열값을 리턴하는 경우 /////
-        Util.PrintArray(sol.Solution09232(strArr1));
+        //Util.PrintArray(sol.Solution09232(strArr1));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution09012();
 
         CSStudy study = new CSStudy();
-        //study.OutSample();
+        //study.LiNQSample();
 
         ///// 내림차순 정렬을 이용할 때 /////
         //Util.Sort(intArray, Util.DescendingCompare);

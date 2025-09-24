@@ -14,15 +14,57 @@ using System.Data;
 
 public class CSStudy
 {
-    void button1_Click(object sender, EventArgs e)
+    public class Orders
     {
-        // var fransOrder = from ord in db.Orders
+        public int Order_ID { get; set; }
+        public string Customer_ID { get; set; }
+        public string Ship_City { get; set; }
+        public DateTime Order_Date { get; set; }
+    }
+    public void LiNQSample()
+    {
+        var db = new List<Orders>
+        {
+            new Orders {Order_ID = 3, Customer_ID = "FRANS",
+            Ship_City = "SEOUL", Order_Date = new DateTime(2025, 9, 17)},
+            new Orders {Order_ID = 1, Customer_ID = "DAVID",
+            Ship_City = "BUSAN", Order_Date = new DateTime(2025, 9, 20)},
+            new Orders {Order_ID = 2, Customer_ID = "FRANS",
+            Ship_City = "BUSAN", Order_Date = new DateTime(2025, 8, 10)}
+        };
+        // Query식 표현
+        // var fransOrder = from ord in db
         //                  where ord.Customer_ID == "FRANS"
+        //                  orderby ord.Order_Date ascending
         //                  select ord;
-        // foreach (var o in fransOrder)
-        // {
-        //     //
-        // }
+        //  select new
+        //  {
+        //      Id = ord.Order_ID,
+        //      City = ord.Ship_City.ToLower()
+        //  };
+        // Method식 표현
+        var fo = db.Where(o => o.Customer_ID == "FRANS");//.Select(o => o);
+        foreach (var o in fo)
+        {
+            //Console.WriteLine($"{o.Order_ID}:{o.Order_Date}");
+            //Console.WriteLine($"{o.Id} : {o.City}");
+        }
+        //var v = db.Where(o => o.Ship_City == "SEOUL").SingleOrDefault();
+        //var v = db.Where(o => o.Customer_ID == "FRANS").FirstOrDefault();
+        //var v = db.Where(o => o.Customer_ID == "FRANS").OrderBy(m => m.Order_ID);
+        var v = db.Where(o => o.Customer_ID == "FRANS").Select(p => new
+        {
+            Id = p.Order_ID,
+            City = p.Ship_City.ToLower()
+        });
+        if (v != null)
+        {
+            //Console.WriteLine($"{v.Order_Date}");
+            foreach (var o in v)
+            {
+                Console.WriteLine($"{o.Id} : {o.City}");
+            }
+        }
     }
 
     public void OutSample()

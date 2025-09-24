@@ -6,6 +6,54 @@ using MyExtension;
 class Solution
 {
     /// <summary>
+    /// 소문자로 바꾸기
+    /// </summary>
+    /// <param name="myString"></param>
+    /// <returns></returns>
+    public string Solution09242(string myString)
+    {
+        return myString.ToLower();
+    }
+
+    /// <summary>
+    /// 간단한 식 계산하기
+    /// </summary>
+    /// <param name="str"></param>
+    /// <returns></returns>
+    public int Solution0924(string str)
+    {
+        int answer = 0;
+        // str을 분리
+        string[] sa = str.Split();
+        // 각 숫자를 int로 변환
+        int a = Convert.ToInt32(sa[0]);
+        int b = int.Parse(sa[2]);
+        // 각 수식에 맞게 분기, 계산
+        // switch (sa[1])
+        // {
+        //     case "+":
+        //         answer = a + b;
+        //         break;
+        //     case "-":
+        //         answer = a - b;
+        //         break;
+        //     case "*":
+        //         answer = a * b;
+        //         break;
+        //     default:
+        //         break;
+        // }
+        // 최신스타일 switch
+        answer = sa[1] switch
+        {
+            "+" => a + b,
+            "-" => a - b,
+            "*" => a * b,
+        };
+        return answer;
+    }
+
+    /// <summary>
     /// 배열에서 문자열 대소문자 변환하기
     /// </summary>
     /// <param name="strArr"></param>
