@@ -6,6 +6,38 @@ using MyExtension;
 class Solution
 {
     /// <summary>
+    /// 카운트 업
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <returns></returns>
+    public int[] Solution09252(int start, int end)
+    {
+        // 리턴할 배열의 크기를 먼저 구한다
+        int len = end - start + 1;
+        // 그 크기만큼 배열을 만든다
+        int[] answer = new int[len];
+        // 크기만큼 반복
+        for (int i = 0; i < len; i++)
+        {
+            // 배열의 처음부터 start에 인덱스 값을 더해서 넣는다
+            answer[i] = start + i;
+        }
+        // 배열 리턴
+        return answer;
+    }
+
+    /// <summary>
+    /// 대문자로 바꾸기
+    /// </summary>
+    /// <param name="myString"></param>
+    /// <returns></returns>
+    public string Solution0925(string myString)
+    {
+        return myString.ToUpper();
+    }
+
+    /// <summary>
     /// 소문자로 바꾸기
     /// </summary>
     /// <param name="myString"></param>
