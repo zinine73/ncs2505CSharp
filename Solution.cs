@@ -1,10 +1,59 @@
 using System.Formats.Asn1;
+using System.Security.Permissions;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Media.Media3D;
 using MyExtension;
 
 class Solution
 {
+    /// <summary>
+    /// 원소들의 곱과 합
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
+    public int Solution09292(int[] num_list)
+    {
+        int gop = 1;
+        int hap = 0;
+        foreach (var item in num_list)
+        {
+            gop *= item;
+            hap += item;
+        }
+        hap = hap * hap;
+        return (gop < hap) ? 1 : 0;
+    }
+
+    /// <summary>
+    /// 접미사인지 확인하기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="is_suffix"></param>
+    /// <returns></returns>
+    public int Solution0929(string my_string, string is_suffix)
+    {
+        // 반복되는 코드가 있다면 간단한 변수로 대체하자
+        int msl = my_string.Length;
+        int isl = is_suffix.Length;
+        // 전체를 검사하지 않아도 되는 경우
+        //if (is_suffix.Length > my_string.Length)
+        if (isl > msl) return 0;
+
+        // 접미사 크기만큼 잘라서 검사
+        //if (my_string.Substring(my_string.Length - is_suffix.Length, is_suffix.Length) == is_suffix)
+        //if (my_string.Substring(msl - isl, isl) == is_suffix)
+        // if (my_string.Substring(msl - isl, isl).Equals(is_suffix))
+        // {
+        //     return 1;
+        // }
+        // else
+        // {
+        //     return 0;
+        // }
+        return my_string.Substring(msl - isl, isl).Equals(is_suffix) ? 1 : 0;
+    }
+
     /// <summary>
     /// 홀짝에 따라 다른 값 반환하기
     /// </summary>
