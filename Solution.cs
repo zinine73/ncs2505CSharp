@@ -8,6 +8,49 @@ using MyExtension;
 class Solution
 {
     /// <summary>
+    /// 가까운 1 찾기
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="idx"></param>
+    /// <returns></returns>
+    public int Solution09302(int[] arr, int idx)
+    {
+        // 특정 조건에 따른 반환값이 정해져 있다면, 그 값을 기본값으로 한다
+        int answer = -1;
+        // idx 부터 arr의 크기만큼 반복
+        for (int i = idx; i < arr.Length; i++)
+        {
+            // 1을 찾으면
+            if (arr[i] == 1)
+            {
+                // // answer에 인덱스 값을 넣고 break
+                // answer = i;
+                // break;
+                return i;
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 원하는 문자열 찾기
+    /// </summary>
+    /// <param name="myString"></param>
+    /// <param name="pat"></param>
+    /// <returns></returns>
+    public int Solution0930(string myString, string pat)
+    {
+        int answer = 0;
+        myString = myString.ToLower();
+        pat = pat.ToLower();
+        if (myString.Contains(pat))
+        {
+            answer = 1;
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 원소들의 곱과 합
     /// </summary>
     /// <param name="num_list"></param>

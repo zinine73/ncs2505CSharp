@@ -10,14 +10,14 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArr = new int[] {5,7,8,3};
+        var intArr = new int[] {1,1,1,1,0};
         var intArr2 = new int[] {3,3,3,3,3};
         var int2Arr = new int[,] { {19,498,258,587}, {63,93,7,754}, {258,7,1000,723},{587,754,723,81} };
         var strArr1 = new string[] { "aBc","AbC" };
         var strArr2 = new string[] { "m", "dot" };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution09292(intArr));
+        Console.WriteLine(sol.Solution09302(intArr, 3));
         ///// 배열값을 리턴하는 경우 /////
         //Util.PrintArray(sol.Solution09252(3, 10));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
