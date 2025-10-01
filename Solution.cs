@@ -1,12 +1,65 @@
-using System.Formats.Asn1;
-using System.Security.Permissions;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Media.Media3D;
 using MyExtension;
 
 class Solution
 {
+    /// <summary>
+    /// 배열 만들기 3
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="intervals"></param>
+    /// <returns></returns>
+    public int[] Solution10012(int[] arr, int[,] intervals)
+    {
+        // 리턴값의 크기를 알 수 있느냐
+        int len = intervals[0, 1] - intervals[0, 0] + 1
+            + intervals[1, 1] - intervals[1, 0] + 1;
+        // 구해진 크기만큼 리턴 배열을 생성
+        int[] answer = new int[len];
+        // 인덱스로 사용할 변수 선언
+        int index = 0;
+        // 첫번째 배열 차례로 넣기
+        for (int i = intervals[0, 0]; i <= intervals[0, 1]; i++)
+        {
+            answer[index] = arr[i];
+            index++;
+        }
+        // 두번째 배열 차례로 넣기
+        for (int i = intervals[1, 0]; i <= intervals[1, 1]; i++)
+        {
+            answer[index] = arr[i];
+            index++;
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 길이에 따른 연산
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
+    public int Solution1001(int[] num_list)
+    {
+        int answer = 0;
+        if (num_list.Length > 10)
+        {
+            foreach (var item in num_list)
+            {
+                answer += item;
+            }
+        }
+        else
+        {
+            answer = 1;
+            foreach (var item in num_list)
+            {
+                answer *= item;
+            }
+        }
+        return answer;
+    }   
+
     /// <summary>
     /// 가까운 1 찾기
     /// </summary>
