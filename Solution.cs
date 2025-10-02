@@ -1,9 +1,65 @@
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Input;
 using MyExtension;
 
 class Solution
 {
+    /// <summary>
+    /// 할 일 목록
+    /// </summary>
+    /// <param name="todo_list"></param>
+    /// <param name="finished"></param>
+    /// <returns></returns>
+    public string[] Solution10022(string[] todo_list, bool[] finished)
+    {
+        // answer 배열의 크기를 구해본다
+        int len = 0;
+        // finished를 순회해서
+        foreach (var item in finished)
+        {
+            // 못한 일이 있으면 크기 증가
+            if (item == false) len++;
+        }
+        // 그 크기만큼 answer 를 생성
+        string[] answer = new string[len];
+        // for 로 돌면서
+        for (int i = 0, ai = 0; i < finished.Length; i++)
+        {
+            // 할일을 못했으면 
+            if (finished[i] == false)
+            {
+                // answer에 todo_list 추가, 인덱스 증가
+                answer[ai++] = todo_list[i];
+            }
+        }
+        // answer 리턴
+        return answer;
+    }
+
+    /// <summary>
+    /// 조건에 맞게 수열 변환하기 1
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public int[] Solution1002(int[] arr)
+    {
+        int[] answer = new int[arr.Length];
+        for (int i = 0; i < arr.Length; i++)
+        {
+            bool isEven = arr[i] % 2 == 0;
+            if (arr[i] >= 50)
+            {
+                answer[i] = isEven ? arr[i] / 2 : arr[i];
+            }
+            else
+            {
+                answer[i] = isEven ? arr[i] : arr[i] * 2;
+            }
+        }
+        return answer;
+    }
+
     /// <summary>
     /// 배열 만들기 3
     /// </summary>
