@@ -6,6 +6,52 @@ using MyExtension;
 class Solution
 {
     /// <summary>
+    /// 9로 나눈 나머지
+    /// </summary>
+    /// <param name="number"></param>
+    /// <returns></returns>
+    public int Solution10102(string number)
+    {
+        // 전체합을 담을 변수 준비
+        int answer = 0;
+        // string은 char형의 배열 : 배열의 각 값을 순회
+        foreach (var item in number)
+        {
+            // item의 integer값을 다 더해준다
+            answer += item - '0';
+        }
+        // 전체합을 9로 나눈 나머지 리턴
+        return answer % 9;
+    }
+
+    /// <summary>
+    /// n개 간격의 원소들
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[] Solution1010(int[] num_list, int n)
+    {
+        // 리턴할 갯수를 아는가? 모르면 list
+        /*
+        var list = new List<int>();
+        for (int i = 0; i < num_list.Length; i += n)
+        {
+            list.Add(num_list[i]);
+        }
+        return list.ToArray();
+        */
+        // 알면 array
+        int len = (num_list.Length + n - 1) / n;
+        int[] answer = new int[len];
+        for (int i = 0; i < len; i++)
+        {
+            answer[i] = num_list[i * n];
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 할 일 목록
     /// </summary>
     /// <param name="todo_list"></param>
