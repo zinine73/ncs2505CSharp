@@ -13,14 +13,14 @@ internal class Program
         var intArr = new int[] {4,2,6,1,7,6};
         var intArr2 = new int[] {3,3,3,3,3};
         var int2Arr = new int[,] { {1,3}, {0,4} };
-        var strArr1 = new string[] { "problemsolving","practiceguitar", "swim", "studygraph" };
+        var strArr1 = new string[] { "nami", "ahri", "jayce", "garen", "ivern", "vex", "jinx" };
         var strArr2 = new string[] { "", "dot" };
         var boolArr = new bool[] { true, false, true, false };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution10102("78720646226947352489"));
+        //Console.WriteLine(sol.Solution1013("PrOgRaMmErSAAaa"));
         ///// 배열값을 리턴하는 경우 /////
-        //Util.PrintArray(sol.Solution1010(intArr, 4));
+        Util.PrintArray(sol.Solution10132(strArr1));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution09012();
 

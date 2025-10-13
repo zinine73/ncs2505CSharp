@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
@@ -5,6 +6,50 @@ using MyExtension;
 
 class Solution
 {
+    /// <summary>
+    /// 5명씩
+    /// </summary>
+    /// <param name="names"></param>
+    /// <returns></returns>
+    public string[] Solution10132(string[] names)
+    {
+        // 리턴되는 크기를 바로 알 수 없으니 list를 사용
+        var list = new List<string>();
+        // 5씩 뛰면서 반복
+        for (int i = 0; i < names.Length; i += 5)
+        {
+            // list에 현재 이름 넣기
+            list.Add(names[i]);
+        }
+        // list를 array로 변환 후 리턴
+        return list.ToArray();
+    }
+    
+    /// <summary>
+    /// A 강조하기
+    /// </summary>
+    /// <param name="myString"></param>
+    /// <returns></returns>
+    public string Solution1013(string myString)
+    {
+        /*
+        string answer = string.Empty;
+        foreach (var item in myString)
+        {
+            if (item == 'a' || item == 'A')
+            {
+                answer += item.ToString().ToUpper();
+            }
+            else
+            {
+                answer += item.ToString().ToLower();
+            }
+        }
+        return answer;
+        */
+        return myString.ToLower().Replace('a', 'A');
+    }
+    
     /// <summary>
     /// 9로 나눈 나머지
     /// </summary>
