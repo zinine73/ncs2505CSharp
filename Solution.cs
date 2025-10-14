@@ -1,8 +1,5 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Input;
-using MyExtension;
 using Zinine;
 
 class Solution
@@ -14,9 +11,9 @@ class Solution
     /// <returns></returns>
     public int Solution10142(int n)
     {
-        int answer = 0;
+        ///////// do~while
         /*
-        // do~while
+        int answer = 0;
         // 조건을 만족하면 계속 반복
         do
         {
@@ -24,10 +21,10 @@ class Solution
             answer++;
             // 피자조각수를 n으로 나눠서 나머지가 0인지            
         } while(answer * 6 % n != 0);
-        */
-        // gcd, lcm
-        answer = Util.LCM(6, n) / 6; 
         return answer;
+        */
+        ///////// gcd, lcm
+        return Util.LCM(6, n) / 6; 
     }
     
     /// <summary>
