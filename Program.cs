@@ -18,9 +18,9 @@ internal class Program
         var boolArr = new bool[] { true, false, true, false };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        //Console.WriteLine(sol.Solution1013("PrOgRaMmErSAAaa"));
+        Console.WriteLine(sol.Solution10142(4));
         ///// 배열값을 리턴하는 경우 /////
-        Util.PrintArray(sol.Solution10132(strArr1));
+        //Util.PrintArray(sol.Solution10132(strArr1));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution09012();
 

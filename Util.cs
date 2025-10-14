@@ -2,6 +2,35 @@ namespace Zinine
 {
     class Util
     {
+        /// <summary>
+        /// 최소공배수
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public static int LCM(int n, int m)
+        {
+            return n * m / GCD(n, m);
+        }
+
+        /// <summary>
+        /// 최대공약수
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public static int GCD(int n, int m)
+        {
+            if (m == 0)
+            {
+                return n;
+            }
+            else
+            {
+                return (n % m != 0) ? GCD(m, n % m) : m;
+            }
+        }
+
         // delegate ComapreDelegate
         public delegate int ComapreDelegate(int i1, int i2);
         // CompareDelegate와 동일한 prototype

@@ -3,9 +3,57 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 using MyExtension;
+using Zinine;
 
 class Solution
 {
+    /// <summary>
+    /// 피자 나눠 먹기 (2)
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution10142(int n)
+    {
+        int answer = 0;
+        /*
+        // do~while
+        // 조건을 만족하면 계속 반복
+        do
+        {
+            // 피자 수 + 1
+            answer++;
+            // 피자조각수를 n으로 나눠서 나머지가 0인지            
+        } while(answer * 6 % n != 0);
+        */
+        // gcd, lcm
+        answer = Util.LCM(6, n) / 6; 
+        return answer;
+    }
+    
+    /// <summary>
+    /// 외계행성의 나이
+    /// </summary>
+    /// <param name="age"></param>
+    /// <returns></returns>
+    public string Solution1014(int age)
+    {
+        string answer = string.Empty;
+        // while 반복문 사용
+        // age가 0보다 크면 반복
+        while (age > 0)
+        {
+            // age의 1의 자리 숫자 추출
+            int val = age % 10;
+            // 숫자에 해당하는 값의 캐릭터형 변환
+            char chr = Convert.ToChar('a' + val);
+            // answer의 맨 앞에 추가
+            answer = chr + answer;
+            // age의 자리수 변환
+            age /= 10;
+        }
+        return answer;
+    }
+    
     /// <summary>
     /// 5명씩
     /// </summary>
