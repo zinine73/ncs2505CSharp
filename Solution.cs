@@ -5,6 +5,59 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 369게임
+    /// </summary>
+    /// <param name="order"></param>
+    /// <returns></returns>
+    public int Solution10152(int order)
+    {
+        int answer = 0;
+        // order를 string으로 변환
+        string str = order.ToString();
+        // string의 각 item을 반복
+        foreach (var item in str)
+        {
+            // item이 3,6,9일때만 answer++
+            if (item.Equals('3') ||
+                item.Equals('6') ||
+                item.Equals('9'))
+            {
+                answer++;   
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
+    /// 배열 회전시키기
+    /// </summary>
+    /// <param name="numbers"></param>
+    /// <param name="direction"></param>
+    /// <returns></returns>
+    public int[] Solution1015(int[] numbers, string direction)
+    {
+        int len = numbers.Length;
+        int[] answer = new int[len];
+        if (direction.Equals("right"))
+        {
+            answer[0] = numbers[len - 1];
+            for (int i = 1; i < len; i++)
+            {
+                answer[i] = numbers[i - 1];
+            }
+        }
+        else
+        {
+            for (int i = 0; i < len - 1; i++)
+            {
+                answer[i] = numbers[i + 1];
+            }
+            answer[len - 1] = numbers[0];
+        }
+        return answer;
+    }
+    
+    /// <summary>
     /// 피자 나눠 먹기 (2)
     /// </summary>
     /// <param name="n"></param>
