@@ -5,6 +5,53 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 문자열 잘라서 정렬하기
+    /// </summary>
+    /// <param name="myString"></param>
+    /// <returns></returns>
+    public string[] Solution10162(string myString)
+    {
+        // x를 기준으로 문자열 나누기
+        string[] str = myString.Split("x");
+        // 사용할 list 정의
+        var list = new List<string>();
+        // 나눠진 문자열 배열을 순회
+        foreach (var item in str)
+        {
+            // 길이가 0보다 큰지
+            if (item.Length > 0)
+            {
+                // 리스트에 넣기
+                list.Add(item);
+            }
+        }
+        // 정렬
+        list.Sort();
+        // 배열형식으로 바꿔서 리턴
+        return list.ToArray();
+    }
+    
+    /// <summary>
+    /// 세로 읽기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="m"></param>
+    /// <param name="c"></param>
+    /// <returns></returns>
+    public string Solution1016(string my_string, int m, int c)
+    {
+        //string answer = string.Empty;
+        var sb = new StringBuilder();
+        for (int i = c - 1; i < my_string.Length; i += m)
+        {
+            //answer += my_string[i];
+            sb.Append(my_string[i]);
+        }
+        //return answer;
+        return sb.ToString();
+    }
+    
+    /// <summary>
     /// 369게임
     /// </summary>
     /// <param name="order"></param>
