@@ -12,15 +12,15 @@ internal class Program
     {
         var intArr = new int[] {4,455,6,4,-1,45,6};
         var intArr2 = new int[] {3,3,3,3,3};
-        var int2Arr = new int[,] { {1,3}, {0,4} };
+        var int2Arr = new int[,] { {0,1,2}, {1,2,3},{2,3,4},{3,4,5} };
         var strArr1 = new string[] { "nami", "ahri", "jayce", "garen", "ivern", "vex", "jinx" };
         var strArr2 = new string[] { "", "dot" };
         var boolArr = new bool[] { true, false, true, false };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        //Console.WriteLine(sol.Solution1016("programmers", 1, 1));
+        Console.WriteLine(sol.Solution10172("aaaaa", "bbbbb"));
         ///// 배열값을 리턴하는 경우 /////
-        Util.PrintArray(sol.Solution10162(" dxccxbbbxaaaaxxx  "));
+        //Util.PrintArray(sol.Solution10162(" dxccxbbbxaaaaxxx  "));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution09012();
 

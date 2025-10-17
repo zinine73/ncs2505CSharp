@@ -5,6 +5,49 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 문자열 섞기
+    /// </summary>
+    /// <param name="str1"></param>
+    /// <param name="str2"></param>
+    /// <returns></returns>
+    public string Solution10172(string str1, string str2)
+    {
+        var sb = new StringBuilder();
+        for (int i = 0; i < str1.Length; i++)
+        {
+            sb.Append(str1[i]);
+            sb.Append(str2[i]);
+        }
+        return sb.ToString();
+    }
+    
+    /// <summary>
+    /// 이차원 배열 대각선 순회하기
+    /// </summary>
+    /// <param name="board"></param>
+    /// <param name="k"></param>
+    /// <returns></returns>
+    public int Solution1017(int[,] board, int k)
+    {
+        int answer = 0;
+        // board의 i크기만큼 반복
+        for (int i = 0; i < board.GetLength(0); i++)
+        {
+            // j크기만큼 반복
+            for (int j = 0; j < board.GetLength(1); j++)
+            {
+                // 주어진 식을 만족하는 지
+                if (i + j <= k)
+                {
+                    // 만족하면 총합에 추가
+                    answer += board[i, j];
+                }
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
     /// 문자열 잘라서 정렬하기
     /// </summary>
     /// <param name="myString"></param>
