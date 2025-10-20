@@ -1,9 +1,74 @@
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Zinine;
 
 class Solution
 {
+    /// <summary>
+    /// 날짜 비교하기
+    /// </summary>
+    /// <param name="date1"></param>
+    /// <param name="date2"></param>
+    /// <returns></returns>
+    public int Solution10202(int[] date1, int[] date2)
+    {
+        const int YEAR = 0;
+        const int MONTH = 1;
+        const int DAY = 2;
+        int answer = 0;
+        /*
+        // 직접 숫자 비교하기
+        if (date1[YEAR] < date2[YEAR])
+        {
+            answer = 1;
+        }
+        else if (date1[YEAR] == date2[YEAR])
+        {
+            if (date1[MONTH] < date2[MONTH])
+            {
+                answer = 1;
+            }
+            else if (date1[MONTH] == date2[MONTH])
+            {
+                if (date1[DAY] < date2[DAY])
+                {
+                    answer = 1;
+                }
+            }
+        }
+        // DateTime을 이용한 방법
+        DateTime dt1 = new DateTime(date1[YEAR], date1[MONTH], date1[DAY]);
+        DateTime dt2 = new DateTime(date2[YEAR], date2[MONTH], date2[DAY]);
+        answer = dt1 < dt2 ? 1 : 0;
+        */
+        // 숫자변환을 이용한 방법
+        int dt1 = Convert.ToInt32($"{date1[YEAR]}{date1[MONTH]}{date1[DAY]}");
+        int dt2 = Convert.ToInt32($"{date2[YEAR]}{date2[MONTH]}{date2[DAY]}");
+        answer = dt1 < dt2 ? 1 : 0;
+        return answer;
+    }
+    
+    /// <summary>
+    /// 등차수열의 특정한 항만 더하기
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="d"></param>
+    /// <param name="included"></param>
+    /// <returns></returns>
+    public int Solution1020(int a, int d, bool[] included)
+    {
+        int answer = 0;
+        for (int i = 0; i < included.Length; i++)
+        {
+            if (included[i])
+            {
+                answer += i * d + a;
+            }
+        }
+        return answer;
+    }
+    
     /// <summary>
     /// 문자열 섞기
     /// </summary>
