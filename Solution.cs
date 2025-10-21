@@ -6,6 +6,55 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 합성수 찾기
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution10212(int n)
+    {
+        int answer = 0;
+        // n까지 반복 : 1~3까지는 약수가 3개가 안되므로 제외
+        for (int i = 4; i <= n; i++)
+        {
+            // 약수는 1과 자기자신을 포함한다는 성질을 이용
+            // 1과 자기자신을 제외한 약수가 하나 이상 있으면 합성수
+            // 약수 찾기 : 2부터 찾기
+            for (int j = 2; j < i; j++)
+            {
+                // 나눠 떨어지는 수가 발견되면
+                if (i % j == 0)
+                {
+                    // 합성수 개수 + 1, 그리고 반복 멈추기
+                    answer++;
+                    break;
+                }
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
+    /// 중복된 문자 제거
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public string Solution1021(string my_string)
+    {
+        string answer = string.Empty;
+        // my_string을 한글자씩 순회
+        foreach (var item in my_string)
+        {
+            // item이 answer에 없으면
+            if (!answer.Contains(item))
+            {
+                // answer에 item을 추가
+                answer += item;
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
     /// 날짜 비교하기
     /// </summary>
     /// <param name="date1"></param>
