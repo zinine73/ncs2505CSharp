@@ -6,6 +6,63 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 빈 배열에 추가, 삭제하기
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="flag"></param>
+    /// <returns></returns>
+    public int[] Solution10222(int[] arr, bool[] flag)
+    {
+        // x라는 이름의 list를 만든다
+        var x = new List<int>();
+        // flag의 크기만큼 순회
+        for (int i = 0; i < flag.Length; i++)
+        {
+            // flag의 값이 true인가
+            if (flag[i])
+            {
+                // 반복해야할 크기를 구하고
+                int cnt = arr[i] * 2;
+                // 그 크기만큼 반복
+                for (int j = 0; j < cnt; j++)
+                {
+                    // x에 넣기
+                    x.Add(arr[i]);
+                }
+            }
+            else
+            {
+                // 해당하는 arr 크기만큼 반복
+                for (int j = 0; j < arr[i]; j++)
+                {
+                    // x의 맨 뒤에서 삭제
+                    x.RemoveAt(x.Count - 1);
+                }
+            }
+        }
+        // list를 array로 변환 후 반환
+        return x.ToArray();
+    }
+    
+    /// <summary>
+    /// 수열과 구간 쿼리 1
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="queries"></param>
+    /// <returns></returns>
+    public int[] Solution1022(int[] arr, int[,] queries)
+    {
+        for (int i = 0; i < queries.GetLength(0); i++)
+        {
+            for (int j = queries[i, 0]; j <= queries[i, 1]; j++)
+            {
+                arr[j]++;
+            }
+        }
+        return arr;
+    }
+    
+    /// <summary>
     /// 합성수 찾기
     /// </summary>
     /// <param name="n"></param>

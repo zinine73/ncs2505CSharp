@@ -10,17 +10,17 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArr = new int[] {2021,12,28};
+        var intArr = new int[] {3,2,4,1,3};
         var intArr2 = new int[] {2021,12,29};
-        var int2Arr = new int[,] { {0,1,2}, {1,2,3},{2,3,4},{3,4,5} };
+        var int2Arr = new int[,] { {0,1},{1,2},{2,3} };
         var strArr1 = new string[] { "nami", "ahri", "jayce", "garen", "ivern", "vex", "jinx" };
         var strArr2 = new string[] { "", "dot" };
-        var boolArr = new bool[] { false, false, false, true, false, false, false };
+        var boolArr = new bool[] { true, false, true, false, false };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution10212(15));
+        //Console.WriteLine(sol.Solution10212(15));
         ///// 배열값을 리턴하는 경우 /////
-        //Util.PrintArray(sol.Solution10162(" dxccxbbbxaaaaxxx  "));
+        Util.PrintArray(sol.Solution10222(intArr, boolArr));
         ///// 실행이 터미널창에서 이뤄지는 경우 /////
         //sol.Solution09012();
 
