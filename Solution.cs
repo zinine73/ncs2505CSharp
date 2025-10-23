@@ -6,6 +6,66 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 배열 만들기 5
+    /// </summary>
+    /// <param name="intStrs"></param>
+    /// <param name="k"></param>
+    /// <param name="s"></param>
+    /// <param name="l"></param>
+    /// <returns></returns>
+    public int[] Solution10232(string[] intStrs, int k, int s, int l)
+    {
+        // int값을 담을 list를 하나 준비
+        var list = new List<int>();
+        // intStrs를 순회
+        foreach (var item in intStrs)
+        {
+            // 변환시킬 string 추출
+            string str = item.Substring(s, l);
+            // string을 int로 변환
+            int istr = Convert.ToInt32(str);
+            // k와 비교해서
+            if (istr > k)
+            {
+                // 큰 경우에만 list에 넣기
+                list.Add(istr);
+            }
+        }
+        // list를 배열로 변환후 반환
+        return list.ToArray();
+    }
+    
+    /// <summary>
+    /// 글자 지우기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="indices"></param>
+    /// <returns></returns>
+    public string Solution1023(string my_string, int[] indices)
+    {
+        /*
+        var sb = new StringBuilder();
+        var list = new List<int>(indices);
+        for (int i = 0; i < my_string.Length; i++)
+        {
+            if (!list.Contains(i))
+            {
+                sb.Append(my_string[i]);
+            }
+        }
+        return sb.ToString();
+        */
+        char[] chrs = my_string.ToCharArray();
+        for (int i = 0; i < indices.Length; i++)
+        {
+            chrs[indices[i]] = ' ';
+        }
+        string answer = new string(chrs);
+        answer = answer.Replace(" ", "");
+        return answer;
+    }
+    
+    /// <summary>
     /// 빈 배열에 추가, 삭제하기
     /// </summary>
     /// <param name="arr"></param>
