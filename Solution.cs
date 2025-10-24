@@ -6,6 +6,50 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 문자열 뒤집기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="s"></param>
+    /// <param name="e"></param>
+    /// <returns></returns>
+    public string Solution10242(string my_string, int s, int e)
+    {
+        // 문자열을 문자배열로 변경
+        char[] chr = my_string.ToCharArray();
+        // 원하는 부분만 뒤집기
+        Array.Reverse(chr, s, e - s + 1);
+        // 문자배열을 문자열로 변환 후 반환
+        return new string(chr);
+    }
+    
+    /// <summary>
+    /// 1로 만들기
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
+    public int Solution1024(int[] num_list)
+    {
+        int answer = 0;
+        foreach (var item in num_list)
+        {
+            int num = item;
+            while (num > 1)
+            {
+                if (num % 2 == 0)
+                {
+                    num /= 2;
+                }
+                else
+                {
+                    num = (num - 1) / 2;
+                }
+                answer++;
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
     /// 배열 만들기 5
     /// </summary>
     /// <param name="intStrs"></param>
