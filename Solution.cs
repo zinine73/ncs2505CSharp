@@ -1,3 +1,4 @@
+using System.Data;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -5,6 +6,58 @@ using Zinine;
 
 class Solution
 {
+    /// <summary>
+    /// 문자열이 몇 번 등장하는지 세기
+    /// </summary>
+    /// <param name="myString"></param>
+    /// <param name="pat"></param>
+    /// <returns></returns>
+    public int Solution10272(string myString, string pat)
+    {
+        int answer = 0;
+        // 반복해야 할 횟수 구하기 = 전체 길이 - 패턴 길이 + 1
+        int len = myString.Length - pat.Length + 1;
+        // 처음부터 반복횟수만큼 순회
+        for (int i = 0; i < len; i++)
+        {
+            // pat와 크기가 같은 구간만큼만 자르기
+            string str = myString.Substring(i, pat.Length);
+            // pat와 같은지 비교
+            if (str.Equals(pat)) // str == pat
+            {
+                // 같으면 answer 증가
+                answer++;
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
+    /// 특정 문자열로 끝나는 가장 긴 부분 문자열 찾기
+    /// </summary>
+    /// <param name="myString"></param>
+    /// <param name="pat"></param>
+    /// <returns></returns>
+    public string Solution1027(string myString, string pat)
+    {
+        string answer = string.Empty;
+        //int idx = myString.LastIndexOf(pat);
+        // LastIndexOf를 모를 경우
+        int idx = -1;
+        int len = myString.Length - pat.Length;
+        for (int i = 0; i <= len; i++)
+        {
+            string str = myString.Remove(0, i);
+            int last = str.IndexOf(pat);
+            if (last > -1)
+            {
+                idx = i;
+            }
+        }
+        answer = myString.Substring(0, idx + pat.Length);
+        return answer;
+    }
+    
     /// <summary>
     /// 문자열 뒤집기
     /// </summary>
