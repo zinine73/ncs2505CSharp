@@ -7,6 +7,53 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 배열의 길이를 2의 거듭제곱으로 만들기
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public int[] Solution10282(int[] arr)
+    {
+        // arr의 길이를 다른 변수로 잡기
+        int len = arr.Length;
+        // 2의 배수를 담을 변수 잡기
+        int two = 1;
+        // arr의 길이를 초과하는 2의 배수 찾기
+        while (two < len)
+        {
+            // 2배로 늘리기
+            two *= 2;
+        }
+        // 반환값 크기만큼 배열 만들기
+        int[] answer = new int[two];
+        // 앞에서부터 arr 값으로 채우기
+        // 나머지는 이미 기본값인 0으로 채워져 있다
+        for (int i = 0; i < len; i++)
+        {
+            answer[i] = arr[i];
+        }
+        return answer;
+    }
+    
+    /// <summary>
+    /// 수열과 구간 쿼리 3
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="queries"></param>
+    /// <returns></returns>
+    public int[] Solution1028(int[] arr, int[,] queries)
+    {
+        for (int i = 0; i < queries.GetLength(0); i++)
+        {
+            //(arr[queries[i, 0]], arr[queries[i, 1]]) 
+            //    = (arr[queries[i, 1]], arr[queries[i, 0]]);
+            int temp = arr[queries[i, 0]];
+            arr[queries[i, 0]] = arr[queries[i, 1]];
+            arr[queries[i, 1]] = temp;
+        }
+        return arr;
+    }
+    
+    /// <summary>
     /// 문자열이 몇 번 등장하는지 세기
     /// </summary>
     /// <param name="myString"></param>
