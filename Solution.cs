@@ -7,6 +7,70 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 모스부호 (1)
+    /// </summary>
+    /// <param name="letter"></param>
+    /// <returns></returns>
+    public string Solution10292(string letter)
+    {
+        string answer = "";
+        // 모스부호 데이터 전체를 string으로 읽어온다
+        string morse = @"'.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f','--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l','--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r','...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x','-.--':'y','--..':'z'";
+        // 따옴표를 없애고, 콤마로 구분해서 배열로 만든다
+        string[] mstr = morse.Replace("'", "").Split(",");
+        // 모스부호 정보를 담을 딕셔너리를 준비
+        var dic = new Dictionary<string, string>();
+        // 배열을 순회하면서
+        foreach (var item in mstr)
+        {
+            // 콜론(:)으로 item 값을 분리해서
+            string[] isp = item.Split(":");
+            // 딕셔너리에 넣는다
+            dic.Add(isp[0], isp[1]);
+        }
+        // 검사할 letter를 공백으로 구분된 배열로 만든다
+        string[] lsp = letter.Split(" ");
+        // 배열을 순회하면서
+        foreach (var item in lsp)
+        {
+            // 딕셔너리에서 해당되는 값을 answer에 추가한다
+            answer += dic[item];
+        }
+        return answer;
+    }
+    
+    /// <summary>
+    /// A로 B 만들기
+    /// </summary>
+    /// <param name="before"></param>
+    /// <param name="after"></param>
+    /// <returns></returns>
+    public int Solution1029(string before, string after)
+    {
+        // after를 순회하면서
+        foreach (var item in after)
+        {
+            // 한 문자를 가져와서 before에 포함되어 있는지 검사
+            int idx = before.IndexOf(item);
+            // 포함되어 있지 않다면
+            if (idx < 0)
+            {
+                // 바로 0를 반환
+                return 0;
+            }
+            else // 포함 되어 있다면
+            {
+                // 그 문자만 제거
+                // Remove(idx)는 idx뒤를 전부 지우므로 안됨
+                // Replace는 지정 문자를 모두 바꾸므로 안됨
+                before = before.Remove(idx, 1);
+            }
+        }
+        // 모두 통과했으면 1 반환
+        return 1;
+    }
+    
+    /// <summary>
     /// 배열의 길이를 2의 거듭제곱으로 만들기
     /// </summary>
     /// <param name="arr"></param>
