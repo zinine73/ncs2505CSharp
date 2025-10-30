@@ -7,6 +7,84 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// k의 개수
+    /// </summary>
+    /// <param name="i"></param>
+    /// <param name="j"></param>
+    /// <param name="k"></param>
+    /// <returns></returns>
+    public int Solution10302(int i, int j, int k)
+    {
+        int answer = 0;
+        // i부터 j까지 순회 (i가 이미 사용되고 있으므로 새로운 이름의 인덱스 지정)
+        for (int idx = i; idx <= j; idx++)
+        {
+            // 인덱스를 문자열로 바꾸고
+            string str = idx.ToString();
+            // 문자열을 순회
+            foreach (var item in str)
+            {
+                // 문자의 문자값을 얻어서
+                int val = item - '0';
+                // k와 비교
+                if (k == val)
+                {
+                    // 같으면 answer 증가
+                    answer++;
+                }
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
+    /// 2차원으로만들기
+    /// </summary>
+    /// <param name="num_list"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[,] Solution1030(int[] num_list, int n)
+    {
+        // 1차원 개수는 몇인지 계산 (n은 2차원)
+        int len = num_list.Length / n;
+        // 개수 크기만큼 answer 생성
+        int[,] answer = new int[len, n];
+        // 개수만큼 반복
+        for (int i = 0; i < len; i++)
+        {
+            // n만큼 반복
+            for (int j = 0; j < n; j++)
+            {
+                // answer에 값 넣기
+                answer[i, j] = num_list[i * n + j];
+            }
+        }
+        // 콘솔에 답을 찍어보자
+        int di1 = answer.GetLength(0);
+        int di2 = answer.GetLength(1);
+        for (int i = 0; i < di1; i++)
+        {
+            Console.Write("[");
+            for (int j = 0; j < di2; j++)
+            {
+                Console.Write(answer[i, j]);
+                if (j != di2 - 1)
+                {
+                    Console.Write(",");
+                }
+            }
+            Console.Write("]");
+            if (i != di1 - 1)
+            {
+                Console.Write(",");
+            }
+        }
+        Console.WriteLine();
+        // answer 반환
+        return answer;
+    }
+    
+    /// <summary>
     /// 모스부호 (1)
     /// </summary>
     /// <param name="letter"></param>
