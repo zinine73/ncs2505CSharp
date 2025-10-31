@@ -7,6 +7,84 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 세 개의 구분자
+    /// </summary>
+    /// <param name="myStr"></param>
+    /// <returns></returns>
+    public string[] Solution10312(string myStr)
+    {
+        // 구분자를 한문자(공백)로 바꾸기
+        myStr = myStr.Replace("a", " ").Replace("b", " ").Replace("c", " ");
+        // 공백으로 문자열 분리하기
+        string[] str = myStr.Split(" ");
+        // 분리한 문자열 담을 리스트 선언
+        var list = new List<string>();
+        // 문자열 배열 순회하면서
+        foreach (var item in str)
+        {
+            // 값이 있는 것만 리스트에 담기
+            if (item.Length > 0)
+            {
+                list.Add(item);
+            }
+        }
+        // 리스트가 비어 있다면
+        if (list.Count == 0)
+        {
+            // 특정 문자열("EMPTY") 넣기
+            list.Add("EMPTY");
+        }
+        // 배열로 변환해서 반환
+        return list.ToArray();
+    }
+    
+    /// <summary>
+    /// 문자열 묶기
+    /// </summary>
+    /// <param name="strArr"></param>
+    /// <returns></returns>
+    public int Solution1031(string[] strArr)
+    {
+        int answer = 0;
+        // dictionary<int, int>를 하나 만든다 
+        var dic = new Dictionary<int, int>();
+        // 배열을 순회하면서
+        foreach (var item in strArr)
+        {
+            // 각 문자열의 길이를 얻어와서
+            int len = item.Length;
+            // 딕셔너리에 키가 있는지 확인
+            if (dic.ContainsKey(len))
+            {
+                // 있다면 값을 1 증가
+                dic[len]++;
+            }
+            else
+            {
+                // 없다면 새로 넣기
+                dic.Add(len, 1);
+            }
+        }
+        // 딕셔너리를 순회하며
+        // foreach (var item in dic)
+        // {
+        //     // 값이 가장 큰 걸 찾는다
+        //     if (item.Value > answer)
+        //     {
+        //         answer = item.Value;
+        //     }
+        // }
+        foreach (var item in dic.Values)
+        {
+            if (answer < item)
+            {
+                answer = item;
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
     /// k의 개수
     /// </summary>
     /// <param name="i"></param>
