@@ -7,6 +7,126 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 숨어있는 숫자의 덧셈 (2)
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public int Solution11032(string my_string)
+    {
+        int answer = 0;
+        /*
+        // 이전 item이 숫자인지 아닌지를 나타내는 bool 변수
+        bool isNumber = false;
+        // 계산된 수의 값을 저장할 변수
+        int val = 0;
+        // my_string을 순회
+        foreach (var item in my_string)
+        {
+            // 숫자만 검색
+            // 자연수가 아니라고 비교조건에서 '0'을 빼게 되면
+            // '10' 같은 걸 처리할 수 없으므로 주의!
+            if (item >= '0' && item <= '9')
+            {
+                // 이전 item이 숫자였나?
+                if (isNumber)
+                {
+                    // 숫자면 연속된 수로 계산
+                    val = val * 10 + (item - '0');
+                }
+                else
+                {
+                    // 아니면 계산된 수의 값을 구하고
+                    val = item - '0';
+                    // 이전 item이 숫자였다고 표시
+                    isNumber = true;
+                }
+            }
+            else // 숫자가 아니면
+            {
+                // 이전 item이 숫자가 아니었다고 표시
+                isNumber = false;
+                // answer에 계산된 수의 값을 더하고
+                answer += val;
+                // 계산된 수의 값은 초기화
+                val = 0;
+            }
+        }
+        // answer에 계산된 수의 값 더하기
+        answer += val;
+        */
+        ///////////////// Regex 이용
+        // 영대소문자를 공백문자로 바꾼 문자열을 만든다
+        string str = Regex.Replace(my_string, "[a-zA-Z]"," ");
+        // 공백문자를 기준으로 배열로 나눈다 (공백문자 빼는 옵션 추가)
+        string[] str2 = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        // 배열을 돌면서
+        foreach (var item in str2)
+        {
+            // 정수값으로 변환한 뒤 answer에 더한다
+            answer += Convert.ToInt32(item);
+        }
+        return answer;
+    }
+    
+    /// <summary>
+    /// 한번만 등장한 문자
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    public string Solution1103(string s)
+    {
+        string answer = "";
+        /*
+        //////////////////////// Dictionary 이용
+        var dic = new Dictionary<char, int>();
+        // s를 돌면서
+        foreach (var item in s)
+        {
+            // char item을 키로 검사해서
+            if (dic.TryGetValue(item, out int val))
+            {
+                // 있으면 value를 증가
+                dic[item]++;
+            }
+            else
+            {
+                // 없으면 dic에 추가
+                dic.Add(item, 1);
+            }
+        }
+        // list를 만들어서
+        var list = new List<char>();
+        // dic을 돌면서
+        foreach (var item in dic)
+        {
+            // value가 1인 item만 list에 넣고
+            if (item.Value == 1)
+            {
+                list.Add(item.Key);
+            }
+        }
+        // list를 정렬
+        list.Sort();
+        // string으로 변환
+        foreach (var item in list)
+        {
+            answer += item;
+        }
+        */
+
+        ///////////////////// Split 이용
+        // Split해서 나온 결과 배열의 크기가 2 라면, 나누는 기준이 하나
+        for (char c = 'a'; c <= 'z'; c++)
+        {
+            if (s.Split(c).Length == 2)
+            {
+                answer += c;
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
     /// 세 개의 구분자
     /// </summary>
     /// <param name="myStr"></param>
