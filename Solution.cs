@@ -7,6 +7,74 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 7의 개수
+    /// </summary>
+    /// <param name="array"></param>
+    /// <returns></returns>
+    public int Solution11042(int[] array)
+    {
+        int answer = 0;
+        // 배열의 모든 요소를 하나의 문자열로 만든다
+        var sb = new StringBuilder();
+        foreach (var item in array)
+        {
+            sb.Append(item);
+        }
+        string str = sb.ToString();
+        /*
+        ///////////////////////// 1.foreach
+        // 문자열을 순회하면서 7과 비교
+        foreach (var item in str)
+        {
+            if (item.Equals('7'))
+            {
+                answer++;
+            }
+        }
+        */
+        ///////////////////////// 2.Regex
+        // Count는 8.0부터 지원
+        //answer = Regex.Count(str, "7");
+        answer = Regex.Replace(str, "[1-6890]", "").Length;
+        return answer;
+    }
+    
+    /// <summary>
+    /// 2의 영역
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public int[] Solution1104(int[] arr)
+    {
+        // 반환값을 형태만 잡고서
+        int[] answer;
+        // 2가 등장하는 처음 인덱스와
+        int first = Array.IndexOf(arr, 2);
+        // 마지막 인덱스를 구한다
+        int last = Array.LastIndexOf(arr, 2);
+        // 구해진게 없다면
+        if (first < 0)
+        {
+            // 반환값에 -1 을 하나 넣는다
+            answer = new int[1] { -1 };
+        }
+        else // 아니면
+        {
+            // 반환값의 길이를 구하고
+            int len = last - first + 1;
+            // 길이만큼 반환값 설정
+            answer = new int[len];
+            // 길이만큼 반복
+            for (int i = 0; i < len; i++)
+            {
+                // 반환값에 배열값 넣기
+                answer[i] = arr[first + i];
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
     /// 숨어있는 숫자의 덧셈 (2)
     /// </summary>
     /// <param name="my_string"></param>
