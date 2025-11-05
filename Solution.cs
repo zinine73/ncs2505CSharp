@@ -1,4 +1,3 @@
-using System.Data;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -6,6 +5,42 @@ using Zinine;
 
 class Solution
 {
+    /// <summary>
+    /// 간단한 논리 연산
+    /// </summary>
+    /// <param name="x1"></param>
+    /// <param name="x2"></param>
+    /// <param name="x3"></param>
+    /// <param name="x4"></param>
+    /// <returns></returns>
+    public bool Solution11052(bool x1, bool x2, bool x3, bool x4)
+    {
+        // 논리bool연산자 : !부정, |or, &and, ^xor
+        // |,&,^ : 두 피연산자 모두 평가
+        // ||,&& : 필요한 경우 오른쪽 피연산자 평가
+        bool answer = (x1 | x2) & (x3 | x4);
+        return answer;
+    }
+    
+    /// <summary>
+    /// 문자열 반복해서 출력하기
+    /// </summary>
+    public void Solution1105()
+    {
+        String[] input;
+
+        Console.Clear();
+        input = Console.ReadLine().Split(' ');
+
+        String s1 = input[0];
+        int a = Int32.Parse(input[1]);
+
+        for (int i = 0; i < a; i++)
+        {
+            Console.Write(s1);
+        }
+    }
+    
     /// <summary>
     /// 7의 개수
     /// </summary>

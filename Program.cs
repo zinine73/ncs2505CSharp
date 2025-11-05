@@ -18,11 +18,11 @@ internal class Program
         var boolArr = new bool[] { true, false, true, false, false };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution11042(intArr));
+        Console.WriteLine(sol.Solution11052(true,false,false,false));
         ///// 배열값을 리턴하는 경우 /////
         //Util.PrintArray(sol.Solution1104(intArr));
-        ///// 실행이 터미널창에서 이뤄지는 경우 /////
-        //sol.Solution09012();
+        ///// 실행이 터미널창에서 이뤄지는 경우(Run without Debugging) /////
+        //sol.Solution1105();
 
         CSStudy study = new CSStudy();
         //study.FormatTest();
