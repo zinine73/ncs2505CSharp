@@ -6,6 +6,70 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 가까운 수
+    /// </summary>
+    /// <param name="array"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution11062(int[] array, int n)
+    {
+        int answer = 0;
+        // 중복되고 정렬되지 않은 값들이 있을 수 있으므로 먼저 정렬
+        Array.Sort(array);
+        // int의 가장 큰 값을 변수로 잡는다
+        int max = int.MaxValue; //100;
+        // 배열을 순회하면서
+        foreach (var item in array)
+        {
+            // n과의 절대값 차이를 구한다
+            int temp = (item > n) ? item - n : n - item;
+            // 가장 큰 값보다 작으면
+            if (max > temp)
+            {
+                // 가장 큰 값에 현재값 대입
+                max = temp;
+                // 이 때 검사한 값을 answer에 넣기
+                answer = item;
+            }
+            else if (max == item)// 같으면
+            {
+                // 검사한 값이 answer보다 작으면
+                if (answer > item)
+                {
+                    // 그 값을 answer로 한다
+                    answer = item;
+                }
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
+    /// 진료순서 정하기
+    /// </summary>
+    /// <param name="emergency"></param>
+    /// <returns></returns>
+    public int[] Solution1106(int[] emergency)
+    {
+        // 반환값의 크기를 알 수 있으니 그 크기만큼의 answer배열 생성
+        int[] answer = new int[emergency.Length];
+        // 정렬을 사용하니 list 하나 생성
+        var list = new List<int>(emergency);
+        // 정렬(기본 오름차순)
+        list.Sort();
+        // 정렬순서바꾸기(내림차순)
+        list.Reverse();
+        // 전체 크기만큼 반복
+        for (int i = 0; i < answer.Length; i++)
+        {
+            // answer의 해당 인덱스에, emergency에서의 인덱스값(+1)을 넣는다
+            answer[i] = list.IndexOf(emergency[i]) + 1;
+        }
+        // answer 반환
+        return answer;
+    }
+    
+    /// <summary>
     /// 간단한 논리 연산
     /// </summary>
     /// <param name="x1"></param>
