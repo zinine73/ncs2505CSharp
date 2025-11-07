@@ -6,6 +6,83 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 리스트 자르기
+    /// </summary>
+    /// <param name="n"></param>
+    /// <param name="slicer"></param>
+    /// <param name="num_list"></param>
+    /// <returns></returns>
+    public int[] Solution11072(int n, int[] slicer, int[] num_list)
+    {
+        // 시작 인덱스, 끝 인덱스, 간격으로 사용할 변수 선언
+        int first = 0;
+        int last = num_list.Length - 1;
+        int space = 1;
+        // n 에 따라 분기
+        switch (n)
+        {   // 필요한 값만 구한다
+            case 1:
+                last = slicer[1];
+                break;
+            case 2:
+                first = slicer[0];
+                break;
+            case 3:
+                first = slicer[0];
+                last = slicer[1];
+                break;
+            case 4:
+                first = slicer[0];
+                last = slicer[1];
+                space = slicer[2];
+                break;
+        }
+        // 답이 될 수 있는 최대 길이
+        int len = last - first + 1;
+        // 리스트를 하나 만든다
+        var list = new List<int>();
+        /*
+        // 최대길이만큼 반복
+        for (int i = 0; i < len; i++)
+        {
+            // 다음 인덱스 구하기
+            int idx = i * space + first;
+            // 인덱스가 끝인덱스를 넘어가면 순회 중지
+            if (idx > last) break;
+            // 해당 값을 리스트에 넣기
+            list.Add(num_list[idx]);
+        }
+        */
+        for (int i = first; i <= last; i += space)
+        {
+            list.Add(num_list[i]);
+        }
+        // 리스트를 배열로 변환 후 반환
+        return list.ToArray();
+    }
+    
+    /// <summary>
+    /// 팩토리얼
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution1107(int n)
+    {
+        // 반환값, 팩토리얼 계산 값을 담을 변수 설정
+        int answer = 1, factorial = 1;
+        // factorial값이 n보다 같거나 작을 때 반복
+        while (factorial <= n)
+        {
+            // 반환값 + 1
+            answer++;
+            // factorial 값 계산
+            factorial *= answer;
+        }
+        // 반환
+        return answer - 1;
+    }
+    
+    /// <summary>
     /// 가까운 수
     /// </summary>
     /// <param name="array"></param>
