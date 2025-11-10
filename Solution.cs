@@ -6,6 +6,62 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// qr code
+    /// </summary>
+    /// <param name="q"></param>
+    /// <param name="r"></param>
+    /// <param name="code"></param>
+    /// <returns></returns>
+    public string Solution11102(int q, int r, string code)
+    {
+        string answer = string.Empty;
+        /* 일반적인 for문
+        for (int i = 0; i < code.Length; i++)
+        {
+            if (i % q == r)
+            {
+                answer += code[i];
+            }
+        }
+        */
+        // 단축 for문
+        for (int i = r; i < code.Length; i += q)
+        {
+            answer += code[i];
+        }
+        return answer;
+    }
+    
+    /// <summary>
+    /// 수열과 구간 쿼리 4
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="queries"></param>
+    /// <returns></returns>
+    public int[] Solution1110(int[] arr, int[,] queries)
+    {
+        // queries를 순회
+        for (int q = 0; q < queries.GetLength(0); q++)
+        {
+            // start, end, k 변수 생성
+            int start = queries[q, 0];
+            int end = queries[q, 1];
+            int k = queries[q, 2];
+            // for 문 돌린다
+            for (int i = start; i <= end; i++)
+            {
+                // i 가 k 로 나누어 떨어지느냐
+                if (i % k == 0)
+                {
+                    // arr[i] 증가
+                    arr[i]++;
+                }                
+            }
+        }
+        return arr;
+    }
+    
+    /// <summary>
     /// 리스트 자르기
     /// </summary>
     /// <param name="n"></param>
