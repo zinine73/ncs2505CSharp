@@ -1,3 +1,4 @@
+using System.Data.Common;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -5,6 +6,108 @@ using Zinine;
 
 class Solution
 {
+    /// <summary>
+    /// 조건에 맞게 수열 변환하기 2
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public int Solution11112(int[] arr)
+    {
+        // 변환된 값이 없을 때까지 반복하고 그때까지 카운트를 세는 방법
+        int answer = 0;
+        bool isChanged;
+        while (true)
+        {
+            isChanged = false;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if ((arr[i] >= 50) && (arr[i] % 2 == 0))
+                {
+                    arr[i] /= 2;
+                    isChanged = true;
+                }
+                else if ((arr[i] < 50) && (arr[i] % 2 == 1))
+                {
+                    arr[i] = arr[i] * 2 + 1;
+                    isChanged = true;
+                }
+            }
+            if (isChanged)
+            {
+                answer++;
+            }
+            else
+            {
+                return answer;
+            }
+        }
+        /*
+        // 계산된 배열을 만드는 함수와 비교하는 함수를 만들어 푸는 방법
+        int answer = 0;
+        int idx = 0;
+        while (true)
+        {
+            int[] arr2 = MakeArr(arr);
+            if (CompareSame(arr, arr2))
+            {
+                answer = idx;
+                break;
+            }
+            else
+            {
+                idx++;
+                arr = arr2;
+            }
+        }
+        return answer;
+        */
+    }
+    int[] MakeArr(int[] arr)
+    {
+        int[] arr2 = new int[arr.Length];
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if ((arr[i] >= 50) && (arr[i] % 2 == 0))
+            {
+                arr2[i] = arr[i] / 2;
+            }
+            else if ((arr[i] < 50) && (arr[i] % 2 == 1))
+            {
+                arr2[i] = arr[i] * 2 + 1;
+            }
+            else
+            {
+                arr2[i] = arr[i];
+            }
+        }
+        return arr2;
+    }
+    bool CompareSame(int[] a1, int[] a2)
+    {
+        if (a1.Length != a2.Length) return false;
+        for (int i = 0; i < a1.Length; i++)
+        {
+            if (a1[i] != a2[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// 특수문자 출력하기
+    /// </summary>
+    public void Solution1111()
+    {
+        Console.Write("!@#$%^&*(");
+        Console.Write(Convert.ToChar(92));
+        Console.Write("'");
+        Console.Write(Convert.ToChar(34));
+        Console.Write("<>?:;");
+        //Console.Write(@"!@#$%^&*(\'""<>?:;");
+    }
+    
     /// <summary>
     /// qr code
     /// </summary>
