@@ -7,6 +7,67 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 컨트롤 제트
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    public int Solution11122(string s)
+    {
+        int answer = 0;
+        // s를 공백을 기준으로 분리
+        string[] arr = s.Split(' ');
+        // 다음에 계산될 값을 정수로 변환
+        int last = Convert.ToInt32(arr[0]);
+        // answer에 더하기
+        answer += last;
+        // 분리된 배열 크기로 1부터 반복
+        for (int i = 1; i < arr.Length; i++)
+        {
+            // "Z" 인지 판별
+            if (arr[i].Equals("Z"))
+            {
+                // answer에서 마지막 계산된 값 빼기
+                answer -= last;
+            }
+            else // 아니면
+            {
+                // 계산될 값으로 변환
+                last = int.Parse(arr[i]);
+                // answer에 더하기
+                answer += last;
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
+    /// 커피 심부름
+    /// </summary>
+    /// <param name="order"></param>
+    /// <returns></returns>
+    public int Solution1112(string[] order)
+    {
+        int answer = 0;
+        // order를 순회하면서
+        foreach (var item in order)
+        {
+            // 특정 단어가 포함되어 있느냐를 체크
+            /*
+            if (item.Contains("cafelatte"))
+            {
+                answer += 5000;
+            }
+            else
+            {
+                answer += 4500;
+            }
+            */
+            answer += item.Contains("cafelatte") ? 5000 : 4500;
+        }
+        return answer;
+    }
+    
+    /// <summary>
     /// 조건에 맞게 수열 변환하기 2
     /// </summary>
     /// <param name="arr"></param>
