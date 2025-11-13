@@ -7,6 +7,87 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 배열 만들기 6
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public int[] Solution11132(int[] arr)
+    {
+        // 반환 배열의 크기를 알 수 없으므로 list 사용
+        var list = new List<int>();
+        // arr의 크기만큼 반복
+        for (int i = 0; i < arr.Length; i++)
+        {
+            // list의 크기가 0이면
+            if (list.Count == 0)
+            {
+                // 현재 값을 list에 넣기
+                list.Add(arr[i]);
+            }
+            else
+            {
+                // 현재값을 list의 마지막 원소와 비교
+                if (list[list.Count - 1] == arr[i])
+                {
+                    // 같으면 마지막 원소 제거
+                    list.RemoveAt(list.Count - 1);
+                }
+                else
+                {
+                    // 다르면 현재값을 list에 넣기
+                    list.Add(arr[i]);
+                }
+            }
+        }
+        /*
+        // list의 크기가 0이면
+        if (list.Count == 0)
+        {
+            // -1을 넣은 배열을 반환
+            return new int[1] { -1 };
+        }
+        else
+        {
+            // list를 배열로 변환 후 반환
+            return list.ToArray();
+        }
+        */
+        return (list.Count == 0) ? new int[] { -1 } : list.ToArray();
+    }
+    
+    /// <summary>
+    /// 잘라서 배열로 저장하기
+    /// </summary>
+    /// <param name="my_str"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public string[] Solution1113(string my_str, int n)
+    {
+        // 크기를 알 수 있으면, 그 크기만큼 리턴 배열을 만든다
+        // n보다 작은 값들이 남는 경우 크기에 1을 더한다
+        //int len = my_str.Length / n;
+        //if (my_str.Length % n > 0) len++;
+        int len = (my_str.Length - 1) / n + 1;
+        string[] answer = new string[len];
+        // 필요한 인덱스, 카운터 변수 정의
+        int idx = 0, cnt = 0;
+        // my_str을 순회하면서
+        foreach (var item in my_str)
+        {
+            // answer에 하나씩 넣기
+            answer[idx] += item;
+            cnt++;
+            // n만큼 넣었다면 idx 증가
+            if (cnt == n)
+            {
+                idx++;
+                cnt = 0;
+            }
+        }
+        return answer;
+    }
+    
+    /// <summary>
     /// 컨트롤 제트
     /// </summary>
     /// <param name="s"></param>
