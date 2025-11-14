@@ -7,6 +7,64 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 왼쪽 오른쪽
+    /// </summary>
+    /// <param name="str_list"></param>
+    /// <returns></returns>
+    public string[] Solution11142(string[] str_list)
+    {
+        // 세종류의 반환값 만들기
+        string[] strEmpty = new string[]{};
+        var listLeft = new List<string>();
+        var listRight = new List<string>();
+        // 배열을 순회하면서
+        for (int i = 0; i < str_list.Length; i++)
+        {
+            // "l"이 나오면 listLeft에 넣어놨던걸 배열로 만들어서 반환
+            if (str_list[i].Equals("l"))
+            {
+                return listLeft.ToArray();
+            }
+            // "r"이 나오면 뒤에 나오는 모든 걸 배열로 만들어서 반환
+            else if (str_list[i].Equals("r"))
+            {
+                for (int j = i + 1; j < str_list.Length; j++)
+                {
+                    listRight.Add(str_list[j]);
+                }
+                return listRight.ToArray();
+            }
+            // 아니면 listLeft에 쌓아놀기
+            else
+            {
+                listLeft.Add(str_list[i]);
+            }
+        }
+        // 여기까지 왔다면 둘다 안 나온 것이므로 빈 배열 반환
+        return strEmpty;
+    }
+
+    /// <summary>
+    /// 소인수분해
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[] Solution1114(int n)
+    {
+        var hs = new HashSet<int>();
+        for (int i = 2; i <= n; i++)
+        {
+            while (n % i == 0)
+            {
+                n = n / i;
+                hs.Add(i);
+            }
+        }
+        int[] answer = hs.ToArray();
+        return answer;
+    }
+
+    /// <summary>
     /// 배열 만들기 6
     /// </summary>
     /// <param name="arr"></param>
