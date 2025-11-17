@@ -7,6 +7,73 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 문자 개수 세기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public int[] Solution11172(string my_string)
+    {
+        // 알파벳 한벌 길이 선언
+        const int ALEN = 26; 
+        // 알파벳 두벌 길이만큼 반환값 길이 잡고 배열 선언
+        int[] answer = new int[ALEN * 2];
+        // 문자열을 순회하면서
+        foreach (var item in my_string)
+        {
+            // 대문자인지 판별
+            if ((item >= 'A') && (item <= 'Z'))
+            {
+                // 해당 위치의 값을 증가
+                answer[item - 'A']++;
+            }
+            else
+            {
+                // 소문자인 경우 알파벳 한벌 길이만큼 뒤에
+                answer[item - 'a' + ALEN]++;
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 조건 문자열
+    /// </summary>
+    /// <param name="ineq"></param>
+    /// <param name="eq"></param>
+    /// <param name="n"></param>
+    /// <param name="m"></param>
+    /// <returns></returns>
+    public int Solution1117(string ineq, string eq, int n, int m)
+    {
+        int answer = 0;
+        if (ineq.Equals(">"))
+        {
+            if (eq.Equals("="))
+            {
+                //answer = (n >= m) ? 1 : 0;
+                if (n >= m) answer = 1;
+            }
+            else
+            {
+                //answer = (n > m) ? 1 : 0;
+                if (n > m) answer = 1;
+            }
+        }
+        else
+        {
+            if (eq.Equals("="))
+            {
+                if (n <= m) answer = 1;
+            }
+            else
+            {
+                if (n < m) answer = 1;
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 왼쪽 오른쪽
     /// </summary>
     /// <param name="str_list"></param>
