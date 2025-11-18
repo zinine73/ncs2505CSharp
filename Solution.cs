@@ -7,6 +7,68 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 이진수 더하기
+    /// </summary>
+    /// <param name="bin1"></param>
+    /// <param name="bin2"></param>
+    /// <returns></returns>
+    public string Solution11182(string bin1, string bin2)
+    {
+        // 진법 변환에는 Convert를 사용하자
+        int int1 = Convert.ToInt32(bin1, 2);
+        int int2 = Convert.ToInt32(bin2, 2);
+        int int3 = int1 + int2;
+        string answer = Convert.ToString(int3, 2);
+        return answer;
+    }
+
+    /// <summary>
+    /// 배열 만들기 4
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public int[] Solution1118(int[] arr)
+    {
+        // List를 사용해도 되지만 Stack을 사용해보자
+        var stk = new Stack<int>();
+        int i = 0;
+        // while문으로 반복
+        while (i < arr.Length)
+        {
+            // stk에 값이 없으면 넣기
+            if (stk.Count == 0)
+            {
+                stk.Push(arr[i]);
+                i++;
+            }
+            else // 아니면
+            {
+                // 마지막에 넣은 요소 살펴보기
+                if (stk.Peek() < arr[i])
+                {
+                    stk.Push(arr[i]);
+                    i++;
+                }
+                else
+                {
+                    stk.Pop();
+                }
+            }
+        }
+        // stack을 ToArray로 배열을 만들게 되면
+        // pop순서대로 나오기 때문에, 배열을 만들고나서 역순으로 넣자
+        // int[] answer = new int[stk.Count];
+        // for (i = stk.Count - 1; i >= 0; i--)
+        // {
+        //     answer[i] = stk.Pop();
+        // }
+        // return answer;
+        int[] answer = stk.ToArray();
+        Array.Reverse(answer);
+        return answer;
+    }
+
+    /// <summary>
     /// 문자 개수 세기
     /// </summary>
     /// <param name="my_string"></param>
