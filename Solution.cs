@@ -7,6 +7,67 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 문자열 계산하기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <returns></returns>
+    public int Solution11192(string my_string)
+    {
+        int answer = 0;
+        // my_string을 숫자와 연산자로 분리
+        string[] str = my_string.Split(' ');
+        // 연산자 부호를 대입할 변수
+        int pm = 1;
+        // 분리된 결과를 순회하면서
+        foreach (var item in str)
+        {
+            // 숫자일 때 대입할 변수
+            int temp = 0;
+            // "+" 부호냐
+            if (item.Equals("+"))
+            {
+                pm = 1;
+            }
+            // "-" 부호냐
+            else if (item.Equals("-"))
+            {
+                pm = -1;
+            }
+            // 아니면 정수값
+            else
+            {
+                temp = Convert.ToInt32(item);
+            }
+            // 부호에 맞는 값 계산
+            answer += temp * pm;
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 문자열 여러 번 뒤집기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="queries"></param>
+    /// <returns></returns>
+    public string Solution1119(string my_string, int[,] queries)
+    {
+        // Reverse를 할 수 있는 Array형으로 변환
+        var answer = my_string.ToCharArray();
+        // queries의 크기만큼 반복
+        for (int i = 0; i < queries.GetLength(0); i++)
+        {
+            // 뒤집을 시작과 끝 위치를 변수로
+            int s = queries[i, 0];
+            int e = queries[i, 1];
+            // 배열의 부분뒤집기를 이용한다
+            Array.Reverse(answer, s, e - s + 1);
+        }
+        // 배열을 문자열로 변환 후 반환
+        return new string(answer);
+    }
+
+    /// <summary>
     /// 이진수 더하기
     /// </summary>
     /// <param name="bin1"></param>
