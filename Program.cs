@@ -11,7 +11,7 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArr = new int[] {1,4,2,5,3};
+        var intArr = new int[] {1,2,3};
         var intArr2 = new int[] {1,2,3,4,5,6,7,8,9};
         var int2Arr = new int[,] { {2,3},{0,7},{5,9},{6,10} };
         var strArr1 = new string[] { "l" };
@@ -19,7 +19,7 @@ internal class Program
         var boolArr = new bool[] { true, false, true, false, false };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution11192("3 + 4 - 1 - 1"));
+        Console.WriteLine(sol.Solution11202("18446744073709551615","287346502836570928366"));
         ///// 배열값을 리턴하는 경우 /////
         //Util.PrintArray(sol.Solution1118(intArr));
         ///// 실행이 터미널창에서 이뤄지는 경우(Run without Debugging) /////
