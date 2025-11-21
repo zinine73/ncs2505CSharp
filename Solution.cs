@@ -5,6 +5,80 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 수열과 구간 쿼리 2
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="queries"></param>
+    /// <returns></returns>
+    public int[] Solution11212(int[] arr, int[,] queries)
+    {
+        int len = queries.GetLength(0);
+        // 반환값의 크기를 알 수 있으므로 배열을 만든다
+        int[] answer = new int[len];
+        // 배열크기만큼 순회
+        for (int q = 0; q < len; q++)
+        {
+            // 시작값과 끝값 구하기
+            int start = queries[q, 0];
+            int end = queries[q, 1];
+            // 가장 작은값을 담을 변수 설정 : 처음에 가장 큰값을 넣는다
+            int small = int.MaxValue;
+            // 시작값부터 끝값까지 순회
+            for (int i = start; i <= end; i++)
+            {
+                // 조건에 맞으면
+                if (arr[i] > queries[q, 2])
+                {
+                    // 가장 작은 값인지 검사
+                    if (arr[i] < small)
+                    {
+                        // 가장 작은 값에 대입
+                        small = arr[i];
+                    }
+                }
+            }
+            // 작은값이 기본값이면
+            if (small == int.MaxValue)
+            {
+                // 반환값이 없는 것이므로 -1 넣는다
+                answer[q] = -1;
+            }
+            else
+            {
+                // 아니면 작은 값 반환
+                answer[q] = small;
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 영어가 싫어요
+    /// </summary>
+    /// <param name="numbers"></param>
+    /// <returns></returns>
+    public long Solution1121(string numbers)
+    {
+        long answer = 0;
+        // Replace메서드를 연속으로 사용하자
+        string str = numbers.Replace("zero","0")
+            .Replace("one","1")
+            .Replace("two","2")
+            .Replace("three","3")
+            .Replace("four","4")
+            .Replace("five","5")
+            .Replace("six","6")
+            .Replace("seven","7")
+            .Replace("eight","8")
+            .Replace("nine","9");
+
+        // 변환값 형태를 정할 수 있는 Convert를 이용하자
+        //answer = Convert.ToInt64(str);
+        answer = long.Parse(str);
+        return answer;
+    }
+
+    /// <summary>
     /// 두 수의 합
     /// </summary>
     /// <param name="a"></param>
