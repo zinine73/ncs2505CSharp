@@ -5,6 +5,80 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 구슬을 나누는 경우의 수
+    /// </summary>
+    /// <param name="balls"></param>
+    /// <param name="share"></param>
+    /// <returns></returns>
+    public int Solution11242(int balls, int share)
+    {
+        //double temp = Util.Combi(balls, share);
+        //int answer = Convert.ToInt32(temp);
+        //return answer;
+        return Convert.ToInt32(Util.Combi(balls, share));
+    }
+
+    /*
+    double Sol(int n, int m)
+    {
+        return Fact(n) / (Fact(n - m) * Fact(m));
+    }
+
+    double Fact(int n)
+    {
+        double f = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            f *= i;
+        }
+        return f;
+    }
+    */
+
+    /// <summary>
+    /// 무작위로 K개의 수 뽑기
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="k"></param>
+    /// <returns></returns>
+    public int[] Solution1124(int[] arr, int k)
+    {
+        // 반환값의 크기를 알 수 있으니 그 크기만큼 잡고
+        int[] answer = new int[k];
+        // 값이 없는 경우를 대비해 -1로 채우자
+        for (int i = 0; i < k; i++)
+        {
+            answer[i] = -1;
+        }
+        // 중복값 검사를 위해 hashset을 사용하자
+        var hs = new HashSet<int>();
+        // 인덱스 변수 하나 잡고
+        int idx = 0;
+        // arr을 순회하면서
+        foreach (var item in arr)
+        {
+            // hashset에 있다면
+            if (hs.Contains(item))
+            {
+                // 바로 다음 요소로 넘어가자
+                continue;
+            }
+            else // 없다면
+            {
+                // 반환 배열에 넣고
+                answer[idx] = item;
+                // hashset에도 넣고
+                hs.Add(item);
+                // 인덱스 증가
+                idx++;
+                // k와 비교해서 넘으면 반복문에서 나가자
+                if (idx == k) break;
+            }
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 수열과 구간 쿼리 2
     /// </summary>
     /// <param name="arr"></param>
