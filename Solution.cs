@@ -5,6 +5,85 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 그림 확대
+    /// </summary>
+    /// <param name="picture"></param>
+    /// <param name="k"></param>
+    /// <returns></returns>
+    public string[] Solution11252(string[] picture, int k)
+    {
+        // 확대하기 전 원본 그림을 찍어보자
+        foreach (var item in picture)
+        {
+            Console.WriteLine(item);
+        }
+        // 원본 그림의 x 길이를 구한다
+        int x = picture.Length;
+        // 반환 그림의 크기만큼 answer를 잡는다
+        string[] answer = new string[x * k];
+        // 인덱스 변수 하나 잡고
+        int idx = 0;
+        // string형의 변수 하나 잡고 => stringBuilder 사용
+        var sb = new StringBuilder();
+        // picture를 순회
+        foreach (string s in picture)
+        {
+            // sb 클리어
+            sb.Clear();
+            // picture의 string하나를 다시 character별로 순회
+            foreach (char c in s)
+            {
+                // k만큼 반복
+                for (int i = 0; i < k; i++)
+                {
+                    // sb에 character 추가
+                    sb.Append(c);
+                }
+            }
+            // k만큼 반복
+            for (int i = 0; i < k; i++)
+            {
+                // answer의 인덱스 계산한 위치에 sb 넣기
+                answer[idx * k + i] = sb.ToString();
+            }
+            // 인덱스 증가
+            idx++;
+        }
+        // 확대한 그림도 찍어보자
+        foreach (var item in answer)
+        {
+            Console.WriteLine(item);
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 삼각형의 완성조건 (2)
+    /// </summary>
+    /// <param name="sides"></param>
+    /// <returns></returns>
+    public int Solution1125(int[] sides)
+    {
+        int answer = 0;
+        // 큰값과 작은값으로 별도의 변수를 잡는다
+        int big = Math.Max(sides[0], sides[1]);
+        int small = Math.Min(sides[0], sides[1]);
+        // x + small > big
+        // big - small < x <= big
+        for (int i = big - small + 1; i <= big; i++)
+        {
+            answer++;
+        }
+        // big + small > x
+        // big < x < big + small
+        for (int i = big + 1; i < big + small; i++)
+        {
+            answer++;
+        }
+        return answer;    
+    }
+
+    /// <summary>
     /// 구슬을 나누는 경우의 수
     /// </summary>
     /// <param name="balls"></param>
