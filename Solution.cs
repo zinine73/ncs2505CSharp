@@ -5,6 +5,62 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 문자열 겹쳐쓰기
+    /// </summary>
+    /// <param name="my_string"></param>
+    /// <param name="overwrite_string"></param>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    public string Solution11262(string my_string, string overwrite_string, int s)
+    {
+        ////////// remove, insert
+        /*
+        // string answer = my_string.Remove(s, overwrite_string.Length);
+        // answer = answer.Insert(s, overwrite_string);
+        // return answer;
+        return my_string.Remove(s, overwrite_string.Length).Insert(s, overwrite_string);
+        */
+        ////////// substring
+        /*
+        var sb = new StringBuilder();
+        // string first = new string(my_string.Substring(0, s));
+        // string tail = new string(my_string.Substring(s + overwrite_string.Length));
+        // sb.Append(first);
+        // sb.Append(overwrite_string);
+        // sb.Append(tail);
+        sb.Append(my_string.Substring(0, s));
+        sb.Append(overwrite_string);
+        sb.Append(my_string.Substring(s + overwrite_string.Length));
+        return sb.ToString();
+        */
+        //////////// linq
+        var sb = new StringBuilder();
+        sb.Append(my_string.Take(s).ToArray());
+        sb.Append(overwrite_string);
+        sb.Append(my_string.Skip(s + overwrite_string.Length).ToArray());
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// a와 b 출력하기
+    /// </summary>
+    public void Solution1126()
+    {
+        String[] s;
+
+        Console.Clear();
+        s = Console.ReadLine().Split(' ');
+
+        int a = Int32.Parse(s[0]);
+        int b = Int32.Parse(s[1]);
+
+        //Console.WriteLine("a = {0}", a);
+        //Console.WriteLine("b = {0}", b);
+        //Console.WriteLine("a = {0}\nb = {1}", a, b);
+        Console.WriteLine($"a = {a}\nb = {b}");
+    }
+
+    /// <summary>
     /// 그림 확대
     /// </summary>
     /// <param name="picture"></param>
