@@ -5,6 +5,61 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 캐릭터의 좌표
+    /// </summary>
+    /// <param name="keyinput"></param>
+    /// <param name="board"></param>
+    /// <returns></returns>
+    public int[] Solution11272(string[] keyinput, int[] board)
+    {
+        // answer의 크기는 정해져 있다
+        int[] answer = new int[2];
+        // 필요한 변수들 선언
+        int x = 0, y = 0;
+        int bxr = (board[0] - 1) / 2;
+        int bxl = -bxr;
+        int byu = (board[1] - 1) / 2;
+        int byd = -byu;
+        // keyinput을 순회하면서
+        foreach (var item in keyinput)
+        {
+            // 각 방향에 따른 값 계산 (범위를 넘지 않는지 검사)
+            if (item.Equals("left"))
+            {
+                if (x > bxl) x--;
+            }
+            else if (item.Equals("right"))
+            {
+                if (x < bxr) x++;
+            }
+            else if (item.Equals("down"))
+            {
+                if (y > byd) y--;
+            }
+            else // if (item.Equals("up"))
+            {
+                if (y < byu) y++;
+            }
+        }
+        // answer에 넣기
+        answer[0] = x;
+        answer[1] = y;
+        return answer;
+    }
+
+    /// <summary>
+    /// 종이 자르기
+    /// </summary>
+    /// <param name="M"></param>
+    /// <param name="N"></param>
+    /// <returns></returns>
+    public int Solution1127(int M, int N)
+    {
+        //return (M - 1) + (N - 1) * M;
+        return N * M - 1;
+    }
+
+    /// <summary>
     /// 문자열 겹쳐쓰기
     /// </summary>
     /// <param name="my_string"></param>
