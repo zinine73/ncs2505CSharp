@@ -5,6 +5,69 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 로그인 성공?
+    /// </summary>
+    /// <param name="id_pw"></param>
+    /// <param name="db"></param>
+    /// <returns></returns>
+    public string Solution12012(string[] id_pw, string[,] db)
+    {
+        // db의 크기만큼 반복
+        for (int i = 0; i < db.GetLength(0); i++)
+        {
+            // id가 같은지
+            if (id_pw[0].Equals(db[i, 0]))
+            {
+                // pw도 같은지
+                if (id_pw[1].Equals(db[i, 1]))
+                {
+                    // login 성공
+                    return "login";
+                }
+                else
+                {
+                    // pw가 다름
+                    return "wrong pw";
+                }
+            }
+        }
+        // id도 없음
+        return "fail";
+    }
+
+    /// <summary>
+    /// 전국 대회 선발 고사
+    /// </summary>
+    /// <param name="rank"></param>
+    /// <param name="attendance"></param>
+    /// <returns></returns>
+    public int Solution1201(int[] rank, bool[] attendance)
+    {
+        int answer = 0;
+        // 등수와 인덱스를 가진 dictionary
+        var dic = new Dictionary<int, int>();
+        // 등수만 가진 list
+        var list = new List<int>(rank);
+        // 등수 크기만큼 순회
+        for (int i = 0; i < rank.Length; i++)
+        {
+            // dictionary에 넣고
+            dic.Add(rank[i], i);
+            // 불참이면
+            if (attendance[i] == false)
+            {
+                // list에 rank 최대값 넣고
+                list[i] = list.Count + 1;
+            }
+        }
+        // list 정렬
+        list.Sort();
+        // 마지막 값 계산
+        answer = dic[list[0]] * 10000 + dic[list[1]] * 100 + dic[list[2]];
+        return answer;
+    }
+
+    /// <summary>
     /// 정사각형으로 만들기
     /// </summary>
     /// <param name="arr"></param>
