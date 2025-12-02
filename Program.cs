@@ -14,18 +14,18 @@ internal class Program
     {
         var intArr = new int[] {6,1,5,2,3,4};
         var intArr2 = new int[] {1,2,3,4,5,6,7,8,9};
-        var int2Arr = new int[,] { {57,192,534,2},{9,345,192,999} };
+        var int2Arr = new int[,] { {-1,-1},{1,1},{1,-1},{-1,1} };
         var strArr1 = new string[] { "rabbit04", "98761" };
         var strArr2 = new string[] { "moos", "dzx", "smm", "sunmmo", "som"};
         var str2Arr = new string[,] {{"jaja11","98761"},{"krong0313","29440"},{"rabbit00","111333"}};
         var boolArr = new bool[] { true, false, true, false, false, true };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution12012(strArr1, str2Arr));
+        Console.WriteLine(sol.Solution12022(int2Arr));
         ///// 배열값을 리턴하는 경우(2차원 이상 안됨) /////
         //Util.PrintArray(sol.Solution11282(int2Arr));
         ///// 실행이 터미널창에서 이뤄지는 경우(Run without Debugging) /////
-        //sol.Solution1126();
+        //sol.Solution1202();
 
         CSStudy study = new CSStudy();
         //study.FormatTest();

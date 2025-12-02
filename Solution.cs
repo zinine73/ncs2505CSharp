@@ -5,6 +5,84 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 직사각형 넓이 구하기
+    /// </summary>
+    /// <param name="dots"></param>
+    /// <returns></returns>
+    public int Solution12022(int[,] dots)
+    {
+        /*
+        // 가로,세로로 사용할 변수 선언
+        int w = 0, h = 0;
+        // 첫번째 x좌표 = 두번째 x좌표
+        // => 세번째, 네번째의 x좌표도 같다는 의미가 되므로
+        // 가로길이는 세번째나 네번째 좌표의 x값을 아무거나 사용하면 된다
+        if (dots[0,0] == dots[1,0])
+        {
+            h = Math.Abs(dots[0,1] - dots[1,1]);
+            w = Math.Abs(dots[0,0] - dots[2,0]);
+        }
+        // 첫번째 x좌표 = 세번째 x좌표
+        else if (dots[0,0] == dots[2,0])
+        {
+            h = Math.Abs(dots[0,1] - dots[2,1]);
+            w = Math.Abs(dots[0,0] - dots[1,0]);
+        }
+        // 둘다 아니면
+        else
+        {
+            h = Math.Abs(dots[0,1] - dots[3,1]);
+            w = Math.Abs(dots[0,0] - dots[1,0]);
+        }
+        // 넓이는 가로 곱하기 세로
+        return w * h;
+        */
+        int[] x = new int[4];
+        int[] y = new int[4];
+        for (int i = 0; i < 4; i++)
+        {
+            x[i] = dots[i, 0];
+            y[i] = dots[i, 1];
+        }
+        return (x.Max() - x.Min()) * (y.Max() - y.Min());
+    }
+
+    /// <summary>
+    /// 대소문자 바꿔서 출력하기
+    /// </summary>
+    public void Solution1202()
+    {
+        String s;
+        Console.Clear();
+        s = Console.ReadLine();
+        // s를 char로 하나씩 순회
+        foreach (var item in s)
+        {
+            /* string
+            //char -> string
+            string str = item.ToString();
+            // 범위를 체크해서
+            if (item >= 'a' && item <= 'z')
+            // 소문자면 대문자로
+            {
+                str = str.ToUpper();
+            }
+            // 대문자면 소문자로
+            else
+            {
+                str = str.ToLower();
+            }
+            // console에 출력
+            Console.Write(str);
+            */
+
+            char chr = char.IsUpper(item) ? 
+                char.ToLower(item) : char.ToUpper(item);
+            Console.Write(chr);
+        }
+    }
+
+    /// <summary>
     /// 로그인 성공?
     /// </summary>
     /// <param name="id_pw"></param>
