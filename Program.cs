@@ -14,16 +14,16 @@ internal class Program
     {
         var intArr = new int[] {6,1,5,2,3,4};
         var intArr2 = new int[] {1,2,3,4,5,6,7,8,9};
-        var int2Arr = new int[,] { {-1,-1},{1,1},{1,-1},{-1,1} };
+        var int2Arr = new int[,] { {80,70},{70,80},{30,50},{90,100},{100,90},{100,100},{10,30} };
         var strArr1 = new string[] { "rabbit04", "98761" };
         var strArr2 = new string[] { "moos", "dzx", "smm", "sunmmo", "som"};
         var str2Arr = new string[,] {{"jaja11","98761"},{"krong0313","29440"},{"rabbit00","111333"}};
         var boolArr = new bool[] { true, false, true, false, false, true };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution12022(int2Arr));
+        //Console.WriteLine(sol.Solution1203(1000000));
         ///// 배열값을 리턴하는 경우(2차원 이상 안됨) /////
-        //Util.PrintArray(sol.Solution11282(int2Arr));
+        Util.PrintArray(sol.Solution12032(int2Arr));
         ///// 실행이 터미널창에서 이뤄지는 경우(Run without Debugging) /////
         //sol.Solution1202();
 

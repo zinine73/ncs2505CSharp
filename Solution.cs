@@ -5,6 +5,60 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 등수 매기기
+    /// </summary>
+    /// <param name="score"></param>
+    /// <returns></returns>
+    public int[] Solution12032(int[,] score)
+    {
+        // 등수를 담을 list 선언
+        var answer = new List<int>();
+        // 합산점수를 담을 list 선언
+        var sum = new List<int>();
+        // 합산점수 list에 값 채우기
+        for (int i = 0; i < score.GetLength(0); i++)
+        {
+            // 굳이 평균값으로 계산해서 넣을 필요 없이 합산값으로
+            sum.Add(score[i,0] + score[i,1]);
+        }
+        // 내림차순으로 정렬해서 새로운 list에 넣는다
+        var newList = sum.OrderByDescending(x => x).ToList();
+        // 순회
+        for (int i = 0; i < newList.Count; i++)
+        {
+            // 정렬된 리스트에서의 인덱스를 찾아 등수 매기기
+            // 먼저 찾아지는 인덱스로 공동 등수를 처리할 수 있다
+            int rank = newList.FindIndex(x => x == sum[i]) + 1;
+            answer.Add(rank);
+        }
+        // 배열형으로 변환 후 반환
+        return answer.ToArray();
+    }
+
+    /// <summary>
+    /// 치킨 쿠폰
+    /// </summary>
+    /// <param name="chicken"></param>
+    /// <returns></returns>
+    public int Solution1203(int chicken)
+    {
+        int answer = 0;
+        // 쿠폰 수 변수 생성
+        int coupon = chicken;
+        // 쿠폰이 10장 이상이면 반복
+        while (coupon >= 10)
+        {
+            // 쿠폰 10장 빼고
+            coupon -= 10;
+            // 서비스 치킨 한마리 추가
+            answer++;
+            // 쿠폰 한장 추가
+            coupon++;
+        }
+        return answer;    
+    }
+
+    /// <summary>
     /// 직사각형 넓이 구하기
     /// </summary>
     /// <param name="dots"></param>
