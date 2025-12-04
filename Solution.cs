@@ -5,6 +5,68 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 문자열 밀기
+    /// </summary>
+    /// <param name="A"></param>
+    /// <param name="B"></param>
+    /// <returns></returns>
+    public int Solution12042(string A, string B)
+    {
+        // A와 B가 같다면 바로 0 리턴
+        if (A.Equals(B)) return 0;
+        // A의 크기 -1만큼 반복
+        for (int i = 1; i < A.Length; i++)
+        {
+            // A를 밀기
+            A = ShiftRight(A);
+            // A와 B를 비교
+            if (A.Equals(B))
+            {
+                // 같다면 현재 인덱스 리턴
+                return i;
+            }
+        }
+        // 여기까지 왔다면 -1 리턴
+        return -1;
+    }
+
+    // string을 오른쪽으로 밀기
+    string ShiftRight(string str)
+    {
+        // string의 크기를 변수로 잡고
+        int len = str.Length;
+        // 마지막 글자를 얻어와서
+        string shift = str.Substring(len - 1, 1);
+        // 맨 앞에 넣고
+        str = shift + str;
+        // 크기만큼 잘라서
+        str = str.Substring(0, len);
+        // 리턴
+        return str;
+    }
+
+    /// <summary>
+    /// 저주의 숫자 3
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int Solution1204(int n)
+    {
+        int answer = 0;
+        // n만큼 반복
+        for (int i = 0; i < n; i++)
+        {
+            // 특정조건(3을 포함하거나 3으로 나누어 떨어질때)만 건너뛰기
+            do // answer가 0에서 시작하니 처음에 한번은 돌게
+            {
+                // answer 증가
+                answer++;
+            } while(answer.ToString().Contains('3') || answer % 3 == 0);
+        }
+        return answer;
+    }
+
+    /// <summary>
     /// 등수 매기기
     /// </summary>
     /// <param name="score"></param>
