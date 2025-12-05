@@ -5,6 +5,67 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 유한소수 판별하기
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    public int Solution12052(int a, int b)
+    {
+        int answer = 1;
+        // 분모에서 소인수 2 없애기
+        while (b % 2 == 0)
+        {
+            b /= 2;
+        }
+        // 분모에서 소인수 5 없애기
+        while (b % 5 == 0)
+        {
+            b /= 5;
+        }
+        // 분자에서 남은 소인수가 있는지 판별
+        if (a % b != 0)
+        {
+            answer = 2;
+        }
+        return answer;    
+    }
+
+    /// <summary>
+    /// 배열 만들기 2
+    /// </summary>
+    /// <param name="l"></param>
+    /// <param name="r"></param>
+    /// <returns></returns>
+    public int[] Solution1205(int l, int r)
+    {
+        int[] answer;
+        // 리스트를 하나 만들고
+        var list = new List<int>();
+        // l에서 r까지 반복
+        for (int i = l; i <= r; i++)
+        {
+            // 5로 나누어 떨어지는지 체크
+            if (i % 5 != 0) continue;
+            // '0','5'로만 이루어졌는지 체크
+            string str = i.ToString();
+            if (str.Replace("0","").Replace("5","").Length == 0)
+            {
+                // 리스트에 넣기
+                list.Add(i);
+            }
+        }
+        // 리스트를 배열로 변환
+        answer = list.ToArray();
+        // 값이 하나도 없으면 -1 넣기
+        if (list.Count == 0)
+        {
+            answer = new int[]{-1};
+        }
+        return answer;    
+    }
+
+    /// <summary>
     /// 문자열 밀기
     /// </summary>
     /// <param name="A"></param>
