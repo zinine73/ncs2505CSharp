@@ -5,6 +5,47 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 특이한 정렬
+    /// </summary>
+    /// <param name="numlist"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[] Solution12082(int[] numlist, int n)
+    {
+        // 두번째 요소부터 마지막까지 순회
+        for (int i = 1; i < numlist.Length; i++)
+        {
+            // 첫번째부터 i까지 순회
+            for (int j = 0; j < i + 1; j++)
+            {
+                // i for문에서 n까지의 절대값
+                int iabs = Math.Abs(numlist[i] - n);
+                // j for문에서 n까지의 절대값
+                int jabs = Math.Abs(numlist[j] - n);
+                // 두 값을 비교
+                if (iabs < jabs)
+                {
+                    // 두 값을 교환
+                    int temp = numlist[j];
+                    numlist[j] = numlist[i];
+                    numlist[i] = temp;
+                }
+                else if (iabs == jabs)
+                {
+                    if (numlist[i] > numlist[j])
+                    {
+                        // 두 값을 교환
+                        int temp = numlist[j];
+                        numlist[j] = numlist[i];
+                        numlist[i] = temp;
+                    }
+                }
+            }
+        }
+        return numlist;
+    }
+
+    /// <summary>
     /// 코드 처리하기
     /// </summary>
     /// <param name="code"></param>

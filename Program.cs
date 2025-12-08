@@ -12,7 +12,7 @@ internal class Program
     /// <param name="args"></param>
     private static void Main(string[] args)
     {
-        var intArr = new int[] {6,1,5,2,3,4};
+        var intArr = new int[] {10000,20,36,47,40,6,10,7000};
         var intArr2 = new int[] {1,2,3,4,5,6,7,8,9};
         var int2Arr = new int[,] { {80,70},{70,80},{30,50},{90,100},{100,90},{100,100},{10,30} };
         var strArr1 = new string[] { "rabbit04", "98761" };
@@ -21,9 +21,9 @@ internal class Program
         var boolArr = new bool[] { true, false, true, false, false, true };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution1208("abc1abc1abc"));
+        //Console.WriteLine(sol.Solution1208("abc1abc1abc"));
         ///// 배열값을 리턴하는 경우(2차원 이상 안됨) /////
-        //Util.PrintArray(sol.Solution1205(10, 20));
+        Util.PrintArray(sol.Solution12082(intArr, 30));
         ///// 실행이 터미널창에서 이뤄지는 경우(Run without Debugging) /////
         //sol.Solution1202();
 
