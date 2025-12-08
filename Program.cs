@@ -21,7 +21,7 @@ internal class Program
         var boolArr = new bool[] { true, false, true, false, false, true };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution12052(12,21));
+        Console.WriteLine(sol.Solution1208("abc1abc1abc"));
         ///// 배열값을 리턴하는 경우(2차원 이상 안됨) /////
         //Util.PrintArray(sol.Solution1205(10, 20));
         ///// 실행이 터미널창에서 이뤄지는 경우(Run without Debugging) /////
