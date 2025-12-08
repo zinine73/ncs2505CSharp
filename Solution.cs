@@ -23,22 +23,12 @@ class Solution
                 // j for문에서 n까지의 절대값
                 int jabs = Math.Abs(numlist[j] - n);
                 // 두 값을 비교
-                if (iabs < jabs)
+                if ((iabs < jabs) || (iabs == jabs && numlist[i] > numlist[j]))
                 {
                     // 두 값을 교환
                     int temp = numlist[j];
                     numlist[j] = numlist[i];
                     numlist[i] = temp;
-                }
-                else if (iabs == jabs)
-                {
-                    if (numlist[i] > numlist[j])
-                    {
-                        // 두 값을 교환
-                        int temp = numlist[j];
-                        numlist[j] = numlist[i];
-                        numlist[i] = temp;
-                    }
                 }
             }
         }
