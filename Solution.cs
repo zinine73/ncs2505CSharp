@@ -5,6 +5,98 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 다항식 더하기
+    /// </summary>
+    /// <param name="polynomial"></param>
+    /// <returns></returns>
+    public string Solution12092(string polynomial)
+    {
+        // 문자열 계산이므로 스트링빌더를 사용하자
+        var sb = new StringBuilder();
+        // 주어진 다항식을 분리한다
+        string[] mono = polynomial.Split(" + ");
+        // 필요한 변수들 선언
+        int valx = 0, val = 0, totalx = 0, total = 0;
+        // 분리된 배열크기만큼 순회
+        foreach (var item in mono)
+        {
+            // 'x'를 포함하고 있으면
+            if (item.Contains('x'))
+            {
+                if (item.Length == 1) // 크기가 1 이면 값도 1
+                {
+                    valx = 1;
+                }
+                else // 아니면 값만 떼어서 계산
+                {
+                    valx = int.Parse(item.Substring(0, item.Length - 1));
+                }
+                // 변수에 더하기
+                totalx += valx;
+            }
+            else
+            {
+                // 값 계산
+                val = int.Parse(item);
+                // 변수에 더하기
+                total += val;
+            }
+        }
+        // 'x'변수가 0이 아니면
+        if (totalx != 0)
+        {
+            sb.Append(totalx == 1 ? "x" : $"{totalx}x");
+        }
+        // 상수변수가 0이 아니면
+        if (total != 0)
+        {
+            if (totalx != 0) sb.Append(" + ");
+            sb.Append(total);
+        }
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// 배열 조각하기
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="query"></param>
+    /// <returns></returns>
+    public int[] Solution1209(int[] arr, int[] query)
+    {
+        // 인덱스 변수 정의
+        //int idx = 0;
+        bool isEven = true;
+        // query를 순회
+        foreach (var item in query)
+        {
+            // 인덱스가 짝수면
+            //if (idx % 2 == 0)
+            if (isEven)
+            {
+                // arr의 크기 조정
+                Array.Resize(ref arr, item + 1);
+            }
+            else
+            {
+                // arr의 임시 배열 정의
+                int[] temp = arr;
+                // arr의 크기 조정
+                Array.Resize(ref arr, arr.Length - item);
+                // arr에 값 넣기
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    arr[i] = temp[i + item];
+                }
+            }
+            // 인덱스 증가
+            //idx++;
+            isEven = !isEven;
+        }
+        return arr;
+    }
+
+    /// <summary>
     /// 특이한 정렬
     /// </summary>
     /// <param name="numlist"></param>
