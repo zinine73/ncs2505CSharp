@@ -5,6 +5,40 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 하샤드 수
+    /// </summary>
+    /// <param name="x"></param>
+    /// <returns></returns>
+    public bool Solution12102(int x)
+    {
+        bool answer = false;
+        // x를 스트링으로 만든다
+        string str = x.ToString();
+        // 전체합을 저장할 변수를 정의
+        int total = 0;
+        // x스트링의 크기만큼 반복
+        foreach (var item in str)
+        {
+            // 전체합에 각 자리수 값을 더한다
+            total += item - '0';
+        }
+        // x가 전체합으로 나누어지는지 판별
+        answer = x % total == 0 ? true : false;
+        return answer;
+    }
+
+    /// <summary>
+    /// 문자열 출력하기
+    /// </summary>
+    public void Solution1210()
+    {
+        string s;
+        Console.Clear();
+        s = Console.ReadLine();
+        Console.WriteLine(s);
+    }
+
+    /// <summary>
     /// 다항식 더하기
     /// </summary>
     /// <param name="polynomial"></param>

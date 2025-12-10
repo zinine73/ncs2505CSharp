@@ -21,11 +21,11 @@ internal class Program
         var boolArr = new bool[] { true, false, true, false, false, true };
         Solution sol = new Solution();
         ///// 배열이 아닌 값을 리턴하는 경우 /////
-        Console.WriteLine(sol.Solution12092("3 + 5"));
+        Console.WriteLine(sol.Solution12102(13));
         ///// 배열값을 리턴하는 경우(2차원 이상 안됨) /////
         //Util.PrintArray(sol.Solution1209(intArr, intArr2));
         ///// 실행이 터미널창에서 이뤄지는 경우(Run without Debugging) /////
-        //sol.Solution1202();
+        //sol.Solution1210();
 
         CSStudy study = new CSStudy();
         //study.FormatTest();
