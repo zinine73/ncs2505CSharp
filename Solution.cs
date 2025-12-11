@@ -5,6 +5,89 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 최빈값 구하기
+    /// </summary>
+    /// <param name="array"></param>
+    /// <returns></returns>
+    public int Solution12112(int[] array)
+    {
+        // 딕셔너리 dic 정의
+        var dic = new Dictionary<int, int>();
+        // array 값을 dic에 넣기
+        foreach (var item in array)
+        {
+            if (dic.ContainsKey(item)) // 이미 key가 있다면
+            {
+                dic[item]++; // 값(value)을 증가
+            }
+            else // 없으면
+            {
+                dic.Add(item, 1); // 값을 1로 해서 추가
+            }
+        }
+        // dic의 크기가 1이면
+        if (dic.Count == 1)
+        {
+            // dic의 첫번째 key값을 반환
+            return dic.Keys.ToArray()[0];
+        }
+        // dic 크기만큼의 배열 정의
+        int[] arr = dic.Values.ToArray();
+        // 배열의 정렬
+        Array.Sort(arr);
+        // 배열의 마지막 값과 마지막 전 값이 같다면
+        if (arr[arr.Length - 1] == arr[arr.Length - 2])
+        {
+            return -1; // -1 반환
+        }
+        // dic을 순회하면서
+        foreach (var item in dic)
+        {
+            // 마지막 값과 dic의 value가 같다면
+            if (arr[arr.Length - 1] == item.Value)
+            {
+                // 그 때 dic의 key 반환
+                return item.Key;
+            }
+        }
+        // 여기 올 일은 없지만 에러 안나게 반환 추가
+        return -1;
+    }
+
+    /// <summary>
+    /// OX퀴즈
+    /// </summary>
+    /// <param name="quiz"></param>
+    /// <returns></returns>
+    public string[] Solution1211(string[] quiz)
+    {
+        // 퀴즈의 길이만큼 answer를 생성
+        string[] answer = new string[quiz.Length];
+        // 퀴즈 길이만큼 순회
+        for (int i = 0; i < quiz.Length; i++)
+        {
+            // 퀴즈 문장을 분리
+            string[] stuff = quiz[i].Split(' ');
+            int first = Convert.ToInt32(stuff[0]);
+            int second = Convert.ToInt32(stuff[2]);
+            int result = Convert.ToInt32(stuff[4]);
+            // 연산자가 뭐냐 판단
+            bool isCorrect;
+            if (stuff[1].Equals("+"))
+            {
+                isCorrect = (first + second == result);
+            }
+            else
+            {
+                isCorrect = (first - second == result);
+            }
+            // 결과에 따른 값을 answer에 대입
+            answer[i] = isCorrect ? "O" : "X";
+        }
+        return answer;    
+    }
+
+    /// <summary>
     /// 하샤드 수
     /// </summary>
     /// <param name="x"></param>
