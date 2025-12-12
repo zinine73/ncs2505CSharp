@@ -5,6 +5,56 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 연속된 수의 합
+    /// </summary>
+    /// <param name="num"></param>
+    /// <param name="total"></param>
+    /// <returns></returns>
+    public int[] Solution12122(int num, int total)
+    {
+        // answer배열을 생성
+        int[] answer = new int[num];
+        // total을 num으로 나눈 인덱스 변수 생성
+        int idx = total / num;
+        // 인덱스의 처음 시작 위치 조정
+        idx = idx - (num - 1) / 2;
+        // for문 num 만큼 반복
+        for (int i = 0; i < num; i++)
+        {
+            // answer배열에 값 넣기
+            answer[i] = idx + i;
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 다음에 올 숫자
+    /// </summary>
+    /// <param name="common"></param>
+    /// <returns></returns>
+    public int Solution1212(int[] common)
+    {
+        int answer = 0;
+        // 인덱스 0,1 두개의 값으로 계산되는 결과
+        int first = common[1] - common[0];
+        // 인덱스 1,2 두개의 값으로 계산되는 결과
+        int second = common[2] - common[1];
+        // 두개의 값이 같은가 (공차가 같으냐)
+        if (first == second)
+        {
+            // 같으면 등차수열... 얻어진 공차로 다음값 계산
+            answer = common[common.Length - 1] + first;
+        }
+        else
+        {
+            // 다르면 등비수열...공비 계산하고, 다음 값 계산
+            int ratio = common[1] / common[0];
+            answer = common[common.Length - 1] * ratio;
+        }
+        return answer;    
+    }
+
+    /// <summary>
     /// 최빈값 구하기
     /// </summary>
     /// <param name="array"></param>
