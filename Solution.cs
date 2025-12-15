@@ -5,6 +5,99 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 안전지대
+    /// </summary>
+    /// <param name="board"></param>
+    /// <returns></returns>
+    public int Solution12152(int[,] board)
+    {
+        int answer = 0;
+        // 배열의 크기(행과 열)를 구한다
+        int len = board.GetLength(0);
+        // 주어진 보드의 테두리가 있는 새로운 보드를 만든다
+        int[,] temp = new int[len + 2, len + 2];
+        // board의 행과 열 크기만큼 순회
+        for (int y = 1; y <= len; y++)
+        {
+            for (int x = 1; x <= len; x++)
+            {
+                // 폭탄이 있냐
+                if (board[x - 1, y - 1] == 1)
+                {
+                    // (8방향 + 원위치) 9군데의 값을 변경
+                    temp[x - 1, y - 1]++;
+                    temp[x - 1, y    ]++;
+                    temp[x - 1, y + 1]++;
+                    temp[x    , y - 1]++;
+                    temp[x    , y    ]++;
+                    temp[x    , y + 1]++;
+                    temp[x + 1, y - 1]++;
+                    temp[x + 1, y    ]++;
+                    temp[x + 1, y + 1]++;
+                }
+            }
+        }
+        // board의 행과 열 크기만큼 순회
+        for (int y = 1; y <= len; y++)
+        {
+            for (int x = 1; x <= len; x++)
+            {
+                // 0인 곳만 answer에 더하기
+                if (temp[x, y] == 0)
+                {
+                    answer++;
+                }
+            }
+        }
+        return answer;    
+    }
+
+    /// <summary>
+    /// 두 정수 사이의 합
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    public long Solution1215(int a, int b)
+    {
+        long answer = 0;
+        /*
+        // a,b 같은 경우
+        if (a == b)
+        {
+            answer = a;
+        }
+        else
+        {
+            // a가 큰 경우
+            if (a > b)
+            {
+                // for문
+                for (int i = b; i <= a; i++)
+                {
+                    answer += i;
+                }
+            }
+            else
+            {
+                // for문
+                for (int i = a; i <= b; i++)
+                {
+                    answer += i;
+                }
+            }
+        }
+        */
+        int max = Math.Max(a, b);
+        int min = Math.Min(a, b);
+        for (int i = min; i <= max; i++)
+        {
+            answer += i;
+        }
+        return answer;    
+    }
+
+    /// <summary>
     /// 연속된 수의 합
     /// </summary>
     /// <param name="num"></param>
