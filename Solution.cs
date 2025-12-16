@@ -5,6 +5,51 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 분수의 덧셈
+    /// </summary>
+    /// <param name="numer1"></param>
+    /// <param name="denom1"></param>
+    /// <param name="numer2"></param>
+    /// <param name="denom2"></param>
+    /// <returns></returns>
+    public int[] Solution12162(int numer1, int denom1, int numer2, int denom2)
+    {
+        //int[] answer = new int[2];
+        // 분자를 계산
+        int numer = numer1 * denom2 + numer2 * denom1;
+        // 분모를 계산
+        int denom = denom1 * denom2;
+        // 계산된 분자, 분모의 최대공약수 추출
+        int gcd = Util.GCD(numer, denom);
+        // 분자와 분모를 최대공약수로 나누기
+        numer /= gcd;
+        denom /= gcd;
+        // answer에 대입
+        //answer[0] = numer;
+        //answer[1] = denom;
+        //return answer;    
+        return new int[]{numer, denom};
+    }
+
+    /// <summary>
+    /// 서울에서 김서방 찾기
+    /// </summary>
+    /// <param name="seoul"></param>
+    /// <returns></returns>
+    public string Solution1216(string[] seoul)
+    {
+        string answer = "";
+        for (int i = 0; i < seoul.Length; i++)
+        {
+            if (seoul[i].Equals("Kim"))
+            {
+                answer = $"김서방은 {i}에 있다";
+            }
+        }
+        return answer;    
+    }
+
+    /// <summary>
     /// 안전지대
     /// </summary>
     /// <param name="board"></param>
