@@ -5,6 +5,152 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 주사위 게임 3
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <param name="c"></param>
+    /// <param name="d"></param>
+    /// <returns></returns>
+    public int Solution12172(int a, int b, int c, int d)
+    {
+        int answer = 6;
+        // 주사위 눈을 인덱스로 하는 배열 정의
+        int[] dice = new int[7];
+        // 주사위배열에 값을 더한다
+        dice[a]++;
+        dice[b]++;
+        dice[c]++;
+        dice[d]++;
+        // 4개가 모두 같은 숫자인 경우
+        if (dice.Contains(4))
+        {
+            for (int p = 1; p <= 6; p++)
+            {
+                if (dice[p] == 4)
+                {
+                    return 1111 * p;
+                }
+            }
+        }
+        else if (dice.Contains(3)) // 3 - 1
+        {
+            for (int p = 1; p <= 6; p++)
+            {
+                if (dice[p] == 3)
+                {
+                    for (int q = 1; q <= 6; q++)
+                    {
+                        if (dice[q] == 1)
+                        {
+                            return (10 * p + q) * (10 * p + q);
+                        }
+                    }
+                }
+            }
+        }
+        else if (dice.Contains(2)) // 2 
+        {
+            if (dice.Contains(1)) // 2 - 1 - 1
+            {
+                // p를 구할 필요가 없다
+                for (int q = 1; q <= 6; q++)
+                {
+                    if (dice[q] == 1)
+                    {
+                        for (int r = q + 1; r <= 6; r++)
+                        {
+                            if (dice[r] == 1)
+                            {
+                                return q * r;
+                            }
+                        }
+                    }
+                }
+            } 
+            else // 2 - 2
+            {
+                for (int p = 1; p <= 6; p++)
+                {
+                    if (dice[p] == 2)
+                    {
+                        for (int q = p + 1; q <= 6; q++)
+                        {
+                            if (dice[q] == 2)
+                            {
+                                // q는 p보다 크므로
+                                return (p + q) * (q - p);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else // 1 - 1 - 1 - 1
+        {
+            /*
+            for (int i = 1; i <= 6; i++)
+            {
+                if ((dice[i] == 1) && (answer > i))
+                {
+                    answer = i;
+                }
+            }
+            */
+            answer = Math.Min(Math.Min(a, b), Math.Min(c, d));
+        }
+        return answer;
+    }
+
+    /// <summary>
+    /// 콜라츠 추측
+    /// </summary>
+    /// <param name="num"></param>
+    /// <returns></returns>
+    public int Solution1217(int num)
+    {
+        // num을 int로 계산하면 세번째 예제 626331 => 488 이 나오기 때문에
+        // num을 일단 long 형으로 변환 후 계산
+        long numl = num;
+        //int answer = -1;
+        // 카운트 변수 정의
+        int count = 0;
+        // 500번 반복
+        do
+        {
+            /*
+            // num이 1인지 판단
+            if (num == 1)
+            {
+                // answer에 카운트 넣고 리턴
+                answer = count;
+                break;
+            }
+            */
+            if (numl == 1) return count;
+            // 카운트 증가
+            count++;
+            /*
+            // 짝수냐
+            if (num % 2 == 0)
+            {
+                // 2로 나누고
+                num /= 2;
+            }
+            else
+            {
+                // 3곱하고 1 더하고
+                num = num * 3 + 1;
+            }
+            */
+            numl = (numl % 2 == 0) ? numl / 2 : numl * 3 + 1;
+        }
+        while (count < 500);
+        //return answer;
+        return -1;
+    }
+
+    /// <summary>
     /// 분수의 덧셈
     /// </summary>
     /// <param name="numer1"></param>
