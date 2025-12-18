@@ -14,7 +14,7 @@ internal class Program
     {
         var intArr = new int[] {2,4,8};
         var intArr2 = new int[] {4,1,2};
-        var int2Arr = new int[,] { {0,5},{3,9},{1,10} };
+        var int2Arr = new int[,] { {99,100},{99,100},{98,100} };
         var strArr1 = new string[] { "Jane", "Kim" };
         var strArr2 = new string[] { "moos", "dzx", "smm", "sunmmo", "som"};
         var str2Arr = new string[,] {{"jaja11","98761"},{"krong0313","29440"},{"rabbit00","111333"}};
