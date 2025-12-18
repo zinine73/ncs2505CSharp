@@ -5,6 +5,67 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 겹치는 선분의 길이
+    /// </summary>
+    /// <param name="lines"></param>
+    /// <returns></returns>
+    public int Solution12182(int[,] lines)
+    {
+        int answer = 0;
+        // int배열을 전체 크기로 하나 만들고
+        int min = -100;
+        int max = 100;
+        int len = max - min + 1;
+        int[] line = new int[len];
+        // lines를 순회하면서
+        for (int i = 0; i < lines.GetLength(0); i++)
+        {
+            // line에 해당하는 값을 int배열에서 증가
+            for (int j = lines[i, 0]; j < lines[i, 1]; j++)
+            {
+                line[j - min]++;
+            }
+        }
+        // int배열에서 값이 2 이상인 부분의 갯수를 구한다
+        for (int i = 0; i < line.Length; i++)
+        {
+            if (line[i] > 1)
+            {
+                answer++;
+            }
+        }
+        return answer;    
+    }
+
+    /// <summary>
+    /// 핸드폰 번호 가리기
+    /// </summary>
+    /// <param name="phone_number"></param>
+    /// <returns></returns>
+    public string Solution1218(string phone_number)
+    {
+        string answer = "";
+        // 전체 폰 번호의 길이를 구한다
+        int len = phone_number.Length;
+        // 크기만큼 반복
+        for (int i = 0; i < len; i++)
+        {
+            // 가려야 하는 범위면
+            if (len - 4 > i)
+            {
+                // * 로 표시
+                answer += "*";
+            }
+            else
+            {
+                // 아니면 원래 번호 표시
+                answer += phone_number[i];
+            }
+        }
+        return answer;    
+    }
+
+    /// <summary>
     /// 주사위 게임 3
     /// </summary>
     /// <param name="a"></param>
