@@ -1,9 +1,77 @@
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Zinine;
 
 class Solution
 {
+    /// <summary>
+    /// 평행
+    /// </summary>
+    /// <param name="dots"></param>
+    /// <returns></returns>
+    public int Solution12192(int[,] dots)
+    {
+        // ab - cd
+        bool s1 = IsSame(dots[0,0], dots[0,1], dots[1,0], dots[1,1], dots[2,0], dots[2,1], dots[3,0], dots[3,1]);
+        // ac - bd
+        bool s2 = IsSame(dots[0,0], dots[0,1], dots[2,0], dots[2,1], dots[1,0], dots[1,1], dots[3,0], dots[3,1]);
+        // ad - bc
+        bool s3 = IsSame(dots[0,0], dots[0,1], dots[3,0], dots[3,1], dots[1,0], dots[1,1], dots[2,0], dots[2,1]);
+        return (s1 || s2 || s3) ? 1 : 0;
+    }
+
+    bool IsSame(double ax, double ay, double bx, double by,
+    double cx, double cy, double dx, double dy)
+    {
+        double angle1;
+        if (ax > bx)
+        {
+            if (ay > by)
+                angle1 = (ay - by) / (ax - bx);
+            else
+                angle1 = (by - ay) / (ax - bx);
+        }
+        else
+        {
+            if (ay > by)
+                angle1 = (ay - by) / (bx - ax);
+            else
+                angle1 = (by - ay) / (bx - ax);
+        }
+        double angle2;
+        if (cx > dx)
+        {
+            if (cy > dy)
+                angle2 = (cy - dy) / (cx - dx);
+            else
+                angle2 = (dy - cy) / (cx - dx);
+        }
+        else
+        {
+            if (cy > dy)
+                angle2 = (cy - dy) / (dx - cx);
+            else
+                angle2 = (dy - cy) / (dx - cx);
+        }
+        return angle1 == angle2;
+    }
+
+    /// <summary>
+    /// 수박수박수박수박수박수?
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public string Solution1219(int n)
+    {
+        var sb = new StringBuilder();
+        for (int i = 1; i <= n; i++)
+        {
+            sb.Append((i % 2 == 0) ? "박" : "수");
+        }
+        return sb.ToString();
+    }
+
     /// <summary>
     /// 겹치는 선분의 길이
     /// </summary>
