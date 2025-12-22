@@ -1,10 +1,85 @@
-using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Zinine;
 
 class Solution
 {
+    /// <summary>
+    /// 정수를 나선형으로 배치하기
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public int[,] Solution12222(int n)
+    {
+        int[,] answer = new int[n, n];
+        int count = 1;
+        int idx = 0;
+        int idy = 0;
+        do
+        {
+            // left > right
+            for (int i = 0; i < n; i++)
+            {
+                answer[idx, idy + i] = count + i;
+            }
+            // up > down
+            count += (n - 1);
+            idy += (n - 1);
+            for (int i = 0; i < n; i++)
+            {
+                answer[idx + i, idy] = count + i;
+            }
+            // right > left
+            count += (n - 1);
+            idx += (n - 1);
+            for (int i = 0; i < n; i++)
+            {
+                answer[idx, idy - i] = count + i;
+            }
+            // down > up
+            count += (n - 1);
+            idy -= (n - 1);
+            for (int i = 0; i < n - 1; i++)
+            {
+                answer[idx - i, idy] = count + i;
+            }
+            // 정리
+            count += (n - 1);
+            n -= 2;
+            idx -= n;
+            idy++;
+        } while (n > 0);
+        return answer;    
+    }
+
+    /// <summary>
+    /// 시저 암호
+    /// </summary>
+    /// <param name="s"></param>
+    /// <param name="n"></param>
+    /// <returns></returns>
+    public string Solution1222(string s, int n)
+    {
+        var sb = new StringBuilder();
+        foreach (var item in s)
+        {
+            char chr = ' ';
+            if (!item.Equals(chr))
+            {
+                if (char.IsUpper(item))
+                {
+                    chr = (char)((item + n - 'A') % 26 + 'A');
+                }
+                else
+                {
+                    chr = (char)((item + n - 'a') % 26 + 'a');
+                }
+            }
+            sb.Append(chr);
+        }
+        return sb.ToString();
+    }
+
     /// <summary>
     /// 평행
     /// </summary>
