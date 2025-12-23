@@ -5,6 +5,87 @@ using Zinine;
 class Solution
 {
     /// <summary>
+    /// 옹알이(1)
+    /// </summary>
+    /// <param name="babbling"></param>
+    /// <returns></returns>
+    public int Solution12232(string[] babbling)
+    {
+        int answer = 0;
+        foreach (var item in babbling)
+        {
+            bool ag1 = false, ag2 = false, ag3 = false, ag4 = false;
+            bool exit = true;
+            int idx = 0;
+            do
+            {
+                exit = true;
+                if (item[idx].Equals('a'))
+                {
+                    (ag1, exit, idx) = CheckBabbling(ag1, idx, item, "aya");
+                }
+                else if (item[idx].Equals('y'))
+                {
+                    (ag2, exit, idx) = CheckBabbling(ag2, idx, item, "ye");
+                }
+                else if (item[idx].Equals('w'))
+                {
+                    (ag3, exit, idx) = CheckBabbling(ag3, idx, item, "woo");
+                }
+                else if (item[idx].Equals('m'))
+                {
+                    (ag4, exit, idx) = CheckBabbling(ag4, idx, item, "ma");
+                }
+                
+                if ((exit == false) && (idx == item.Length))
+                {
+                    answer++;
+                    exit = true;
+                }
+            }
+            while (exit == false);
+        }
+        return answer;    
+    }
+
+    (bool, bool, int) CheckBabbling(bool again, int idx, string item, string word)
+    {
+        bool exit = true;
+        int len = word.Length;
+        if (!again)
+        {
+            if ((idx + len <= item.Length) && 
+                item.Substring(idx, len).Equals(word))
+            {
+                idx += len;
+                exit = false;
+                again = true;
+            }
+        }
+        return (again, exit, idx);
+    } 
+
+    /// <summary>
+    /// 숫자 문자열과 영단어
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
+    public int Solution1223(string s)
+    {
+        s = s.Replace("zero", "0")
+            .Replace("one", "1")
+            .Replace("two", "2")
+            .Replace("three", "3")
+            .Replace("four", "4")
+            .Replace("five", "5")
+            .Replace("six", "6")
+            .Replace("seven", "7")
+            .Replace("eight", "8")
+            .Replace("nine", "9");
+        return int.Parse(s);
+    }
+
+    /// <summary>
     /// 정수를 나선형으로 배치하기
     /// </summary>
     /// <param name="n"></param>
